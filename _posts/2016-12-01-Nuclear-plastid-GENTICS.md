@@ -1,8 +1,6 @@
 ---
 layout:     single
 title:      "Molecular evolution of nuclear-chloroplast interactions: new paper in Genetics"
-author:     Grey
-tags: 		Papers  	
 ---
 
 # [Positive Selection in Rapidly Evolving Plastid–Nuclear Enzyme Complexes.](http://www.genetics.org/content/204/4/1507)

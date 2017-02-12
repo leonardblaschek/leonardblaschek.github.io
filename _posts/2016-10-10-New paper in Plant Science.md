@@ -1,8 +1,6 @@
 ---
 layout:     single
 title:      "New paper in Plant Science"
-author:     Grey
-tags: 		Papers  	
 ---
 
 # [Genetics of water use physiology in locally adapted Arabidopsis thaliana.](http://www.sciencedirect.com/science/article/pii/S0168945216300462)

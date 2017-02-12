@@ -1,8 +1,6 @@
 ---
 layout:     single
-title:      "Creating drought toleranct canola: A New Phytologist Tansley Review"
-author:     Grey
-tags: 		Papers  	
+title:      "Creating drought toleranct canola: A New Phytologist Tansley Review"	
 ---
 
 # [Molecular and systems approaches towards drought-tolerant canola crops](http://onlinelibrary.wiley.com/doi/10.1111/nph.13866/full)
