@@ -1,7 +1,7 @@
 ---      
 layout: single
 title: "Projects"
-permalink: /Projects/
+permalink: /projects/
 ---
 
 ### The evolution of drought tolerance in *A. thaliana* along remotely sensed drought frequency gradient
