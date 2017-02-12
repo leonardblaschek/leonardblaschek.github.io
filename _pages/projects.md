@@ -9,7 +9,7 @@ defaults:
       author_profile: true
       
 layout: single
-title: Projects
+title: "Projects"
 permalink: /Projects/
 ---
 
