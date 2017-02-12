@@ -1,9 +1,9 @@
 # main links
 main:
   - title: "Projects"
-    url: https://greymonroe.github.io/projects/
+    url: /projects/
    - title: "CV"
-    url: https://greymonroe.github.io/CV/
+    url: /CV/
   # - title: "Sample Posts"
   #   url: /year-archive/
   # - title: "Sample Collections"
