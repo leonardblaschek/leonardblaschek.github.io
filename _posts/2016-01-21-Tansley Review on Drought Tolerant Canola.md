@@ -1,5 +1,6 @@
 ---
-layout:     single
+layout: single
+title: "Drought Tolerance"
 ---
 
 # [Molecular and systems approaches towards drought-tolerant canola crops](http://onlinelibrary.wiley.com/doi/10.1111/nph.13866/full)
