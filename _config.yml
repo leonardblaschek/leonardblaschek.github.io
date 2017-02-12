@@ -7,10 +7,10 @@
 
 # Site Settings
 locale                   : "en"
-title                    : "Site Title"
+title                    : ""
 title_separator          : "-"
-name                     : "Your Name"
-description              : "An amazing website."
+name                     : "J Grey Monroe"
+description              : "USDA-NIFA National Needs Fellow"
 url                      : "https://greymonroe.github.io"
 baseurl                  : "/"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
