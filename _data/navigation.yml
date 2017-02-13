@@ -4,8 +4,7 @@ main:
     url: /projects/
   - title: "CV"
     url: /CV/
-  #   url: /year-archive/
-  # - title: "Sample Collections"
-  #   url: /collection-archive/
+  - title: "Publications"
+    url: /Publications/
   # - title: "Sitemap"
   #   url: /sitemap/
