@@ -4,6 +4,8 @@ title: Publications
 permalink: /Publications/
 ---
 
+[Google Scholar page](https://scholar.google.com/citations?user=WcgLCEIAAAAJ&hl=en)
+
 Rockenbach K, Havrid JC, **Monroe JG**, Triant DA, Taylor DR, Sloan DB. 2016. Phylogenetic and Population Genetic Evidence for Positive Selection in Rapidly Evolving Plastid-Nuclear Enzyme Complexes. *Genetics* 204:1507-1522.
 
 **Monroe JG**, McGovern C, Lasky J, Beck J, Grogan K, McKay JK. 2016. Adaptation to warmer climates by parallel functional evolution of *CBF* genes in *Arabidopsis thaliana*. *Molecular Ecology* 15:3632-3644.
