@@ -3,6 +3,9 @@ layout: splash
 title: "Projects"
 permalink: /projects/
 author_profile: true
+header:
+  overlay_image: /assets/images/VHI_movie_2000.gif
+ 
 feature_row:
   - image_path: assets/images/dali.png
     title: "Evolution of drought tolerance along drought frequency gradient"
