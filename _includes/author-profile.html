@@ -234,6 +234,14 @@
           </a>
         </li>
       {% endif %}
+      
+      {% if author.CV %}
+        <li>
+          <a href="assets/CV/Monroe_CV.pdf" itemprop="sameAs">
+            <i class="fa fa-fw fa-CV" aria-hidden="true"></i> CV
+          </a>
+        </li>
+      {% endif %}
 
       {% include author-profile-custom-links.html %}
     </ul>
