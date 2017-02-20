@@ -2,7 +2,6 @@
 layout: splash
 title: "Research"
 permalink: /Research/
-author_profile: true
 header:
   overlay_image: /assets/images/VHI_movie_2000.gif
  
