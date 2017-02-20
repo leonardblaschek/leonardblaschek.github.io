@@ -24,6 +24,14 @@
       </p>
     {% endif %}
   </div>
+  
+    {% if author.CV %}
+        <li>
+          <a href="assets/CV/Monroe_CV.pdf" itemprop="sameAs">
+            <i class="fa fa-file-pdf-o" aria-hidden="true"></i> CV
+          </a>
+        </li>
+      {% endif %}
 
   <div class="author__urls-wrapper">
     <button class="btn btn--inverse">{{ site.data.ui-text[site.locale].follow_label | remove: ":" | default: "Follow" }}</button>
@@ -235,13 +243,7 @@
         </li>
       {% endif %}
       
-      {% if author.CV %}
-        <li>
-          <a href="assets/CV/Monroe_CV.pdf" itemprop="sameAs">
-            <i class="fa fa-fw fa-CV" aria-hidden="true"></i> CV
-          </a>
-        </li>
-      {% endif %}
+    
 
       {% include author-profile-custom-links.html %}
     </ul>
