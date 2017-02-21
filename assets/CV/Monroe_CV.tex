@@ -24,6 +24,14 @@
 \addtolength{\abovecaptionskip}{-3mm}
 \usepackage{hanging}
 \usepackage{babel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+}
+ 
 
 \makeatother
 
@@ -32,7 +40,7 @@
 \fancyfoot{}
 \lfoot{Monroe CV}
 %\cfoot{CV}
-\rfoot{\thepage\ of \pageref{LastPage}}
+\rfoot{\thepage\ of \pageref*{LastPage}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -46,8 +54,8 @@
 USDA-NIFA National Needs Fellow & Graduate Degree Program in Ecology\tabularnewline
  greymonroe@gmail.com &  Colorado State University \tabularnewline
 Phone: 919.810.8800 & Fort Collins, CO 80523\tabularnewline
-https://greymonroe.github.io &  \tabularnewline
 \end{tabular}
+\href{https://greymonroe.github.io}{https://greymonroe.github.io}
 \end{center}
 \vspace{-1em}
 
@@ -85,6 +93,22 @@ Appalachian State University
 \hfill 
 2014
 \vspace{1ex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{FUNDING}
+\vspace{-0.5ex}
+\hspace*{1.0em} Doctoral Dissertation Improvement Grant, NSF (\$19,760)
+\hfill 
+2017\\
+\hspace*{2.0em} \emph{Title:} The evolution of plant drought tolerance and gene function across historic drought \hspace*{2.0em}frequency gradients 
+\vspace{1ex}\\
+\hspace*{1.0em} Evo-Devo-Eco Network Grant, Harvard University (\$3,000)
+\hfill 
+2016\\
+\hspace*{2.0em} \emph{Title:} Variation  in  developmental  and  physiological  responses  to  a  gradient  of  water  \hspace*{2.0em} availability in \textit{Brachypodium} 
+\vspace{1ex}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsubsection*{AWARDS AND HONORS}
@@ -99,10 +123,6 @@ Appalachian State University
 2016
 \vspace{1ex}\\
 \hspace*{1.0em} Ralph Baker Graduate Student Award for Research Excellence, CSU (\$500)
-\hfill 
-2016
-\vspace{1ex}\\
-\hspace*{1.0em} Evo-Devo-Eco Network Training Grant, Harvard University (\$3,000)
 \hfill 
 2016
 \vspace{1ex}\\
@@ -173,7 +193,7 @@ Appalachian State University
 \subsubsection*{PROFESSIONAL EXPERIENCE}
 \vspace{-0.5ex}\par
 
-\hspace{1.0em} R Programmer,\textit{ Dec. 2016 -- August. 2017}
+\hspace{1.0em} R Developer and Data Analyst, \textit{2016 -- 2017}
 \hfill 
 United States Geological Survey
 \vspace{-0.5ex}\par
@@ -182,7 +202,7 @@ United States Geological Survey
 Fort Collins, CO
 \vspace{0.5em}\par
 
-\hspace{1.0em} CO-OP in Plant Breeding and Genetics,\textit{ Sept. 2016 -- Feb. 2017}
+\hspace{1.0em} CO-OP in Plant Breeding and Genetics, \textit{2016 -- 2017}
 \hfill 
 Cargill
 \vspace{-0.5ex}\par
@@ -191,7 +211,7 @@ Cargill
 Fort Collins, CO
 \vspace{0.5em}\par
 
-\hspace{1.0em} Research Assistant,\textit{ Sept. 2013 -- Apr. 2014}
+\hspace{1.0em} Research Assistant, \textit{2013 -- 2014}
 \hfill 
 Duke University
 \vspace{-0.5ex}\par
@@ -201,5 +221,48 @@ Durham, NC
 \vspace{0.5em}\par
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{TEACHING EXPERIENCE}
+\vspace{-0.5ex}\par
+
+\hspace*{1.0em} Assistant Instructor
+\hfill 
+2016\\
+\hspace*{2.0em} \textit{Software Carpentry Workshop}
+\hfill 
+Colorado State University
+\vspace{0.5em}\\
+\hspace*{1.0em} Guest lecturer
+\hfill 
+2016\\
+\hspace*{2.0em} \textit{Principles of Data Visualization Using R and ggplot2}
+\hfill 
+Colorado State University
+\vspace{0.5em}\par
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{MENTORSHIP}
+\vspace{-0.5ex}\par
+
+\hspace*{1.0em} Julio Flores - awarded college scholarship at competition in Washington D.C.
+\hfill 
+2014-2015\\
+\hspace*{2.0em} \textit{Poudre High School}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection*{SOFTWARE DEVELOPMENT}
+\vspace{-0.5ex}
+
+\begin{hangparas}{.5in}{1}
+
+\hspace{1em}\textbf{J Grey Monroe}. genemodel: Gene Model Plotting in R. R package version 1.1.0.
+  https://CRAN.R-project.org/package=genemodel
+\vspace{0.5ex}\par
+\hspace{1em}\textbf{J Grey Monroe}., Zachary Allen, Paul Tanger, Brook Moyers and Jack Mullen (2016). TSPmap: A Method Making Use of Traveling Salesperson Problem Solvers in the Construction of Genetic Linkage Maps. R package version 0.0.0.9000. \\https://github.com/mckaylab/tspmap
+
+\end{hangparas}
+
 
 \end{document}
