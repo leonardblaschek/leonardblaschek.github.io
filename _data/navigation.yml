@@ -3,4 +3,6 @@ main:
   - title: "Research"
     url: /Research/
   - title: "Publications"
-    url: /Publications/
+    url: /Publications
+   - title: "Data"
+    url: /Data
