@@ -1,0 +1,33 @@
+---
+title: "Using drought frequency raster data"
+output: html_document
+---
+
+Setup R environment
+```{r}
+library(raster)
+```
+
+Read data
+```{r read, eval=T}
+Summer<-stack("~/Downloads/Drought_frequency_raster_data/Summer_drought_freq") # historic frequency of drought weeks of calendar year 20-32 
+Fall<-stack("~/Downloads/Drought_frequency_raster_data/Fall_drought_freq") # historic frequency of drought weeks of calendar year 33-45 
+Winter<-stack("~/Downloads/Drought_frequency_raster_data/Winter_drought_freq") # historic frequency of drought weeks of calendar year 46-52,1:6  
+Spring<-stack("~/Downloads/Drought_frequency_raster_data/Spring_drought_freq") # historic frequency of drought weeks of calendar year 7-19 
+DT<-stack("~/Downloads/Drought_frequency_raster_data/Drought_timing_index") # Index to describe the timing of drought, the log ratio of spring to summer drought frequency
+```
+
+Extract points for Spring drought frequency
+```{r extract, echo=T}
+lat<-c(45.2, 50.6)
+long<-c(10.1, 11.2)
+extract(Spring, cbind(long, lat))
+```
+
+Plot spring drought frequency and points
+```{r plot, echo=T}
+plot(Spring)
+points(long, lat)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
