@@ -1,6 +1,6 @@
 ---
 layout: splash
-author_profile: T
+author_profile: true
 permalink: /
 title: 'International Soil Radiocarbon Database'
 header:
