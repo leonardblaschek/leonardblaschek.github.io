@@ -1,10 +1,10 @@
 ---
-layout: home
-author_profile: true
+layout: splash
 permalink: /
 
 ---
 
+[CV](assets/CV/Monroe_CV.pdf)
 
 
 
