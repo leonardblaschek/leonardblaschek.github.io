@@ -1,50 +1,87 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-
 body, html {
-    height: 100%;
-    margin: 0;
-	text-align: center;
-	font: 400 15px/1.8 "Lato", sans-serif;
-	color: #777;
+  height: 100%;
+  margin: 0;
+  font: 400 15px/1.8 "Lato", sans-serif;
+  color: #777;
+  line-height:60px;
+}
+
+.bgimg-1, .bgimg-2, .bgimg-3 {
+  position: relative;
+  opacity: 0.85;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+.bgimg-1 {
+  background-image: url("/assets/images/paddy.jpg");
+  height: 100%;
+}
+
+.caption {
+  position: absolute;
+  left: 0;
+  top: 30%;
+  width: 100%;
+  text-align: center;
+  color: #000;
+}
+
+.caption span.border {
+  background-color: #111;
+  color: #fff;
+  padding: 18px;
+  font-size: 20px;
+  letter-spacing: 10px;
+}
+
+.corner {
+  line-height:10px;
+  padding:1px 15px
+}
+
+h2 {
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  font: 25px "Lato", sans-serif;
+  color: #111;
 }
 
 a {
-	color: black;
+	color: #fff;;
+	text-decoration: none;
+	text-transform: uppercase;
 }
 
-
-
-.bg {
-    /* The image used */
-    background-image: url("/assets/images/paddy.jpg");
-
-    /* Full height */
-    height: 100%; 
-
-    /* Center and scale the image nicely */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+p {
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  font: 15px "Lato", sans-serif;
+  color: #111;
 }
 
 </style>
-
 </head>
 <body>
-<div class="bg">
-<p>
-<h2><a href="/index.html">J. Grey Monroe</a></h2><br>
-<a href="/assets/CV/Monroe_CV.pdf">Curriculum vitae</a><br>
-<a href="https://scholar.google.de/citations?user=WcgLCEIAAAAJ&hl=en">Publications</a><br>
-<a href="/data.html">Data</a><br>
-<a href="https://twitter.com/Grey_Monroe">Twitter</a><br>
-<a href="https://github.com/greymonroe">Github</a><br>
-<a href="/tett.html">tett</a><br>
-<p>
 
+<div class="bgimg-1">
+  <div class="corner">
+    <a href="/index.html"><h2>J. Grey Monroe</h2></a>
+    <p>Evolution | Ecology | Agriculture | Genetics</p>
+  </div>
+  <div class="caption">
+    <a href="/assets/CV/Monroe_CV.pdf"><span class="border">Curriculum vitae</span></a><br>
+    <a href="https://scholar.google.de/citations?user=WcgLCEIAAAAJ&hl=en"><span class="border">Publications</span></a><br>
+    <a href="https://twitter.com/Grey_Monroe"><span class="border">Twitter</span></a><br>
+    <a href="https://github.com/greymonroe"><span class="border">Github</span></a><br>
+    <a href="/data.html"><span class="border">Data</span></a><br>
+  </div>
 </div>
 
 </body>
