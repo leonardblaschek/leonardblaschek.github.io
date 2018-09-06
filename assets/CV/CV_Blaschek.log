@@ -1,7 +1,7 @@
-This is LuaTeX, Version 1.07.0 (TeX Live 2018/Arch Linux)  (format=lualatex 2018.7.4)  6 SEP 2018 22:09
+This is LuaTeX, Version 1.07.0 (TeX Live 2018/Arch Linux)  (format=lualatex 2018.7.4)  6 SEP 2018 22:11
  restricted system commands enabled.
-**cv_from_scratch.tex
-(./cv_from_scratch.tex
+**CV_Blaschek.tex
+(./CV_Blaschek.tex
 LaTeX2e <2018-04-01> patch level 2
 Lua module: luaotfload-main 2017/01/29 2.80001 OpenType layout system.
 Lua module: lualibs 2017-02-01 2.5 ConTeXt Lua standard libraries.
@@ -34,7 +34,7 @@ Inserting `luaotfload.aux.set_capheight' at position 3 in `luaotfload.patch_font
 '.
 Inserting `luaotfload.rewrite_fontname' at position 4 in `luaotfload.patch_font'
 .
-luaotfload | main : initialization completed in 0.106 seconds
+luaotfload | main : initialization completed in 0.109 seconds
 Babel <3.18> and hyphenation patterns for 1 language(s) loaded.
 (/usr/share/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
@@ -655,8 +655,8 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 )
 Package hyperref Info: Option `colorlinks' set `true' on input line 17.
 
-(./cv_from_scratch.aux)
-\openout1 = cv_from_scratch.aux
+(./CV_Blaschek.aux)
+\openout1 = CV_Blaschek.aux
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
 LaTeX Font Info:    ... okay on input line 20.
@@ -1098,10 +1098,10 @@ LaTeX Info: Redefining \ref on input line 20.
 LaTeX Info: Redefining \pageref on input line 20.
 LaTeX Info: Redefining \nameref on input line 20.
 
-(./cv_from_scratch.out) (./cv_from_scratch.out)
+(./CV_Blaschek.out) (./CV_Blaschek.out)
 \@outlinefile=\write3
 
-\openout3 = cv_from_scratch.out
+\openout3 = CV_Blaschek.out
 Inserting `luaotfload.letterspace' at position 2 in `pre_linebreak_filter'.
 Inserting `luaotfload.letterspace' at position 2 in `hpack_filter'.
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -1124,10 +1124,10 @@ Package atveryend Info: Empty hook `BeforeClearDocument' on input line 82.
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 82.
- (./cv_from_scratch.aux)
+ (./CV_Blaschek.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 82.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 82.
-Package rerunfilecheck Info: File `cv_from_scratch.out' has not changed.
+Package rerunfilecheck Info: File `CV_Blaschek.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 82.
 )
@@ -1141,13 +1141,13 @@ tribute_list, 1 write nodes
    avail lists: 2:236,3:88,4:16,5:320,6:16,7:1707,8:21,9:57,10:7,11:146
  21098 multiletter control sequences out of 65536+600000
  65 fonts using 8751511 bytes
- 39i,5n,67p,392b,340s stack positions out of 5000i,500n,10000p,200000b,100000s
+ 39i,5n,67p,388b,340s stack positions out of 5000i,500n,10000p,200000b,100000s
 </usr/share/fonts/The Top 100 Best Fonts of All Time/91. Filosofia     [1996 - Z
 uzana Licko]/FilosofiaOT-Bold.otf></usr/share/fonts/The Top 100 Best Fonts of Al
 l Time/91. Filosofia     [1996 - Zuzana Licko]/FilosofiaOT-Italic.otf></usr/shar
 e/fonts/The Top 100 Best Fonts of All Time/91. Filosofia     [1996 - Zuzana Lick
 o]/FilosofiaOT-Regular.otf>
-Output written on cv_from_scratch.pdf (1 page, 20428 bytes).
+Output written on CV_Blaschek.pdf (1 page, 20428 bytes).
 
 PDF statistics: 37 PDF objects out of 1000 (max. 8388607)
  24 compressed objects within 1 object stream
