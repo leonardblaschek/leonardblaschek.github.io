@@ -1,4 +1,4 @@
-PWD /home/leonard/Documents/github/leonardblaschek.github.io/assets/CV
+PWD /home/leonard/Documents/Github/leonardblaschek.github.io/assets/CV
 INPUT /var/lib/texmf/web2c/luatex/lualatex.fmt
 INPUT ./CV_Blaschek.tex
 OUTPUT CV_Blaschek.log
@@ -101,6 +101,14 @@ INPUT /usr/share/texmf-dist/tex/latex/graphics-def/luatex.def
 INPUT /usr/share/texmf-dist/tex/latex/graphics-def/luatex.def
 INPUT /usr/share/texmf-dist/tex/latex/graphics/dvipsnam.def
 INPUT /usr/share/texmf-dist/tex/latex/graphics/dvipsnam.def
+INPUT /usr/share/texmf-dist/tex/latex/koma-script/scrextend.sty
+INPUT /usr/share/texmf-dist/tex/latex/koma-script/scrextend.sty
+INPUT /usr/share/texmf-dist/tex/latex/koma-script/scrkbase.sty
+INPUT /usr/share/texmf-dist/tex/latex/koma-script/scrkbase.sty
+INPUT /usr/share/texmf-dist/tex/latex/koma-script/scrbase.sty
+INPUT /usr/share/texmf-dist/tex/latex/koma-script/scrbase.sty
+INPUT /usr/share/texmf-dist/tex/latex/koma-script/scrlfile.sty
+INPUT /usr/share/texmf-dist/tex/latex/koma-script/scrlfile.sty
 INPUT /usr/share/texmf-dist/tex/latex/hyperref/hyperref.sty
 INPUT /usr/share/texmf-dist/tex/latex/hyperref/hyperref.sty
 INPUT /usr/share/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
