@@ -1,29 +1,43 @@
-This is LuaTeX, Version 1.07.0 (TeX Live 2018/Arch Linux)  (format=lualatex 2018.9.10)  14 SEP 2018 13:14
+This is LuaTeX, Version 1.07.0 (TeX Live 2018/Arch Linux)  (format=lualatex 2018.12.3)  7 DEC 2018 09:45
  restricted system commands enabled.
 **CV_Blaschek.tex
 (./CV_Blaschek.tex
 LaTeX2e <2018-04-01> patch level 5
-Lua module: luaotfload-main 2017/01/29 2.80001 OpenType layout system.
-Lua module: lualibs 2017-02-01 2.5 ConTeXt Lua standard libraries.
-Lua module: lualibs-extended 2017-02-01 2.5 ConTeXt Lua libraries -- extended co
-llection.(using write cache: /home/leonard/.texlive/texmf-var/luatex-cache/gener
-ic)(using read cache: /var/lib/texmf/luatex-cache/generic /home/leonard/.texlive
-/texmf-var/luatex-cache/generic)
+Lua module: luaotfload-main 2018-10-28 2.93 luaotfload entry point
+Lua module: luaotfload-init 2018-10-28 2.93 luaotfload submodule / initializatio
+n
+Lua module: lualibs 2018-10-18 2.61 ConTeXt Lua standard libraries.
+Lua module: lualibs-extended 2018-10-18 2.61 ConTeXt Lua libraries -- extended c
+ollection.
+Lua module: luaotfload-log 2018-10-28 2.93 luaotfload submodule / logging
+Lua module: luaotfload-parsers 2018-10-28 2.93 luaotfload submodule / filelist
+Lua module: luaotfload-configuration 2018-10-28 2.93 luaotfload submodule / conf
+ig file reader
 luaotfload | conf : Root cache directory is /home/leonard/.texlive/texmf-var/lua
 tex-cache/generic/names.
-luaotfload | init : Loading fontloader “fontloader-2017-02-11.lua” from kpse
--resolved path “/usr/share/texmf-dist/tex/luatex/luaotfload/fontloader-2017-02
--11.lua”.
+luaotfload | init : Loading fontloader “fontloader-2018-10-28.lua” from kpse
+-resolved path “/usr/share/texmf-dist/tex/luatex/luaotfload/fontloader-2018-10
+-28.lua”.
 Lua-only attribute luaotfload@state = 1
 Lua-only attribute luaotfload@noligature = 2
 Lua-only attribute luaotfload@syllabe = 3
-luaotfload | init : Context OpenType loader version “3.027”
+luaotfload | init : Context OpenType loader version “3.106”
 Inserting `luaotfload.node_processor' at position 1 in `pre_linebreak_filter'.
 Inserting `luaotfload.node_processor' at position 1 in `hpack_filter'.
+Lua module: luaotfload-loaders 2018-10-28 2.93 luaotfload submodule / callback h
+andling
 Inserting `luaotfload.define_font' at position 1 in `define_font'.
+Lua module: luaotfload-database 2018-10-28 2.93 luaotfload submodule / database
+Lua module: luaotfload-colors 2018-10-28 2.93 luaotfload submodule / color
 Lua-only attribute luaotfload_color_attribute = 4
+Lua module: luaotfload-resolvers 2018-10-28 2.93 luaotfload submodule / resolver
+s
 luaotfload | conf : Root cache directory is /home/leonard/.texlive/texmf-var/lua
 tex-cache/generic/names.
+Lua module: luaotfload-features 2018-10-28 2.93 luaotfload submodule / features
+Lua module: luaotfload-letterspace 2018-10-28 2.93 luaotfload submodule / color
+Lua module: luaotfload-auxiliary 2018-10-28 2.93 luaotfload submodule / auxiliar
+y functions
 Inserting `luaotfload.aux.set_sscale_dimens' at position 1 in `luaotfload.patch_
 font'.
 Inserting `luaotfload.aux.patch_cambria_domh' at position 2 in `luaotfload.patch
@@ -34,14 +48,13 @@ Inserting `luaotfload.aux.set_capheight' at position 3 in `luaotfload.patch_font
 '.
 Inserting `luaotfload.rewrite_fontname' at position 4 in `luaotfload.patch_font'
 .
-luaotfload | main : initialization completed in 0.072 seconds (/usr/share/texmf
--dist/tex/latex/base/article.cls
+luaotfload | main : initialization completed in 0.108 seconds
+(/usr/share/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
 (/usr/share/texmf-dist/tex/latex/base/size11.clo
 File: size11.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 luaotfload | db : Font names database loaded from /home/leonard/.texlive/texmf-v
-ar/luatex-cache/generic/names/luaotfload-names.luc(load luc: /home/leonard/.texl
-ive/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-regular.luc))
+ar/luatex-cache/generic/names/luaotfload-names.luc)
 \c@part=\count80
 \c@section=\count81
 \c@subsection=\count82
@@ -62,7 +75,7 @@ Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks14
 )
 (/usr/share/texmf-dist/tex/generic/oberdiek/ifpdf.sty
-Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
+Package: ifpdf 2018/09/07 v3.3 Provides the ifpdf switch
 )
 (/usr/share/texmf-dist/tex/generic/oberdiek/ifvtex.sty
 Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
@@ -87,10 +100,10 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 (/usr/share/texmf-dist/tex/latex/fontspec/fontspec.sty
 (/usr/share/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
 (/usr/share/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2018-08-23 L3 programming layer (loader) 
+Package: expl3 2018-11-19 L3 programming layer (loader) 
 
 (/usr/share/texmf-dist/tex/latex/l3kernel/expl3-code.tex
-Package: expl3 2018-08-23 L3 programming layer (code)
+Package: expl3 2018-11-19 L3 programming layer (code)
 \ucharcat@table=\catcodetable5
 \c_max_int=\count91
 \l_tmpa_int=\count92
@@ -235,10 +248,10 @@ Package: expl3 2018-08-23 L3 programming layer (code)
 \l__seq_internal_b_int=\count171
 )
 (/usr/share/texmf-dist/tex/latex/l3kernel/l3pdfmode.def
-File: l3pdfmode.def 2018-08-23 v L3 Experimental driver: PDF mode
+File: l3pdfmode.def 2018-11-19 v L3 Experimental driver: PDF mode
 \l__driver_color_stack_int=\count172
 ))
-Package: xparse 2018-08-23 L3 Experimental document command parser
+Package: xparse 2018-10-17 L3 Experimental document command parser
 \l__xparse_current_arg_int=\count173
 \g__xparse_grabber_int=\count174
 \l__xparse_m_args_int=\count175
@@ -269,187 +282,6 @@ Package: fontenc 2017/04/05 v2.0i Standard LaTeX package
 File: tuenc.def 2017/04/05 v2.0i Standard LaTeX file
 LaTeX Font Info:    Redeclaring font encoding TU on input line 82.
 ))
-.................................................
-. LaTeX info: "xparse/define-command"
-. 
-. Defining command \fontspec with sig. 'O{}mO{}' on line 564.
-.................................................
-.................................................
-. LaTeX info: "xparse/define-command"
-. 
-. Defining command \setmainfont with sig. 'O{}mO{}' on line 569.
-.................................................
-.................................................
-. LaTeX info: "xparse/define-command"
-. 
-. Defining command \setsansfont with sig. 'O{}mO{}' on line 574.
-.................................................
-.................................................
-. LaTeX info: "xparse/define-command"
-. 
-. Defining command \setmonofont with sig. 'O{}mO{}' on line 579.
-.................................................
-.................................................
-. LaTeX info: "xparse/define-command"
-. 
-. Defining command \setmathrm with sig. 'O{}mO{}' on line 583.
-.................................................
-.................................................
-. LaTeX info: "xparse/define-command"
-. 
-. Defining command \setboldmathrm with sig. 'O{}mO{}' on line 587.
-.................................................
-.................................................
-. LaTeX info: "xparse/define-command"
-. 
-. Defining command \setmathsf with sig. 'O{}mO{}' on line 591.
-.................................................
-.................................................
-. LaTeX info: "xparse/define-command"
-. 
-. Defining command \setmathtt with sig. 'O{}mO{}' on line 595.
-.................................................
-.................................................
-. LaTeX info: "xparse/define-command"
-. 
-. Defining command \setromanfont with sig. 'O{}mO{}' on line 599.
-.................................................
-.................................................
-. LaTeX info: "xparse/define-command"
-. 
-. Defining command \newfontfamily with sig. 'mO{}mO{}' on line 603.
-.................................................
-.................................................
-. LaTeX info: "xparse/define-command"
-. 
-. Defining command \renewfontfamily with sig. 'mO{}mO{}' on line 607.
-.................................................
-.................................................
-. LaTeX info: "xparse/define-command"
-. 
-. Defining command \setfontfamily with sig. 'mO{}mO{}' on line 611.
-.................................................
-.................................................
-. LaTeX info: "xparse/define-command"
-. 
-. Defining command \newfontface with sig. 'mO{}mO{}' on line 615.
-.................................................
-.................................................
-. LaTeX info: "xparse/define-command"
-. 
-. Defining command \defaultfontfeatures with sig. 't+om' on line 622.
-.................................................
-.................................................
-. LaTeX info: "xparse/define-command"
-. 
-. Defining command \addfontfeatures with sig. 'm' on line 626.
-.................................................
-.................................................
-. LaTeX info: "xparse/define-command"
-. 
-. Defining command \addfontfeature with sig. 'm' on line 630.
-.................................................
-.................................................
-. LaTeX info: "xparse/define-command"
-. 
-. Defining command \newfontfeature with sig. 'mm' on line 634.
-.................................................
-.................................................
-. LaTeX info: "xparse/define-command"
-. 
-. Defining command \newAATfeature with sig. 'mmmm' on line 638.
-.................................................
-.................................................
-. LaTeX info: "xparse/define-command"
-. 
-. Defining command \newopentypefeature with sig. 'mmm' on line 642.
-.................................................
-.................................................
-. LaTeX info: "xparse/define-command"
-. 
-. Defining command \newICUfeature with sig. 'mmm' on line 646.
-.................................................
-.................................................
-. LaTeX info: "xparse/define-command"
-. 
-. Defining command \aliasfontfeature with sig. 'mm' on line 650.
-.................................................
-.................................................
-. LaTeX info: "xparse/define-command"
-. 
-. Defining command \aliasfontfeatureoption with sig. 'mmm' on line 654.
-.................................................
-.................................................
-. LaTeX info: "xparse/define-command"
-. 
-. Defining command \newfontscript with sig. 'mm' on line 658.
-.................................................
-.................................................
-. LaTeX info: "xparse/define-command"
-. 
-. Defining command \newfontlanguage with sig. 'mm' on line 662.
-.................................................
-.................................................
-. LaTeX info: "xparse/define-command"
-. 
-. Defining command \DeclareFontExtensions with sig. 'm' on line 666.
-.................................................
-.................................................
-. LaTeX info: "xparse/define-command"
-. 
-. Defining command \IfFontFeatureActiveTF with sig. 'mmm' on line 670.
-.................................................
-.................................................
-. LaTeX info: "xparse/define-command"
-. 
-. Defining command \EncodingCommand with sig. 'mO{}m' on line 3389.
-.................................................
-.................................................
-. LaTeX info: "xparse/define-command"
-. 
-. Defining command \EncodingAccent with sig. 'mm' on line 3395.
-.................................................
-.................................................
-. LaTeX info: "xparse/define-command"
-. 
-. Defining command \EncodingSymbol with sig. 'mm' on line 3401.
-.................................................
-.................................................
-. LaTeX info: "xparse/define-command"
-. 
-. Defining command \EncodingComposite with sig. 'mmm' on line 3407.
-.................................................
-.................................................
-. LaTeX info: "xparse/define-command"
-. 
-. Defining command \EncodingCompositeCommand with sig. 'mmm' on line 3413.
-.................................................
-.................................................
-. LaTeX info: "xparse/define-command"
-. 
-. Defining command \DeclareUnicodeEncoding with sig. 'mm' on line 3438.
-.................................................
-.................................................
-. LaTeX info: "xparse/define-command"
-. 
-. Defining command \UndeclareSymbol with sig. 'm' on line 3444.
-.................................................
-.................................................
-. LaTeX info: "xparse/define-command"
-. 
-. Defining command \UndeclareAccent with sig. 'm' on line 3450.
-.................................................
-.................................................
-. LaTeX info: "xparse/define-command"
-. 
-. Defining command \UndeclareCommand with sig. 'm' on line 3456.
-.................................................
-.................................................
-. LaTeX info: "xparse/define-command"
-. 
-. Defining command \UndeclareComposite with sig. 'mm' on line 3463.
-.................................................
-
 (/usr/share/texmf-dist/tex/latex/fontspec/fontspec.cfg)
 LaTeX Info: Redefining \itshape on input line 3644.
 LaTeX Info: Redefining \slshape on input line 3649.
@@ -457,57 +289,42 @@ LaTeX Info: Redefining \scshape on input line 3654.
 LaTeX Info: Redefining \upshape on input line 3659.
 LaTeX Info: Redefining \em on input line 3689.
 LaTeX Info: Redefining \emph on input line 3714.
-(load luc: /home/leonard/.texlive/texmf-var/luatex-cache/generic/fonts/otl/lmrom
-an10-bold.luc)(load luc: /home/leonard/.texlive/texmf-var/luatex-cache/generic/f
-onts/otl/lmroman10-italic.luc)
 LaTeX Info: Redefining \- on input line 3768.
-.................................................
-. LaTeX info: "xparse/redefine-command"
-. 
-. Redefining command \oldstylenums with sig. 'm' on line 3863.
-.................................................
-.................................................
-. LaTeX info: "xparse/define-command"
-. 
-. Defining command \liningnums with sig. 'm' on line 3867.
-.................................................
 ))
 luaotfload | cache : Lookup cache loaded from /home/leonard/.texlive/texmf-var/l
-uatex-cache/generic/names/luaotfload-lookup-cache.luc.(load luc: /home/leonard/.
-texlive/texmf-var/luatex-cache/generic/fonts/otl/filosofiaot-regular.luc)
-.................................................
-. fontspec info: "no-font-shape"
-. 
-. Could not resolve font "FilosofiaOT/BI" (it probably doesn't exist).
-.................................................
-(load luc: /home/leonard/.texlive/texmf-var/luatex-cache/generic/fonts/otl/filos
-ofiaot-bold.luc)(load luc: /home/leonard/.texlive/texmf-var/luatex-cache/generic
-/fonts/otl/filosofiaot-italic.luc)
+uatex-cache/generic/names/luaotfload-lookup-cache.luc.
+
+Package fontspec Info: Could not resolve font "FilosofiaOT/BI" (it probably
+(fontspec)             doesn't exist).
+
 luaotfload | aux : font no 29 (nil) does not define feature smcp for script latn
  with language dflt
 luaotfload | aux : no font with id 29
 luaotfload | aux : font no 30 (nil) does not define feature smcp for script latn
  with language dflt
 luaotfload | aux : no font with id 30
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'FilosofiaOT(0)' created for font 'Filosofia OT' with options
-. [Ligatures=TeX].
-.  
-.  This font family consists of the following NFSS series/shapes:
-.  
-. - 'normal' (m/n) with NFSS spec.:
-. <->"FilosofiaOT:mode=node;script=latn;language=DFLT;+tlig;"
-. - 'small caps'  (m/sc) with NFSS spec.:
-. <->"FilosofiaOT:mode=node;script=latn;language=DFLT;+tlig;+smcp;"
-. - 'bold' (bx/n) with NFSS spec.:
-. <->"FilosofiaOT/B:mode=node;script=latn;language=DFLT;+tlig;"
-. - 'bold small caps'  (bx/sc) with NFSS spec.: 
-. - 'italic' (m/it) with NFSS spec.:
-. <->"FilosofiaOT/I:mode=node;script=latn;language=DFLT;+tlig;"
-. - 'italic small caps'  (m/itsc) with NFSS spec.: 
-.................................................
+
+Package fontspec Info: Font family 'FilosofiaOT(0)' created for font
+(fontspec)             'Filosofia OT' with options [Ligatures=TeX].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"FilosofiaOT:mode=node;script=latn;language=DFLT;+tlig
+;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.:
+(fontspec)             <->"FilosofiaOT:mode=node;script=latn;language=DFLT;+tlig
+;+smcp;"
+(fontspec)             - 'bold' (bx/n) with NFSS spec.:
+(fontspec)             <->"FilosofiaOT/B:mode=node;script=latn;language=DFLT;+tl
+ig;"
+(fontspec)             - 'bold small caps'  (bx/sc) with NFSS spec.: 
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->"FilosofiaOT/I:mode=node;script=latn;language=DFLT;+tl
+ig;"
+(fontspec)             - 'italic small caps'  (m/itsc) with NFSS spec.: 
+
 LaTeX Info: Redefining \rmfamily on input line 6.
 
 (/usr/share/texmf-dist/tex/latex/microtype/microtype.sty
@@ -571,7 +388,7 @@ asics and keyval usage)
 Package: scrlfile 2018/03/30 v3.25 KOMA-Script package (loading files)
 ))))
 (/usr/share/texmf-dist/tex/latex/enumitem/enumitem.sty
-Package: enumitem 2011/09/28 v3.5.2 Customized lists
+Package: enumitem 2018/11/30 v3.6 Customized lists
 \labelindent=\skip50
 \enit@outerparindent=\dimen147
 \enit@toks=\toks17
@@ -595,7 +412,7 @@ Package: fancyhdr 2017/06/30 v3.9a Extensive control of page headers and footers
 Package: lastpage 2015/03/29 v1.2m Refers to last page's name (HMM; JPG)
 )
 (/usr/share/texmf-dist/tex/latex/hyperref/hyperref.sty
-Package: hyperref 2018/02/06 v6.86b Hypertext links for LaTeX
+Package: hyperref 2018/09/30 v6.88a Hypertext links for LaTeX
 
 (/usr/share/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
 Package: hobsub-hyperref 2016/05/16 v1.14 Bundle oberdiek, subset hyperref (HO)
@@ -616,7 +433,7 @@ Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
 Package: luatex-loader 2016/05/16 v0.6 Lua module loader (HO)
 
 (/usr/share/texmf-dist/scripts/oberdiek/oberdiek.luatex.lua)
-Package: pdftexcmds 2018/01/30 v0.27 Utility functions of pdfTeX for LuaTeX (HO)
+Package: pdftexcmds 2018/09/10 v0.29 Utility functions of pdfTeX for LuaTeX (HO)
 
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
@@ -649,40 +466,40 @@ Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
 \Hy@pagecounter=\count190
 
 (/usr/share/texmf-dist/tex/latex/hyperref/pd1enc.def
-File: pd1enc.def 2018/02/06 v6.86b Hyperref: PDFDocEncoding definition (HO)
+File: pd1enc.def 2018/09/30 v6.88a Hyperref: PDFDocEncoding definition (HO)
 )
 \Hy@SavedSpaceFactor=\count191
 
 (/usr/share/texmf-dist/tex/latex/latexconfig/hyperref.cfg
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
 )
-Package hyperref Info: Hyper figures OFF on input line 4509.
-Package hyperref Info: Link nesting OFF on input line 4514.
-Package hyperref Info: Hyper index ON on input line 4517.
-Package hyperref Info: Plain pages OFF on input line 4524.
-Package hyperref Info: Backreferencing OFF on input line 4529.
+Package hyperref Info: Hyper figures OFF on input line 4535.
+Package hyperref Info: Link nesting OFF on input line 4540.
+Package hyperref Info: Hyper index ON on input line 4543.
+Package hyperref Info: Plain pages OFF on input line 4550.
+Package hyperref Info: Backreferencing OFF on input line 4555.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4762.
+Package hyperref Info: Bookmarks ON on input line 4788.
 \c@Hy@tempcnt=\count192
 
 (/usr/share/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip16
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-LaTeX Info: Redefining \url on input line 5115.
+LaTeX Info: Redefining \url on input line 5141.
 \XeTeXLinkMargin=\dimen149
 \Fld@menulength=\count193
 \Field@Width=\dimen150
 \Fld@charsize=\dimen151
-Package hyperref Info: Hyper figures OFF on input line 6369.
-Package hyperref Info: Link nesting OFF on input line 6374.
-Package hyperref Info: Hyper index ON on input line 6377.
-Package hyperref Info: backreferencing OFF on input line 6384.
-Package hyperref Info: Link coloring OFF on input line 6389.
-Package hyperref Info: Link coloring with OCG OFF on input line 6394.
-Package hyperref Info: PDF/A mode OFF on input line 6399.
-LaTeX Info: Redefining \ref on input line 6439.
-LaTeX Info: Redefining \pageref on input line 6443.
+Package hyperref Info: Hyper figures OFF on input line 6396.
+Package hyperref Info: Link nesting OFF on input line 6401.
+Package hyperref Info: Hyper index ON on input line 6404.
+Package hyperref Info: backreferencing OFF on input line 6411.
+Package hyperref Info: Link coloring OFF on input line 6416.
+Package hyperref Info: Link coloring with OCG OFF on input line 6421.
+Package hyperref Info: PDF/A mode OFF on input line 6426.
+LaTeX Info: Redefining \ref on input line 6466.
+LaTeX Info: Redefining \pageref on input line 6470.
 \Hy@abspage=\count194
 \c@Item=\count195
 \c@Hfootnote=\count196
@@ -690,7 +507,7 @@ LaTeX Info: Redefining \pageref on input line 6443.
 Package hyperref Info: Driver (autodetected): hluatex.
 
 (/usr/share/texmf-dist/tex/latex/hyperref/hluatex.def
-File: hluatex.def 2018/02/06 v6.86b Hyperref driver for luaTeX
+File: hluatex.def 2018/09/30 v6.88a Hyperref driver for luaTeX
 \Fld@listcount=\count197
 \c@bookmark@seq@number=\count198
 
@@ -757,11 +574,10 @@ LaTeX Font Info:    ... okay on input line 28.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-.................................................
-. fontspec info: "setup-math"
-. 
-. Adjusting the maths setup (use [no-math] to avoid this).
-.................................................
+
+Package fontspec Info: Adjusting the maths setup (use [no-math] to avoid
+(fontspec)             this).
+
 \symlegacymaths=\mathgroup4
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
 (Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 28.
@@ -1186,20 +1002,20 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 121.
 )
 
 Here is how much of LuaTeX's memory you used:
- 19276 strings out of 494412
+ 19429 strings out of 494407
  100000,662416 words of node,token memory allocated
- 910 words of node memory still in use:
-   3 hlist, 1 vlist, 1 rule, 2 glue, 64 glyph, 18 attribute, 52 glue_spec, 18 at
-tribute_list, 2 write nodes
-   avail lists: 2:330,3:81,4:44,5:333,6:24,7:2580,8:11,9:93,10:6,11:224
- 23068 multiletter control sequences out of 65536+600000
- 67 fonts using 8843207 bytes
+ 936 words of node memory still in use:
+   3 hlist, 1 vlist, 1 rule, 2 glue, 3 kern, 65 glyph, 19 attribute, 52 glue_spe
+c, 19 attribute_list, 2 write nodes
+   avail lists: 2:330,3:81,4:44,5:338,6:24,7:2608,8:11,9:93,10:6,11:225
+ 23226 multiletter control sequences out of 65536+600000
+ 67 fonts using 8846471 bytes
  47i,11n,68p,521b,443s stack positions out of 5000i,500n,10000p,200000b,100000s
 </usr/share/fonts/prop_fonts/prop_fonts/91. Filosofia     [1996 - Zuzana Licko]/
 FilosofiaOT-Bold.otf></usr/share/fonts/prop_fonts/prop_fonts/91. Filosofia     [
 1996 - Zuzana Licko]/FilosofiaOT-Italic.otf></usr/share/fonts/prop_fonts/prop_fo
 nts/91. Filosofia     [1996 - Zuzana Licko]/FilosofiaOT-Regular.otf>
-Output written on CV_Blaschek.pdf (2 pages, 23712 bytes).
+Output written on CV_Blaschek.pdf (2 pages, 23655 bytes).
 
 PDF statistics: 44 PDF objects out of 1000 (max. 8388607)
  30 compressed objects within 1 object stream
