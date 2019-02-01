@@ -60,10 +60,9 @@ INPUT /usr/share/texmf-dist/tex/latex/fontspec/fontspec.cfg
 INPUT /usr/share/texmf-dist/tex/latex/fontspec/fontspec.cfg
 INPUT /home/leonard/.texlive/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-bold.luc
 INPUT /home/leonard/.texlive/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-italic.luc
-INPUT /home/leonard/.texlive/texmf-var/luatex-cache/generic/fonts/otl/minionpro-regular.luc
-INPUT /home/leonard/.texlive/texmf-var/luatex-cache/generic/fonts/otl/minionpro-boldit.luc
-INPUT /home/leonard/.texlive/texmf-var/luatex-cache/generic/fonts/otl/minionpro-boldcn.luc
-INPUT /home/leonard/.texlive/texmf-var/luatex-cache/generic/fonts/otl/minionpro-it.luc
+INPUT /home/leonard/.texlive/texmf-var/luatex-cache/generic/fonts/otl/filosofiaot-regular.luc
+INPUT /home/leonard/.texlive/texmf-var/luatex-cache/generic/fonts/otl/filosofiaot-bold.luc
+INPUT /home/leonard/.texlive/texmf-var/luatex-cache/generic/fonts/otl/filosofiaot-italic.luc
 INPUT /usr/share/texmf-dist/tex/latex/microtype/microtype.sty
 INPUT /usr/share/texmf-dist/tex/latex/microtype/microtype.sty
 INPUT /usr/share/texmf-dist/tex/latex/microtype/microtype-luatex.def
@@ -130,9 +129,6 @@ INPUT ./CV_Blaschek.out
 INPUT ./CV_Blaschek.out
 OUTPUT CV_Blaschek.out
 OUTPUT CV_Blaschek.pdf
-INPUT /home/leonard/.texlive/texmf-var/luatex-cache/generic/fonts/otl/minionpro-disp.luc
-INPUT /home/leonard/.texlive/texmf-var/luatex-cache/generic/fonts/otl/minionpro-subh.luc
-INPUT /home/leonard/.texlive/texmf-var/luatex-cache/generic/fonts/otl/minionpro-capt.luc
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmmi7.tfm
@@ -154,5 +150,4 @@ INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmr8.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmr6.tfm
-INPUT /home/leonard/.texlive/texmf-var/luatex-cache/generic/fonts/otl/minionpro-itcapt.luc
 INPUT ./CV_Blaschek.aux

@@ -1,4 +1,4 @@
-This is LuaTeX, Version 1.07.0 (TeX Live 2018/Arch Linux)  (format=lualatex 2019.1.28)  1 FEB 2019 20:14
+This is LuaTeX, Version 1.07.0 (TeX Live 2018/Arch Linux)  (format=lualatex 2019.1.28)  1 FEB 2019 20:21
  restricted system commands enabled.
 **CV_Blaschek.tex
 (./CV_Blaschek.tex
@@ -294,36 +294,36 @@ LaTeX Info: Redefining \- on input line 3768.
 luaotfload | cache : Lookup cache loaded from /home/leonard/.texlive/texmf-var/l
 uatex-cache/generic/names/luaotfload-lookup-cache.luc.
 
-Package fontspec Info: Font family 'MinionPro(0)' created for font 'Minion
-(fontspec)             Pro' with options [Ligatures=TeX].
+Package fontspec Info: Could not resolve font "FilosofiaOT/BI" (it probably
+(fontspec)             doesn't exist).
+
+luaotfload | aux : font no 29 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : no font with id 29
+luaotfload | aux : font no 30 (nil) does not define feature smcp for script latn
+ with language dflt
+luaotfload | aux : no font with id 30
+
+Package fontspec Info: Font family 'FilosofiaOT(0)' created for font
+(fontspec)             'Filosofia OT' with options [Ligatures=TeX].
 (fontspec)              
 (fontspec)              This font family consists of the following NFSS
 (fontspec)             series/shapes:
 (fontspec)              
 (fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <->"MinionPro:mode=node;script=latn;language=DFLT;+tlig;"
-
+(fontspec)             <->"FilosofiaOT:mode=node;script=latn;language=DFLT;+tlig
+;"
 (fontspec)             - 'small caps'  (m/sc) with NFSS spec.:
-(fontspec)             <->"MinionPro:mode=node;script=latn;language=DFLT;+tlig;+
-smcp;"
+(fontspec)             <->"FilosofiaOT:mode=node;script=latn;language=DFLT;+tlig
+;+smcp;"
 (fontspec)             - 'bold' (bx/n) with NFSS spec.:
-(fontspec)             <->"MinionPro/B:mode=node;script=latn;language=DFLT;+tlig
-;"
-(fontspec)             - 'bold small caps'  (bx/sc) with NFSS spec.:
-(fontspec)             <->"MinionPro/B:mode=node;script=latn;language=DFLT;+tlig
-;+smcp;"
+(fontspec)             <->"FilosofiaOT/B:mode=node;script=latn;language=DFLT;+tl
+ig;"
+(fontspec)             - 'bold small caps'  (bx/sc) with NFSS spec.: 
 (fontspec)             - 'italic' (m/it) with NFSS spec.:
-(fontspec)             <->"MinionPro/I:mode=node;script=latn;language=DFLT;+tlig
-;"
-(fontspec)             - 'italic small caps'  (m/itsc) with NFSS spec.:
-(fontspec)             <->"MinionPro/I:mode=node;script=latn;language=DFLT;+tlig
-;+smcp;"
-(fontspec)             - 'bold italic' (bx/it) with NFSS spec.:
-(fontspec)             <->"MinionPro/BI:mode=node;script=latn;language=DFLT;+tli
-g;"
-(fontspec)             - 'bold italic small caps'  (bx/itsc) with NFSS spec.:
-(fontspec)             <->"MinionPro/BI:mode=node;script=latn;language=DFLT;+tli
-g;+smcp;"
+(fontspec)             <->"FilosofiaOT/I:mode=node;script=latn;language=DFLT;+tl
+ig;"
+(fontspec)             - 'italic small caps'  (m/itsc) with NFSS spec.: 
 
 LaTeX Info: Redefining \rmfamily on input line 9.
 
@@ -608,28 +608,31 @@ LaTeX Font Info:    Redeclaring symbol font `operators' on input line 31.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
 (Font)              `operators' in the math version `normal' on input line 31.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> TU/MinionPro(0)/m/n on input line 31.
+(Font)                  OT1/cmr/m/n --> TU/FilosofiaOT(0)/m/n on input line 31.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
 (Font)              `operators' in the math version `bold' on input line 31.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> TU/MinionPro(0)/m/n on input line 31.
+(Font)                  OT1/cmr/bx/n --> TU/FilosofiaOT(0)/m/n on input line 31.
+
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  TU/MinionPro(0)/m/n --> TU/MinionPro(0)/m/n on input lin
-e 31.
+(Font)                  TU/FilosofiaOT(0)/m/n --> TU/FilosofiaOT(0)/m/n on input
+ line 31.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> TU/MinionPro(0)/m/it on input line 31.
+(Font)                  OT1/cmr/m/it --> TU/FilosofiaOT(0)/m/it on input line 31
+.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> TU/MinionPro(0)/bx/n on input line 31.
+(Font)                  OT1/cmr/bx/n --> TU/FilosofiaOT(0)/bx/n on input line 31
+.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
 (Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 31.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
 (Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 31.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  TU/MinionPro(0)/m/n --> TU/MinionPro(0)/bx/n on input li
-ne 31.
+(Font)                  TU/FilosofiaOT(0)/m/n --> TU/FilosofiaOT(0)/bx/n on inpu
+t line 31.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> TU/MinionPro(0)/bx/it on input line 31
-.
+(Font)                  OT1/cmr/bx/it --> TU/FilosofiaOT(0)/bx/it on input line 
+31.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
 (Font)                  OT1/cmss/bx/n --> TU/lmss/bx/n on input line 31.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
@@ -646,9 +649,291 @@ Package microtype Info: Using tracking set `smallcaps'.
 Package microtype Info: No adjustment of spacing.
 Package microtype Info: No adjustment of kerning.
 Package microtype Info: Loading generic protrusion settings for font family
-(microtype)             `MinionPro' (encoding: TU).
+(microtype)             `FilosofiaOT' (encoding: TU).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
+
+Package microtype Warning: Unknown slot number of character
+(microtype)                `\k A'
+(microtype)                in font encoding `TU' in inheritance list
+(microtype)                `microtype.cfg/375(protrusion)'.
+
+
+Package microtype Warning: Unknown slot number of character
+(microtype)                `\u A'
+(microtype)                in font encoding `TU' in inheritance list
+(microtype)                `microtype.cfg/375(protrusion)'.
+
+
+Package microtype Warning: Unknown slot number of character
+(microtype)                `\k a'
+(microtype)                in font encoding `TU' in inheritance list
+(microtype)                `microtype.cfg/375(protrusion)'.
+
+
+Package microtype Warning: Unknown slot number of character
+(microtype)                `\u a'
+(microtype)                in font encoding `TU' in inheritance list
+(microtype)                `microtype.cfg/375(protrusion)'.
+
+
+Package microtype Warning: Unknown slot number of character
+(microtype)                `\'C'
+(microtype)                in font encoding `TU' in inheritance list
+(microtype)                `microtype.cfg/375(protrusion)'.
+
+
+Package microtype Warning: Unknown slot number of character
+(microtype)                `\v C'
+(microtype)                in font encoding `TU' in inheritance list
+(microtype)                `microtype.cfg/375(protrusion)'.
+
+
+Package microtype Warning: Unknown slot number of character
+(microtype)                `\'c'
+(microtype)                in font encoding `TU' in inheritance list
+(microtype)                `microtype.cfg/375(protrusion)'.
+
+
+Package microtype Warning: Unknown slot number of character
+(microtype)                `\v c'
+(microtype)                in font encoding `TU' in inheritance list
+(microtype)                `microtype.cfg/375(protrusion)'.
+
+
+Package microtype Warning: Unknown slot number of character
+(microtype)                `\v D'
+(microtype)                in font encoding `TU' in inheritance list
+(microtype)                `microtype.cfg/375(protrusion)'.
+
+
+Package microtype Warning: Unknown slot number of character
+(microtype)                `\v d'
+(microtype)                in font encoding `TU' in inheritance list
+(microtype)                `microtype.cfg/375(protrusion)'.
+
+
+Package microtype Warning: Unknown slot number of character
+(microtype)                `\k E'
+(microtype)                in font encoding `TU' in inheritance list
+(microtype)                `microtype.cfg/375(protrusion)'.
+
+
+Package microtype Warning: Unknown slot number of character
+(microtype)                `\v E'
+(microtype)                in font encoding `TU' in inheritance list
+(microtype)                `microtype.cfg/375(protrusion)'.
+
+
+Package microtype Warning: Unknown slot number of character
+(microtype)                `\k e'
+(microtype)                in font encoding `TU' in inheritance list
+(microtype)                `microtype.cfg/375(protrusion)'.
+
+
+Package microtype Warning: Unknown slot number of character
+(microtype)                `\v e'
+(microtype)                in font encoding `TU' in inheritance list
+(microtype)                `microtype.cfg/375(protrusion)'.
+
+
+Package microtype Warning: Unknown slot number of character
+(microtype)                `\u G'
+(microtype)                in font encoding `TU' in inheritance list
+(microtype)                `microtype.cfg/375(protrusion)'.
+
+
+Package microtype Warning: Unknown slot number of character
+(microtype)                `\u g'
+(microtype)                in font encoding `TU' in inheritance list
+(microtype)                `microtype.cfg/375(protrusion)'.
+
+
+Package microtype Warning: Unknown slot number of character
+(microtype)                `\.I'
+(microtype)                in font encoding `TU' in inheritance list
+(microtype)                `microtype.cfg/375(protrusion)'.
+
+
+Package microtype Warning: Unknown slot number of character
+(microtype)                `\'L'
+(microtype)                in font encoding `TU' in inheritance list
+(microtype)                `microtype.cfg/375(protrusion)'.
+
+
+Package microtype Warning: Unknown slot number of character
+(microtype)                `\v L'
+(microtype)                in font encoding `TU' in inheritance list
+(microtype)                `microtype.cfg/375(protrusion)'.
+
+
+Package microtype Warning: Unknown slot number of character
+(microtype)                `\'l'
+(microtype)                in font encoding `TU' in inheritance list
+(microtype)                `microtype.cfg/375(protrusion)'.
+
+
+Package microtype Warning: Unknown slot number of character
+(microtype)                `\v l'
+(microtype)                in font encoding `TU' in inheritance list
+(microtype)                `microtype.cfg/375(protrusion)'.
+
+
+Package microtype Warning: Unknown slot number of character
+(microtype)                `\'N'
+(microtype)                in font encoding `TU' in inheritance list
+(microtype)                `microtype.cfg/375(protrusion)'.
+
+
+Package microtype Warning: Unknown slot number of character
+(microtype)                `\v N'
+(microtype)                in font encoding `TU' in inheritance list
+(microtype)                `microtype.cfg/375(protrusion)'.
+
+
+Package microtype Warning: Unknown slot number of character
+(microtype)                `\'n'
+(microtype)                in font encoding `TU' in inheritance list
+(microtype)                `microtype.cfg/375(protrusion)'.
+
+
+Package microtype Warning: Unknown slot number of character
+(microtype)                `\v n'
+(microtype)                in font encoding `TU' in inheritance list
+(microtype)                `microtype.cfg/375(protrusion)'.
+
+
+Package microtype Warning: Unknown slot number of character
+(microtype)                `\H O'
+(microtype)                in font encoding `TU' in inheritance list
+(microtype)                `microtype.cfg/375(protrusion)'.
+
+
+Package microtype Warning: Unknown slot number of character
+(microtype)                `\H o'
+(microtype)                in font encoding `TU' in inheritance list
+(microtype)                `microtype.cfg/375(protrusion)'.
+
+
+Package microtype Warning: Unknown slot number of character
+(microtype)                `\'R'
+(microtype)                in font encoding `TU' in inheritance list
+(microtype)                `microtype.cfg/375(protrusion)'.
+
+
+Package microtype Warning: Unknown slot number of character
+(microtype)                `\v R'
+(microtype)                in font encoding `TU' in inheritance list
+(microtype)                `microtype.cfg/375(protrusion)'.
+
+
+Package microtype Warning: Unknown slot number of character
+(microtype)                `\'r'
+(microtype)                in font encoding `TU' in inheritance list
+(microtype)                `microtype.cfg/375(protrusion)'.
+
+
+Package microtype Warning: Unknown slot number of character
+(microtype)                `\v r'
+(microtype)                in font encoding `TU' in inheritance list
+(microtype)                `microtype.cfg/375(protrusion)'.
+
+
+Package microtype Warning: Unknown slot number of character
+(microtype)                `\'S'
+(microtype)                in font encoding `TU' in inheritance list
+(microtype)                `microtype.cfg/375(protrusion)'.
+
+
+Package microtype Warning: Unknown slot number of character
+(microtype)                `\c S'
+(microtype)                in font encoding `TU' in inheritance list
+(microtype)                `microtype.cfg/375(protrusion)'.
+
+
+Package microtype Warning: Unknown slot number of character
+(microtype)                `\'s'
+(microtype)                in font encoding `TU' in inheritance list
+(microtype)                `microtype.cfg/375(protrusion)'.
+
+
+Package microtype Warning: Unknown slot number of character
+(microtype)                `\c s'
+(microtype)                in font encoding `TU' in inheritance list
+(microtype)                `microtype.cfg/375(protrusion)'.
+
+
+Package microtype Warning: Unknown slot number of character
+(microtype)                `\c T'
+(microtype)                in font encoding `TU' in inheritance list
+(microtype)                `microtype.cfg/375(protrusion)'.
+
+
+Package microtype Warning: Unknown slot number of character
+(microtype)                `\v T'
+(microtype)                in font encoding `TU' in inheritance list
+(microtype)                `microtype.cfg/375(protrusion)'.
+
+
+Package microtype Warning: Unknown slot number of character
+(microtype)                `\c t'
+(microtype)                in font encoding `TU' in inheritance list
+(microtype)                `microtype.cfg/375(protrusion)'.
+
+
+Package microtype Warning: Unknown slot number of character
+(microtype)                `\v t'
+(microtype)                in font encoding `TU' in inheritance list
+(microtype)                `microtype.cfg/375(protrusion)'.
+
+
+Package microtype Warning: Unknown slot number of character
+(microtype)                `\H U'
+(microtype)                in font encoding `TU' in inheritance list
+(microtype)                `microtype.cfg/375(protrusion)'.
+
+
+Package microtype Warning: Unknown slot number of character
+(microtype)                `\r U'
+(microtype)                in font encoding `TU' in inheritance list
+(microtype)                `microtype.cfg/375(protrusion)'.
+
+
+Package microtype Warning: Unknown slot number of character
+(microtype)                `\H u'
+(microtype)                in font encoding `TU' in inheritance list
+(microtype)                `microtype.cfg/375(protrusion)'.
+
+
+Package microtype Warning: Unknown slot number of character
+(microtype)                `\r u'
+(microtype)                in font encoding `TU' in inheritance list
+(microtype)                `microtype.cfg/375(protrusion)'.
+
+
+Package microtype Warning: Unknown slot number of character
+(microtype)                `\'Z'
+(microtype)                in font encoding `TU' in inheritance list
+(microtype)                `microtype.cfg/375(protrusion)'.
+
+
+Package microtype Warning: Unknown slot number of character
+(microtype)                `\.Z'
+(microtype)                in font encoding `TU' in inheritance list
+(microtype)                `microtype.cfg/375(protrusion)'.
+
+
+Package microtype Warning: Unknown slot number of character
+(microtype)                `\'z'
+(microtype)                in font encoding `TU' in inheritance list
+(microtype)                `microtype.cfg/375(protrusion)'.
+
+
+Package microtype Warning: Unknown slot number of character
+(microtype)                `\.z'
+(microtype)                in font encoding `TU' in inheritance list
+(microtype)                `microtype.cfg/375(protrusion)'.
+
 (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count199
@@ -716,27 +1001,23 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 129.
 )
 
 Here is how much of LuaTeX's memory you used:
- 19459 strings out of 494407
+ 19432 strings out of 494407
  100000,662416 words of node,token memory allocated
- 988 words of node memory still in use:
-   3 hlist, 1 vlist, 1 rule, 2 glue, 3 kern, 73 glyph, 18 attribute, 52 glue_spe
-c, 18 attribute_list, 2 write nodes
-   avail lists: 2:418,3:102,4:49,5:1410,6:31,7:3005,8:11,9:112,10:4,11:256
- 23243 multiletter control sequences out of 65536+600000
- 69 fonts using 13316223 bytes
+ 929 words of node memory still in use:
+   3 hlist, 1 vlist, 1 rule, 2 glue, 3 kern, 64 glyph, 19 attribute, 52 glue_spe
+c, 19 attribute_list, 2 write nodes
+   avail lists: 2:424,3:101,4:51,5:393,6:31,7:3006,8:11,9:111,10:5,11:256
+ 23228 multiletter control sequences out of 65536+600000
+ 68 fonts using 8947111 bytes
  47i,11n,68p,521b,443s stack positions out of 5000i,500n,10000p,200000b,100000s
-</usr/share/fonts/prop_fonts/prop_fonts/30. Minion     [1990 - Robert Slimbach]/
-MinionPro-ItCapt.otf></usr/share/fonts/prop_fonts/prop_fonts/30. Minion     [199
-0 - Robert Slimbach]/MinionPro-BoldCn.otf></usr/share/fonts/prop_fonts/prop_font
-s/30. Minion     [1990 - Robert Slimbach]/MinionPro-It.otf></usr/share/fonts/pro
-p_fonts/prop_fonts/30. Minion     [1990 - Robert Slimbach]/MinionPro-Subh.otf></
-usr/share/fonts/prop_fonts/prop_fonts/30. Minion     [1990 - Robert Slimbach]/Mi
-nionPro-Regular.otf></usr/share/fonts/prop_fonts/prop_fonts/30. Minion     [1990
- - Robert Slimbach]/MinionPro-Disp.otf>
-Output written on CV_Blaschek.pdf (2 pages, 36734 bytes).
+</usr/share/fonts/prop_fonts/prop_fonts/91. Filosofia     [1996 - Zuzana Licko]/
+FilosofiaOT-Bold.otf></usr/share/fonts/prop_fonts/prop_fonts/91. Filosofia     [
+1996 - Zuzana Licko]/FilosofiaOT-Italic.otf></usr/share/fonts/prop_fonts/prop_fo
+nts/91. Filosofia     [1996 - Zuzana Licko]/FilosofiaOT-Regular.otf>
+Output written on CV_Blaschek.pdf (2 pages, 23961 bytes).
 
-PDF statistics: 65 PDF objects out of 1000 (max. 8388607)
- 42 compressed objects within 1 object stream
+PDF statistics: 44 PDF objects out of 1000 (max. 8388607)
+ 30 compressed objects within 1 object stream
  3 named destinations out of 1000 (max. 131072)
  1 words of extra memory for PDF output out of 10000 (max. 100000000)
 
