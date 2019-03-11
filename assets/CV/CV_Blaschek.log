@@ -1,4 +1,4 @@
-This is LuaTeX, Version 1.07.0 (TeX Live 2018/Arch Linux)  (format=lualatex 2019.2.21)  27 FEB 2019 17:23
+This is LuaTeX, Version 1.07.0 (TeX Live 2018/Arch Linux)  (format=lualatex 2019.2.19)  11 MAR 2019 14:15
  restricted system commands enabled.
 **CV_Blaschek.tex
 (./CV_Blaschek.tex
@@ -48,7 +48,7 @@ Inserting `luaotfload.aux.set_capheight' at position 3 in `luaotfload.patch_font
 '.
 Inserting `luaotfload.rewrite_fontname' at position 4 in `luaotfload.patch_font'
 .
-luaotfload | main : initialization completed in 0.052 seconds
+luaotfload | main : initialization completed in 0.061 seconds
 (/usr/share/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2018/09/03 v1.4i Standard LaTeX document class
 (/usr/share/texmf-dist/tex/latex/base/size11.clo
@@ -990,34 +990,35 @@ RS)
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 118.
+(Font)              <10.95> on input line 121.
  [2] 
 AED: lastpage setting LastPage
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 129.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 129.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 132.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 132.
 (./CV_Blaschek.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 129.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 129.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 132.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 132.
 Package rerunfilecheck Info: File `CV_Blaschek.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 129.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 132.
 )
 
 Here is how much of LuaTeX's memory you used:
  19898 strings out of 494383
  100000,662416 words of node,token memory allocated
- 1322 words of node memory still in use:
-   3 hlist, 1 vlist, 1 rule, 2 glue, 60 kern, 72 glyph, 32 attribute, 52 glue_sp
-ec, 32 attribute_list, 2 write nodes
-   avail lists: 2:402,3:100,4:47,5:398,6:31,7:2999,8:11,9:111,10:7,11:256
+ 1297 words of node memory still in use:
+   3 hlist, 1 vlist, 1 rule, 2 glue, 58 kern, 71 glyph, 30 attribute, 52 glue_sp
+ec, 30 attribute_list, 2 write nodes
+   avail lists: 2:405,3:102,4:50,5:377,6:31,7:3070,8:11,9:114,10:7,11:261
  23715 multiletter control sequences out of 65536+600000
  66 fonts using 8473391 bytes
- 47i,11n,78p,521b,446s stack positions out of 5000i,500n,10000p,200000b,100000s
-</usr/share/fonts/prop_fonts/prop_fonts/13. Bembo     [1496 - Francesco Griffo]/
-BemboStd-Bold.otf></usr/share/fonts/prop_fonts/prop_fonts/13. Bembo     [1496 - 
-Francesco Griffo]/BemboStd-Italic.otf></usr/share/fonts/prop_fonts/prop_fonts/13
-. Bembo     [1496 - Francesco Griffo]/BemboStd.otf>
-Output written on CV_Blaschek.pdf (2 pages, 25882 bytes).
+ 47i,11n,78p,520b,470s stack positions out of 5000i,500n,10000p,200000b,100000s
+</usr/share/fonts/The Top 100 Best Fonts of All Time/13. Bembo     [1496 - Franc
+esco Griffo]/BemboStd-Bold.otf></usr/share/fonts/The Top 100 Best Fonts of All T
+ime/13. Bembo     [1496 - Francesco Griffo]/BemboStd-Italic.otf></usr/share/font
+s/The Top 100 Best Fonts of All Time/13. Bembo     [1496 - Francesco Griffo]/Bem
+boStd.otf>
+Output written on CV_Blaschek.pdf (2 pages, 26308 bytes).
 
 PDF statistics: 44 PDF objects out of 1000 (max. 8388607)
  30 compressed objects within 1 object stream
