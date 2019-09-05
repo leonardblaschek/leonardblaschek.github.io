@@ -141,6 +141,7 @@ INPUT /usr/share/texmf-dist/tex/latex/microtype/mt-cmr.cfg
 INPUT /usr/share/texmf-dist/tex/latex/microtype/mt-cmr.cfg
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmr8.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmr6.tfm
+INPUT /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
