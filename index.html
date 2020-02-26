@@ -11,7 +11,7 @@ body, html {
   margin: 0;
   font: 30px/1.8 "Inconsolata", sans-serif;
   color: #777;
-  line-height:60px;
+  line-height:200%;
 }
 
 .bgimg-1, .bgimg-2, .bgimg-3 {
@@ -45,24 +45,35 @@ body, html {
   padding-left: 27px
 }
 
+.caption span_short.border {
+  background-color: #ffcc3d;
+  color: #111;
+  padding: 18px;
+  font-size: 15px;
+  letter-spacing: 2px;
+  padding-left: 27px
+}
+
 .corner {
-  line-height:10px;
+  line-height:normal;
   padding:1px 15px
 }
 
 h2 {
   letter-spacing: 5px;
-  font: 25px "Lato", sans-serif;
+  font: 25px "IBM Plex Sans", sans-serif;
   color: #111;
 }
+
 a {
 	color: #fff;;
 	text-decoration: none;
 	text-transform: uppercase;
 }
+
 p {
-  letter-spacing: 5px;
-  font: 15px "Lato", sans-serif;
+  letter-spacing: 2px;
+  font: 15px "IBM Plex Sans", sans-serif;
   color: #111;
 }
 
@@ -74,16 +85,16 @@ p {
 
 <div class="bgimg-1">
   <div class="corner">
-    <a href="/"><h2>Leonard Blaschek</h2></a>
-    <a href="/about.html"><p>Plant Physiology, Biochemistry and Genetics</p></a>
+    <h2 href="/">LEONARD BLASCHEK</h2>
+    <p href="/about.html">Plant Physiology, Biochemistry, and Genetics</p>
   </div>
   <div class="caption">
     <a href="/assets/CV/CV_Blaschek.pdf" target="_blank"><span class="border">Curriculum vitae</span></a><br>
-    <a href="" target="_blank" ><span class="border">Publications</span></a><br>
+    <a href="https://scholar.google.se/citations?user=GcFWhLwAAAAJ&hl=en" target="_blank" ><span class="border">Publications</span></a><br>
     <a href="https://twitter.com/blaschek_l" target="_blank" ><span class="border">Twitter</span></a><br>
     <a href="https://github.com/leonardblaschek" target="_blank" ><span class="border">Github</span></a><br>
     <a href="/about.html" target="_blank" ><span class="border">About</span></a><br>
-    <a href="https://www.researchgate.net/profile/Leonard_Blaschek" target="_blank" ><span class="border">R<sup>G</sup></span></a><br>
+    <a href="https://www.researchgate.net/profile/Leonard_Blaschek" target="_blank" ><span_short class="border">R<sup>G</sup></span_short></a><br>
 
   </div>
 </div>

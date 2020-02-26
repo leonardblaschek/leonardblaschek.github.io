@@ -1,5 +1,5 @@
 # Fdb version 3
-["lualatex"] 1577620856 "CV_Blaschek.tex" "CV_Blaschek.pdf" "CV_Blaschek" 1577620857
+["lualatex"] 1582717554 "CV_Blaschek.tex" "CV_Blaschek.pdf" "CV_Blaschek" 1582717555
   "/home/leonard/.texlive/texmf-var/luatex-cache/generic/fonts/otl/bembostd-bold.luc" 1577619914 55822 c91d87d549795bd8c4297dbf065b23ac ""
   "/home/leonard/.texlive/texmf-var/luatex-cache/generic/fonts/otl/bembostd-bolditalic.luc" 1577619913 56271 1d12fb6ba60d2fea04d9c176323b45df ""
   "/home/leonard/.texlive/texmf-var/luatex-cache/generic/fonts/otl/bembostd-italic.luc" 1577619914 54603 1a65fa8cf8cacc733958a0e82d2907b8 ""
@@ -41,6 +41,9 @@
   "/usr/share/texmf-dist/tex/latex/base/article.cls" 1572595918 19931 9ab70b303cca263e0120c205e98dee99 ""
   "/usr/share/texmf-dist/tex/latex/base/fontenc.sty" 1572595918 4571 68999fcec19eaab44a6e13159b4dca8a ""
   "/usr/share/texmf-dist/tex/latex/base/size11.clo" 1572595918 8421 938fa22cdc088594d8815cd38fcf77c0 ""
+  "/usr/share/texmf-dist/tex/latex/base/textcomp.sty" 1572595918 16154 aa2e2ccb4112a609f28cbe297c11ef1d ""
+  "/usr/share/texmf-dist/tex/latex/base/ts1cmr.fd" 1572595918 2431 cc3b740992f1bf33ee159b31f0710d60 ""
+  "/usr/share/texmf-dist/tex/latex/base/ts1enc.def" 1572595918 7767 e781dcaece5057ee9243d19755558b5a ""
   "/usr/share/texmf-dist/tex/latex/base/tuenc.def" 1572595918 27443 cc11cec691dcc88941b288689b1760e7 ""
   "/usr/share/texmf-dist/tex/latex/enumitem/enumitem.sty" 1572592815 51697 f8f08183cd2080d9d18a41432d651dfb ""
   "/usr/share/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty" 1572595918 11128 a53805799bebfed6358fc1658a18e41f ""
@@ -82,13 +85,13 @@
   "/usr/share/texmf-dist/tex/luatex/lualibs/lualibs-compat.lua" 1572595918 603 398583cb619d20952d67edcedae41608 ""
   "/usr/share/texmf-dist/tex/luatex/lualibs/lualibs-extended-merged.lua" 1572595918 106726 b9487c3941f8caa790ecdcbc5a03b311 ""
   "/usr/share/texmf-dist/tex/luatex/lualibs/lualibs-extended.lua" 1572595918 4894 788132acfaf05394117da617b5a863fa ""
-  "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1576324055 4569562 1260569e6693d3dc73846fd64ebfa574 ""
-  "/var/lib/texmf/web2c/luatex/lualatex.fmt" 1576324039 1400561 53dc605f9084be9a8c4da703b7dcc039 ""
-  "CV_Blaschek.aux" 1577620857 793 4f5e5fa7940016aaf7bbd6f7b84dc614 "lualatex"
-  "CV_Blaschek.out" 1577620857 0 d41d8cd98f00b204e9800998ecf8427e "lualatex"
-  "CV_Blaschek.tex" 1577620856 7366 3ae924ed1d1141ff1f36df3196dd9a51 ""
+  "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1581167247 4569562 1260569e6693d3dc73846fd64ebfa574 ""
+  "/var/lib/texmf/web2c/luatex/lualatex.fmt" 1581167223 1400555 dcd50ae23b6d2bbfa973423067d54e68 ""
+  "CV_Blaschek.aux" 1582717555 793 4f5e5fa7940016aaf7bbd6f7b84dc614 "lualatex"
+  "CV_Blaschek.out" 1582717555 0 d41d8cd98f00b204e9800998ecf8427e "lualatex"
+  "CV_Blaschek.tex" 1582717552 8846 36c287e9281393c049d2eaf8c59322f7 ""
   (generated)
   "CV_Blaschek.out"
+  "CV_Blaschek.log"
   "CV_Blaschek.pdf"
   "CV_Blaschek.aux"
-  "CV_Blaschek.log"

@@ -9,9 +9,9 @@ About
 body, html {
   height: 100%;
   margin: 0;
-  font: 15px/1.8 "Libre Baskerville", serif;
+  font: 15px/1.8 "IBM Plex Serif", serif;
   color: #777;
-  line-height:25px;
+  line-height:150%;
 }
 
 .bgimg-1, .bgimg-2, .bgimg-3 {
@@ -28,16 +28,16 @@ body, html {
 }
 
 .caption {
-  position: absolute;
+  position: relative;
   left: 10%;
-  top: 20%;
+  top: 10%;
   width: 75%;
   text-align: left;
-  background-color: #111;
+  background-color: rgba(17, 17, 17, 0.75);
   color: #fff;
   padding: 18px;
   font-size: 15px;
-  letter-spacing: 1px;
+  letter-spacing: normal;
 }
 .corner {
   line-height:10px;
@@ -46,12 +46,12 @@ body, html {
 
 h2 {
   letter-spacing: 5px;
-  font: 25px "Lato", sans-serif;
+  font: 25px "IBM Plex Sans", sans-serif;
   color: #111;
 }
 	
 h3 {
-  font: 18px/1.8 "Libre Baskerville", serif;
+  font: 18px/1.8 "IBM Plex Serif", serif;
   color: #111;
 }
 
@@ -61,9 +61,14 @@ a {
   text-transform: uppercase;
 }
 
+stretch {
+letter-spacing: 2px;
+}
+
 p {
-  letter-spacing: 5px;
-  font: 15px "Lato", sans-serif;
+  letter-spacing: 2px;
+  font: 15px "IBM Plex Sans", sans-serif;
+/*   text-transform: uppercase; */
   color: #111;
 }
 
@@ -74,25 +79,25 @@ p {
 
 <div class="bgimg-1">
   <div class="corner">
-    <a href="/"><h2>Leonard Blaschek</h2></a>
-    <a href="/about.html"><p>Plant Physiology, Biochemistry and Genetics</p></a>
+    <h2 href="/">LEONARD BLASCHEK</h2>
+    <p href="/about.html">Plant Physiology, Biochemistry, and Genetics</p>
   </div>
-  <div class="caption">
-	<i>PhD candidate in the Pesquet Lab at Stockholm University, Sweden</i>. <br><br>
+  <div class="caption" 
+  style="overflow-y:scroll;
+  height:auto;
+  max-height:60%;">
+	<stretch><i>PhD candidate in the Pesquet Lab at Stockholm University, Sweden.</i></stretch> <br><br>
 	  Plant physiology and morphology are dependent on a multitude of different specialised cell types. 
-	  In all of them, the cell wall functions as an exoskeleton for each single cell and forms a cohesive interface between them.
-	  In general, the cell wall is a gel-like matrix composed of multiple bio-polymers including pectins, cellulose, hemicelluloses and, in 
-	  woody cells, a polyphenolic called <i>lignin</i>.
-	  Along with their different functions, the composition and biochemical characteristics of plant cell walls vary widely
-	  between cell types. However, both the mechanism of how cell wall properties are modulated on the nanometre scale, 
-	  and how these differences support the function of the respective cell, are still poorly understood. <br><br>
-	I use genetic transformation of model plants coupled with biochemical and cytological analyses to investigate 
-	  the regulation and effect of specific changes in lignin content in the cell wall. I am especially interested in whether 
-	  <i>LACCASES</i> &ndash; proteins involved in the oxidative polymerisation of lignin &ndash; have 
-	  more specific roles than is widely assumed and potentially direct lignin composition on the sub-cellular scale.
-	  Understanding the process of lignification on the cellular level would allow us to engineer plants that are more efficient
-	  renewable energy sources or sustainable building materials, whithout compromising plant growth.<br><br>
-    When I am not working to undertand their inner workings, I spend as much of my time as possible hiking, climbing and canoeing among plants. 
+	  All of them are surrounded by a cell wall, which functions both as an exoskeleton for each individual cell and a cohesive interface between them, giving rise to tissues and organs.
+	  Fundamentally, the cell wall is a gel-like matrix composed of multiple bio-polymers including pectins, cellulose and hemicelluloses. 
+	  In woody cells, this hydrophilic matrix is waterproofed and further reinforced by a polyphenolic called <i>lignin</i>.
+	  Along with the distinct functions of different cell types in the plant, the composition and biochemical characteristics of their cell walls vary widely. 
+	  However, both the mechanism of how cell wall properties are modulated on the nanometre scale, and how these differences support the function of the respective cell, are still poorly understood. 
+	  <br><br>
+      I use genetic manipulation of model plants coupled with biochemical, bio-mechanical and cytological analyses to investigate the regulation and effect of specific changes in lignin content in the cell wall. 
+	  I am especially interested in whether <i>Laccases</i> &mdash; proteins involved in the oxidative polymerisation of lignin &mdash; have more specific roles than is widely assumed and potentially direct lignin composition on the sub-cellular scale.
+	  Understanding the process of lignification on this scale would allow us to engineer plants that are more efficient renewable energy sources or sustainable building materials, whithout compromising plant growth.<br><br>
+      When I am not working to understand their inner workings, I spend as much of my time as possible hiking, climbing and canoeing among plants. 
   </div>
 </div>
 
