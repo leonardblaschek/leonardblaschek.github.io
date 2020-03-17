@@ -1,4 +1,4 @@
-This is LuaTeX, Version 1.10.0 (TeX Live 2019/Arch Linux)  (format=lualatex 2020.2.8)  26 FEB 2020 12:45
+This is LuaTeX, Version 1.10.0 (TeX Live 2019/Arch Linux)  (format=lualatex 2020.2.8)  17 MAR 2020 14:10
  restricted system commands enabled.
 **CV_Blaschek.tex
 (./CV_Blaschek.tex
@@ -55,7 +55,7 @@ Lua module: luaotfload-multiscript 2019-09-13 3.00 luaotfload submodule / multis
 cript
 Inserting `luaotfload.rewrite_fontname' at position 5 in `luaotfload.patch_font'
 .
-luaotfload | main : initialization completed in 0.101 seconds
+luaotfload | main : initialization completed in 0.139 seconds
 (/usr/share/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2019/08/27 v1.4j Standard LaTeX document class
 (/usr/share/texmf-dist/tex/latex/base/size11.clo
@@ -1121,7 +1121,7 @@ Here is how much of LuaTeX's memory you used:
  432 words of node memory still in use:
    3 hlist, 1 vlist, 1 rule, 2 glue, 3 kern, 1 glyph, 6 attribute, 51 glue_spec,
  6 attribute_list, 2 write nodes
-   avail lists: 2:493,3:107,4:63,5:420,6:32,7:3320,8:6,9:143,10:7,11:294
+   avail lists: 2:509,3:108,4:66,5:415,6:33,7:3307,8:6,9:143,10:7,11:294
  28551 multiletter control sequences out of 65536+600000
  70 fonts using 8741751 bytes
  52i,11n,78p,634b,429s stack positions out of 5000i,500n,10000p,200000b,100000s
@@ -1130,10 +1130,10 @@ esco Griffo]/BemboStd-Bold.otf></usr/share/fonts/The Top 100 Best Fonts of All T
 ime/13. Bembo     [1496 - Francesco Griffo]/BemboStd-Italic.otf></usr/share/font
 s/The Top 100 Best Fonts of All Time/13. Bembo     [1496 - Francesco Griffo]/Bem
 boStd.otf></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on CV_Blaschek.pdf (2 pages, 36471 bytes).
+Output written on CV_Blaschek.pdf (2 pages, 36712 bytes).
 
-PDF statistics: 49 PDF objects out of 1000 (max. 8388607)
- 34 compressed objects within 1 object stream
+PDF statistics: 50 PDF objects out of 1000 (max. 8388607)
+ 35 compressed objects within 1 object stream
  3 named destinations out of 1000 (max. 131072)
  1 words of extra memory for PDF output out of 10000 (max. 100000000)
 
