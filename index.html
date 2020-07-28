@@ -14,7 +14,7 @@ body, html {
   line-height:200%;
 }
 
-.bgimg-1, .bgimg-2, .bgimg-3 {
+.bgimg-1 {
   position: relative;
   opacity: 0.85;
   background-position: center;
@@ -23,7 +23,7 @@ body, html {
 
 }
 .bgimg-1 {
-  background-image: url("/assets/images/R1-08838-0012.JPG");
+  background-image: url("./assets/images/R1-08838-0012.JPG");
   height: 100%;
 }
 
@@ -43,15 +43,6 @@ body, html {
   padding: 18px;
   font-size: 15px;
   letter-spacing: 10px;
-  padding-left: 27px
-}
-
-.caption span_short.border {
-  background-color: #ffcc3d;
-  color: #111;
-  padding: 18px;
-  font-size: 15px;
-  letter-spacing: 2px;
   padding-left: 27px
 }
 
@@ -78,6 +69,18 @@ a {
 	text-decoration: none;
 }
 
+.social-icons {
+  text-align: center;
+  display:inline-block;
+  vertical-align:middle;
+  border-bottom: none;
+  width:25px;
+  height:25px;
+  margin-top:10%;
+  margin-left: 10px;
+  margin-right: 10px
+}
+
 </style>
 </head>
 
@@ -86,15 +89,18 @@ a {
 <div class="bgimg-1">
   <div class="corner">
     <a href="/"><h2>LEONARD BLASCHEK</h2></a>
-    <a href="/about.html"><h1>Plant Physiology, Biochemistry, and Genetics</h1></a>
+    <a href="./about.html"><h1>Plant Physiology, Biochemistry, and Genetics</h1></a>
   </div>
   <div class="caption">
-    <a href="/assets/CV/CV_Blaschek.pdf" target="_blank"><span class="border">Curriculum vitae</span></a><br>
-    <a href="https://scholar.google.se/citations?user=GcFWhLwAAAAJ&hl=en" target="_blank" ><span class="border">Publications</span></a><br>
-    <a href="https://twitter.com/blaschek_l" target="_blank" ><span class="border">Twitter</span></a><br>
-    <a href="https://github.com/leonardblaschek" target="_blank" ><span class="border">Github</span></a><br>
-    <a href="/about.html" ><span class="border">About</span></a><br>
-    <a href="https://www.researchgate.net/profile/Leonard_Blaschek" target="_blank" ><span_short class="border">R<sup>G</sup></span_short></a><br>
+    <a target="_blank" href="./assets/CV/CV_Blaschek.pdf" ><span class="border">Curriculum vitae</span></a><br>
+    <a target="_blank" href="https://scholar.google.se/citations?user=GcFWhLwAAAAJ&hl=en" ><span class="border">Publications</span></a><br>
+    <a target="_blank" href="./about.html" ><span class="border" >About</span></a><br>
+    
+    <a target="_blank" href="https://www.github.com/leonardblaschek"><img src="./assets/icons/gh.svg" class="social-icons"/></a>
+    <a target="_blank" href="https://orcid.org/0000-0003-3943-1476"><img src="./assets/icons/id.svg" class="social-icons"/></a>
+    <a target="_blank" href="https://www.linkedin.com/in/leonard-blaschek-574a4a1b3/"><img src="./assets/icons/li.svg" class="social-icons"/></a>
+    <a target="_blank" href="https://www.researchgate.net/profile/Leonard_Blaschek"><img src="./assets/icons/rg.svg" class="social-icons"/></a>
+    <a target="_blank" href="https://twitter.com/blaschek_l"><img src="./assets/icons/twit.svg" class="social-icons"/></a>
 
   </div>
 </div>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="72px"
+   height="72px"
+   viewBox="0 0 72 72"
+   version="1.1"
+   id="svg15"
+   sodipodi:docname="id.svg"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)">
+  <metadata
+     id="metadata21">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs19" />
+  <sodipodi:namedview
+     inkscape:document-rotation="0"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1021"
+     id="namedview17"
+     showgrid="false"
+     inkscape:zoom="7.0138889"
+     inkscape:cx="36"
+     inkscape:cy="36"
+     inkscape:window-x="0"
+     inkscape:window-y="30"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="vector_iD_icon" />
+  <!-- Generator: sketchtool 53.1 (72631) - https://sketchapp.com -->
+  <title
+     id="title2">Orcid logo</title>
+  <g
+     id="Symbols"
+     stroke="none"
+     stroke-width="1"
+     fill="none"
+     fill-rule="evenodd">
+    <g
+       id="hero"
+       transform="translate(-924.000000, -72.000000)"
+       fill-rule="nonzero">
+      <g
+         id="Group-4">
+        <g
+           id="vector_iD_icon"
+           transform="translate(924.000000, 72.000000)">
+          <path
+             d="M 36 0 C 16.115625 0 0 16.115625 0 36 C 0 55.884375 16.115625 72 36 72 C 55.884375 72 72 55.884375 72 36 C 72 16.115625 55.884375 0 36 0 z M 21.736328 12.984375 C 23.315207 12.984375 24.582031 14.272872 24.582031 15.8125 C 24.582031 17.352129 23.315207 18.638672 21.736328 18.638672 C 20.157448 18.638672 18.888672 17.352129 18.888672 15.8125 C 18.888672 14.244878 20.157448 12.984375 21.736328 12.984375 z M 19.564453 22.054688 L 23.90625 22.054688 L 23.90625 35.603516 L 23.90625 52.035156 L 19.564453 52.035156 L 19.564453 22.054688 z M 30.277344 22.054688 L 42.007812 22.054688 C 53.17275 22.054688 58.078125 29.976302 58.078125 37.058594 C 58.078125 44.756738 52.015081 52.0625 42.0625 52.0625 L 30.277344 52.0625 L 30.277344 22.054688 z M 34.621094 25.945312 L 34.621094 48.171875 L 41.527344 48.171875 C 51.367148 48.171875 53.623047 40.753703 53.623047 37.058594 C 53.623047 31.040046 49.761019 25.945313 41.302734 25.945312 L 34.621094 25.945312 z "
+             style="fill:#ffcc3d;fill-opacity:1"
+             id="Path" />
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
