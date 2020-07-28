@@ -7,13 +7,13 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
-   sodipodi:docname="li.svg"
-   id="svg4"
+   width="24"
+   height="23"
+   viewBox="0 0 24 23"
    version="1.1"
-   viewBox="0 0 24 24"
-   height="24"
-   width="24">
+   id="svg4"
+   sodipodi:docname="li.svg"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)">
   <metadata
      id="metadata10">
     <rdf:RDF>
@@ -28,27 +28,28 @@
   <defs
      id="defs8" />
   <sodipodi:namedview
-     inkscape:current-layer="svg4"
-     inkscape:window-maximized="1"
-     inkscape:window-y="30"
-     inkscape:window-x="0"
-     inkscape:cy="12"
-     inkscape:cx="12"
-     inkscape:zoom="21.041667"
-     showgrid="false"
-     id="namedview6"
-     inkscape:window-height="1021"
-     inkscape:window-width="1920"
-     inkscape:pageshadow="2"
-     inkscape:pageopacity="0"
-     guidetolerance="10"
-     gridtolerance="10"
-     objecttolerance="10"
-     borderopacity="1"
+     inkscape:document-rotation="0"
+     pagecolor="#ffffff"
      bordercolor="#666666"
-     pagecolor="#ffffff" />
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1021"
+     id="namedview6"
+     showgrid="false"
+     inkscape:zoom="21.041667"
+     inkscape:cx="12"
+     inkscape:cy="11"
+     inkscape:window-x="0"
+     inkscape:window-y="30"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg4" />
   <path
-     style="fill:#ffcc3d;fill-opacity:1"
+     d="M 4.98,2.5 C 4.98,3.881 3.87,5 2.5,5 1.13,5 0.02,3.881 0.02,2.5 0.02,1.12 1.13,0 2.5,0 3.87,0 4.98,1.12 4.98,2.5 Z M 5,7 H 0 v 16 h 5 z m 7.982,0 H 8.014 v 16 h 4.969 v -8.399 c 0,-4.67 6.029,-5.052 6.029,0 V 23 H 24 V 12.869 C 24,4.989 15.078,5.276 12.982,9.155 Z"
      id="path2"
-     d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z" />
+     style="fill:#ffcc3d;fill-opacity:1" />
 </svg>
