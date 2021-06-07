@@ -1,4 +1,4 @@
-PWD /home/leonard/Documents/github/leonardblaschek.github.io/assets/CV
+PWD /home/leonard/Documents/Github/leonardblaschek.github.io/assets/CV
 INPUT /var/lib/texmf/web2c/luahbtex/lualatex.fmt
 INPUT ./CV_Blaschek.tex
 OUTPUT CV_Blaschek.log
