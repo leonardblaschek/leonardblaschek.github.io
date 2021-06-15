@@ -5,6 +5,7 @@ OUTPUT CV_Blaschek.log
 INPUT /usr/share/texmf-dist/tex/latex/latexconfig/lualatexquotejobname.lua
 INPUT /usr/share/texmf-dist/tex/latex/base/ltluatex.lua
 INPUT /usr/share/texmf-dist/tex/luatex/luaotfload/luaotfload-main.lua
+INPUT /usr/share/texmf-dist/tex/luatex/luaotfload/luaotfload.lua
 INPUT /usr/share/texmf-dist/tex/luatex/luaotfload/luaotfload-init.lua
 INPUT /usr/share/texmf-dist/tex/luatex/lualibs/lualibs.lua
 INPUT /usr/share/texmf-dist/tex/luatex/lualibs/lualibs-basic.lua
@@ -18,7 +19,7 @@ OUTPUT /home/leonard/.texlive/texmf-var/m_t_x_t_e_s_t.tmp
 INPUT /usr/share/texmf-dist/tex/luatex/luaotfload/luaotfload-parsers.lua
 INPUT /usr/share/texmf-dist/tex/luatex/luaotfload/luaotfload-configuration.lua
 INPUT /usr/share/texmf-dist/tex/luatex/luaotfload/luaotfload-status.lua
-INPUT /usr/share/texmf-dist/tex/luatex/luaotfload/fontloader-2020-08-31.lua
+INPUT /usr/share/texmf-dist/tex/luatex/luaotfload/fontloader-2021-01-07.lua
 INPUT /usr/share/texmf-dist/tex/luatex/luaotfload/luaotfload-fallback.lua
 INPUT /usr/share/texmf-dist/tex/luatex/luaotfload/luaotfload-multiscript.lua
 INPUT /usr/share/texmf-dist/tex/luatex/luaotfload/luaotfload-scripts.lua
@@ -29,6 +30,10 @@ INPUT /usr/share/texmf-dist/tex/luatex/luaotfload/luaotfload-database.lua
 INPUT /usr/share/texmf-dist/tex/luatex/luaotfload/luaotfload-unicode.lua
 INPUT /usr/share/texmf-dist/tex/generic/unicode-data/CaseFolding.txt
 INPUT /usr/share/texmf-dist/tex/generic/unicode-data/UnicodeData.txt
+INPUT /usr/share/texmf-dist/tex/generic/unicode-data/UnicodeData.txt
+INPUT /usr/share/texmf-dist/tex/generic/unicode-data/PropList.txt
+INPUT /usr/share/texmf-dist/tex/generic/unicode-data/WordBreakProperty.txt
+INPUT /usr/share/texmf-dist/tex/generic/unicode-data/SpecialCasing.txt
 INPUT /usr/share/texmf-dist/tex/luatex/luaotfload/luaotfload-colors.lua
 INPUT /usr/share/texmf-dist/tex/luatex/luaotfload/luaotfload-resolvers.lua
 INPUT /usr/share/texmf-dist/tex/luatex/luaotfload/luaotfload-features.lua
@@ -43,6 +48,7 @@ INPUT /usr/share/texmf-dist/tex/luatex/luaotfload/luaotfload-suppress.lua
 INPUT /usr/share/texmf-dist/tex/luatex/luaotfload/luaotfload-szss.lua
 INPUT /usr/share/texmf-dist/tex/luatex/luaotfload/luaotfload-auxiliary.lua
 INPUT /usr/share/texmf-dist/tex/luatex/luaotfload/luaotfload-tounicode.lua
+INPUT /usr/share/texmf-dist/tex/luatex/luaotfload/luaotfload-case.lua
 INPUT /usr/share/texmf-dist/tex/latex/l3kernel/expl3.lua
 INPUT /usr/share/texmf-dist/tex/latex/base/article.cls
 INPUT /usr/share/texmf-dist/tex/latex/base/article.cls
@@ -75,6 +81,9 @@ INPUT /usr/share/texmf-dist/tex/latex/l3kernel/expl3.sty
 INPUT /usr/share/texmf-dist/tex/latex/l3backend/l3backend-luatex.def
 INPUT /usr/share/texmf-dist/tex/latex/l3backend/l3backend-luatex.def
 INPUT /usr/share/texmf-dist/tex/latex/l3backend/l3backend-luatex.def
+INPUT /usr/share/texmf-dist/tex/latex/l3packages/xparse/xparse-2020-10-01.sty
+INPUT /usr/share/texmf-dist/tex/latex/l3packages/xparse/xparse-2020-10-01.sty
+INPUT /usr/share/texmf-dist/tex/latex/l3packages/xparse/xparse-2020-10-01.sty
 INPUT /usr/share/texmf-dist/tex/latex/l3packages/xparse/xparse-generic.tex
 INPUT /usr/share/texmf-dist/tex/latex/fontspec/fontspec.lua
 INPUT /usr/share/texmf-dist/tex/latex/fontspec/fontspec-luatex.sty
@@ -175,12 +184,16 @@ INPUT /usr/share/texmf-dist/tex/latex/kvoptions/kvoptions.sty
 INPUT /usr/share/texmf-dist/tex/latex/kvoptions/kvoptions.sty
 INPUT /usr/share/texmf-dist/tex/latex/hyperref/pd1enc.def
 INPUT /usr/share/texmf-dist/tex/latex/hyperref/pd1enc.def
+INPUT /usr/share/texmf-dist/tex/latex/hyperref/hyperref-langpatches.def
+INPUT /usr/share/texmf-dist/tex/latex/hyperref/hyperref-langpatches.def
 INPUT /usr/share/texmf-dist/tex/generic/intcalc/intcalc.sty
 INPUT /usr/share/texmf-dist/tex/generic/intcalc/intcalc.sty
 INPUT /usr/share/texmf-dist/tex/generic/intcalc/intcalc.sty
 INPUT /usr/share/texmf-dist/tex/generic/etexcmds/etexcmds.sty
 INPUT /usr/share/texmf-dist/tex/generic/etexcmds/etexcmds.sty
 INPUT /usr/share/texmf-dist/tex/generic/etexcmds/etexcmds.sty
+INPUT /usr/share/texmf-dist/tex/latex/hyperref/puenc.def
+INPUT /usr/share/texmf-dist/tex/latex/hyperref/puenc.def
 INPUT /usr/share/texmf-dist/tex/latex/url/url.sty
 INPUT /usr/share/texmf-dist/tex/latex/url/url.sty
 INPUT /usr/share/texmf-dist/tex/latex/url/url.sty
@@ -195,8 +208,6 @@ INPUT /usr/share/texmf-dist/tex/latex/base/atbegshi-ltx.sty
 INPUT /usr/share/texmf-dist/tex/latex/base/atbegshi-ltx.sty
 INPUT /usr/share/texmf-dist/tex/latex/hyperref/hluatex.def
 INPUT /usr/share/texmf-dist/tex/latex/hyperref/hluatex.def
-INPUT /usr/share/texmf-dist/tex/latex/hyperref/puenc.def
-INPUT /usr/share/texmf-dist/tex/latex/hyperref/puenc.def
 INPUT /usr/share/texmf-dist/tex/generic/stringenc/stringenc.sty
 INPUT /usr/share/texmf-dist/tex/generic/stringenc/stringenc.sty
 INPUT /usr/share/texmf-dist/tex/generic/stringenc/stringenc.sty
