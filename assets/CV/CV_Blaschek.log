@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.13.0 (TeX Live 2021/Arch Linux)  (format=lualatex 2021.6.8)  1 JUL 2021 17:22
+This is LuaHBTeX, Version 1.13.0 (TeX Live 2021/Arch Linux)  (format=lualatex 2021.6.8)  6 SEP 2021 10:45
  system commands enabled.
 **CV_Blaschek.tex
 (./CV_Blaschek.tex
@@ -882,16 +882,16 @@ Here is how much of LuaTeX's memory you used:
  438 words of node memory still in use:
    3 hlist, 1 vlist, 1 rule, 2 glue, 3 kern, 1 glyph, 6 attribute, 51 glue_spec,
  6 attribute_list, 2 write, 1 pdf_action nodes
-   avail lists: 2:592,3:212,4:122,5:776,6:56,7:7040,8:14,9:323,10:7,11:587
+   avail lists: 2:595,3:210,4:112,5:776,6:58,7:6608,8:14,9:324,10:7,11:587
  33611 multiletter control sequences out of 65536+600000
  67 fonts using 5760327 bytes
- 111i,11n,110p,626b,473s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 111i,11n,110p,626b,428s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/fonts/prop_fonts/prop_fonts/13. Bembo     [1496 - Francesco Griffo]/
 BemboStd-Bold.otf></usr/share/fonts/prop_fonts/prop_fonts/13. Bembo     [1496 - 
 Francesco Griffo]/BemboStd-Italic.otf></usr/share/fonts/prop_fonts/prop_fonts/13
 . Bembo     [1496 - Francesco Griffo]/BemboStd.otf></usr/share/texmf-dist/fonts/
 type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on CV_Blaschek.pdf (3 pages, 40955 bytes).
+Output written on CV_Blaschek.pdf (3 pages, 40188 bytes).
 
 PDF statistics: 59 PDF objects out of 1000 (max. 8388607)
  43 compressed objects within 1 object stream
