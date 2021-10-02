@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.13.0 (TeX Live 2021/Arch Linux)  (format=lualatex 2021.6.8)  6 SEP 2021 10:52
+This is LuaHBTeX, Version 1.13.0 (TeX Live 2021/Arch Linux)  (format=lualatex 2021.7.5)  2 OCT 2021 14:11
  system commands enabled.
 **CV_Blaschek.tex
 (./CV_Blaschek.tex
@@ -853,23 +853,41 @@ LaTeX Info: Redefining \nameref on input line 33.
 
 \openout3 = CV_Blaschek.out
 Inserting `luaotfload.letterspace' at position 2 in `pre_linebreak_filter'.
-Inserting `luaotfload.letterspace' at position 3 in `hpack_filter'. [1
+Inserting `luaotfload.letterspace' at position 3 in `hpack_filter'.
+Underfull \hbox (badness 10000) in paragraph at lines 54--60
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 65--72
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 77--82
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 87--92
+
+ []
+
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 106.
+(Font)              <10.95> on input line 114.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 106.
+(Font)              <8> on input line 114.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 106.
- (/usr/share/texmf-dist/tex/latex/microtype/mt-cmr.cfg
+(Font)              <6> on input line 114.
+(/usr/share/texmf-dist/tex/latex/microtype/mt-cmr.cfg
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
 )
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 106.
- [2]
-[3] 
+(Font)              <5> on input line 114.
+ [1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] 
 AED: lastpage setting LastPage
 (./CV_Blaschek.aux)
 Package rerunfilecheck Info: File `CV_Blaschek.out' has not changed.
@@ -877,24 +895,22 @@ Package rerunfilecheck Info: File `CV_Blaschek.out' has not changed.
 )
 
 Here is how much of LuaTeX's memory you used:
- 14136 strings out of 478531
+ 14132 strings out of 478531
  100000,794899 words of node,token memory allocated
  438 words of node memory still in use:
    3 hlist, 1 vlist, 1 rule, 2 glue, 3 kern, 1 glyph, 6 attribute, 51 glue_spec,
  6 attribute_list, 2 write, 1 pdf_action nodes
-   avail lists: 2:587,3:214,4:130,5:776,6:60,7:6693,8:18,9:324,10:7,11:587
- 33611 multiletter control sequences out of 65536+600000
- 67 fonts using 5760327 bytes
- 111i,11n,110p,626b,428s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/fonts/prop_fonts/prop_fonts/13. Bembo     [1496 - Francesco Griffo]/
-BemboStd-Bold.otf></usr/share/fonts/prop_fonts/prop_fonts/13. Bembo     [1496 - 
-Francesco Griffo]/BemboStd-Italic.otf></usr/share/fonts/prop_fonts/prop_fonts/13
-. Bembo     [1496 - Francesco Griffo]/BemboStd.otf></usr/share/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on CV_Blaschek.pdf (3 pages, 40273 bytes).
+   avail lists: 2:542,3:232,4:120,5:725,6:60,7:6474,8:19,9:300,10:7,11:510
+ 33607 multiletter control sequences out of 65536+600000
+ 65 fonts using 5623351 bytes
+ 111i,11n,110p,606b,475s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/fonts/propietary_fonts/Bembo/BemboStd-Bold.otf></usr/share/fonts/pro
+pietary_fonts/Bembo/BemboStd-Italic.otf></usr/share/fonts/propietary_fonts/Bembo
+/BemboStd.otf></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on CV_Blaschek.pdf (3 pages, 38750 bytes).
 
-PDF statistics: 61 PDF objects out of 1000 (max. 8388607)
- 45 compressed objects within 1 object stream
+PDF statistics: 62 PDF objects out of 1000 (max. 8388607)
+ 46 compressed objects within 1 object stream
  4 named destinations out of 1000 (max. 131072)
  1 words of extra memory for PDF output out of 10000 (max. 100000000)
 
