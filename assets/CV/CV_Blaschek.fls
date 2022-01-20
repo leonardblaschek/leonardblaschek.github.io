@@ -108,6 +108,9 @@ INPUT /usr/share/texmf-dist/tex/latex/microtype/microtype.lua
 INPUT /usr/share/texmf-dist/tex/latex/microtype/microtype.cfg
 INPUT /usr/share/texmf-dist/tex/latex/microtype/microtype.cfg
 INPUT /usr/share/texmf-dist/tex/latex/microtype/microtype.cfg
+INPUT /usr/share/texmf-dist/tex/latex/tools/multicol.sty
+INPUT /usr/share/texmf-dist/tex/latex/tools/multicol.sty
+INPUT /usr/share/texmf-dist/tex/latex/tools/multicol.sty
 INPUT /usr/share/texmf-dist/tex/latex/xcolor/xcolor.sty
 INPUT /usr/share/texmf-dist/tex/latex/xcolor/xcolor.sty
 INPUT /usr/share/texmf-dist/tex/latex/xcolor/xcolor.sty
