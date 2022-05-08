@@ -19,7 +19,7 @@ OUTPUT /home/leonard/.texlive/texmf-var/m_t_x_t_e_s_t.tmp
 INPUT /usr/share/texmf-dist/tex/luatex/luaotfload/luaotfload-parsers.lua
 INPUT /usr/share/texmf-dist/tex/luatex/luaotfload/luaotfload-configuration.lua
 INPUT /usr/share/texmf-dist/tex/luatex/luaotfload/luaotfload-status.lua
-INPUT /usr/share/texmf-dist/tex/luatex/luaotfload/fontloader-2021-05-20.lua
+INPUT /usr/share/texmf-dist/tex/luatex/luaotfload/fontloader-2022-02-24.lua
 INPUT /usr/share/texmf-dist/tex/luatex/luaotfload/luaotfload-fallback.lua
 INPUT /usr/share/texmf-dist/tex/luatex/luaotfload/luaotfload-multiscript.lua
 INPUT /usr/share/texmf-dist/tex/luatex/luaotfload/luaotfload-scripts.lua
@@ -37,7 +37,13 @@ INPUT /usr/share/texmf-dist/tex/generic/unicode-data/SpecialCasing.txt
 INPUT /usr/share/texmf-dist/tex/luatex/luaotfload/luaotfload-colors.lua
 INPUT /usr/share/texmf-dist/tex/luatex/luaotfload/luaotfload-resolvers.lua
 INPUT /usr/share/texmf-dist/tex/luatex/luaotfload/luaotfload-features.lua
+INPUT /usr/share/texmf-dist/tex/luatex/lua-uni-algos/lua-uni-normalize.lua
+INPUT /usr/share/texmf-dist/tex/luatex/lua-uni-algos/lua-uni-parse.lua
+INPUT /usr/share/texmf-dist/tex/generic/unicode-data/UnicodeData.txt
 INPUT /usr/share/texmf-dist/tex/luatex/luaotfload/luaotfload-harf-define.lua
+INPUT /usr/share/texmf-dist/tex/luatex/luaotfload/luaotfload-harf-var-cff2.lua
+INPUT /usr/share/texmf-dist/tex/luatex/luaotfload/luaotfload-harf-var-t2-writer.lua
+INPUT /usr/share/texmf-dist/tex/luatex/luaotfload/luaotfload-harf-var-ttf.lua
 INPUT /usr/share/texmf-dist/tex/luatex/luaotfload/luaotfload-harf-plug.lua
 INPUT /usr/share/texmf-dist/tex/luatex/luaotfload/luaotfload-letterspace.lua
 INPUT /usr/share/texmf-dist/tex/luatex/luaotfload/luaotfload-embolden.lua
@@ -55,7 +61,7 @@ INPUT /usr/share/texmf-dist/tex/latex/base/article.cls
 INPUT /usr/share/texmf-dist/tex/latex/base/article.cls
 INPUT /usr/share/texmf-dist/tex/latex/base/size11.clo
 INPUT /usr/share/texmf-dist/tex/latex/base/size11.clo
-INPUT /home/leonard/.texlive/texmf-var/luatex-cache/generic/names/luaotfload-names.luc
+INPUT /home/leonard/.texlive/texmf-var/luatex-cache/generic/names/luaotfload-names.luc.gz
 INPUT /home/leonard/.texlive/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-regular.luc
 INPUT /usr/share/texmf-dist/tex/latex/geometry/geometry.sty
 INPUT /usr/share/texmf-dist/tex/latex/geometry/geometry.sty
@@ -186,8 +192,6 @@ INPUT /usr/share/texmf-dist/tex/latex/kvoptions/kvoptions.sty
 INPUT /usr/share/texmf-dist/tex/latex/kvoptions/kvoptions.sty
 INPUT /usr/share/texmf-dist/tex/latex/hyperref/pd1enc.def
 INPUT /usr/share/texmf-dist/tex/latex/hyperref/pd1enc.def
-INPUT /usr/share/texmf-dist/tex/latex/hyperref/hyperref-langpatches.def
-INPUT /usr/share/texmf-dist/tex/latex/hyperref/hyperref-langpatches.def
 INPUT /usr/share/texmf-dist/tex/generic/intcalc/intcalc.sty
 INPUT /usr/share/texmf-dist/tex/generic/intcalc/intcalc.sty
 INPUT /usr/share/texmf-dist/tex/generic/intcalc/intcalc.sty
