@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.13.2 (TeX Live 2021/Arch Linux)  (format=lualatex 2022.4.20)  8 MAY 2022 10:48
+This is LuaHBTeX, Version 1.13.2 (TeX Live 2021/Arch Linux)  (format=lualatex 2022.4.20)  24 MAY 2022 15:33
  system commands enabled.
 **CV_Blaschek.tex
 (./CV_Blaschek.tex
@@ -936,37 +936,37 @@ LaTeX Info: Redefining \nameref on input line 34.
 \openout3 = CV_Blaschek.out
 Inserting `luaotfload.letterspace' at position 2 in `pre_linebreak_filter'.
 Inserting `luaotfload.letterspace' at position 3 in `hpack_filter'.
-Underfull \hbox (badness 10000) in paragraph at lines 55--61
+Underfull \hbox (badness 10000) in paragraph at lines 55--62
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 66--73
+Underfull \hbox (badness 10000) in paragraph at lines 67--74
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 78--83
+Underfull \hbox (badness 10000) in paragraph at lines 79--84
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 88--93
+Underfull \hbox (badness 10000) in paragraph at lines 89--94
 
  []
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 115.
+(Font)              <10.95> on input line 116.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 115.
+(Font)              <8> on input line 116.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 115.
+(Font)              <6> on input line 116.
 (/usr/share/texmf-dist/tex/latex/microtype/mt-cmr.cfg
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
 )
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 115.
+(Font)              <5> on input line 116.
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] 
@@ -982,7 +982,7 @@ Here is how much of LuaTeX's memory you used:
  516 words of node memory still in use:
    5 hlist, 1 vlist, 1 rule, 1 local_par, 4 glue, 3 kern, 1 penalty, 3 glyph, 8 
 attribute, 54 glue_spec, 8 attribute_list, 2 write, 1 pdf_action nodes
-   avail lists: 1:2,2:702,3:344,4:150,5:1084,6:79,7:7141,8:27,9:391,10:14,11:512
+   avail lists: 1:2,2:702,3:330,4:150,5:1093,6:75,7:6780,8:23,9:371,10:14,11:495
 
  35485 multiletter control sequences out of 65536+600000
  57 fonts using 3698791 bytes
@@ -990,7 +990,7 @@ attribute, 54 glue_spec, 8 attribute_list, 2 write, 1 pdf_action nodes
 </usr/share/fonts/propietary_fonts/Bembo/BemboStd-Bold.otf></usr/share/fonts/pro
 pietary_fonts/Bembo/BemboStd-Italic.otf></usr/share/fonts/propietary_fonts/Bembo
 /BemboStd.otf></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on CV_Blaschek.pdf (3 pages, 39589 bytes).
+Output written on CV_Blaschek.pdf (3 pages, 39711 bytes).
 
 PDF statistics: 63 PDF objects out of 1000 (max. 8388607)
  47 compressed objects within 1 object stream
