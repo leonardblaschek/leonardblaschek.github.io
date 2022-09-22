@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.13.0 (TeX Live 2021)  (format=lualatex 2022.7.4)  27 JUL 2022 11:24
+This is LuaHBTeX, Version 1.13.0 (TeX Live 2021)  (format=lualatex 2022.7.4)  22 SEP 2022 11:41
  restricted system commands enabled.
 **CV_Blaschek.tex
 (./CV_Blaschek.tex
@@ -928,44 +928,44 @@ Inserting `luaotfload.letterspace' at position 3 in `hpack_filter'. [1
 
 {/usr/share/texlive/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 130.
+(Font)              <10.95> on input line 119.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 130.
+(Font)              <8> on input line 119.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 130.
+(Font)              <6> on input line 119.
 
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-cmr.cfg
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
 )
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 130.
- [2]
+(Font)              <5> on input line 119.
+ [2] [3]
 
 AED: lastpage setting LastPage
-[3] (./CV_Blaschek.aux)
+[4] (./CV_Blaschek.aux)
 Package rerunfilecheck Info: File `CV_Blaschek.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 )
 
 Here is how much of LuaTeX's memory you used:
- 14346 strings out of 478388
+ 14347 strings out of 478388
  100000,794899 words of node,token memory allocated
  466 words of node memory still in use:
    4 hlist, 1 vlist, 1 rule, 2 glue, 3 kern, 1 glyph, 6 attribute, 56 glue_spec,
  6 attribute_list, 2 write nodes
-   avail lists: 1:1,2:716,3:305,4:180,5:780,6:79,7:6838,8:21,9:371,10:18,11:477
+   avail lists: 1:1,2:733,3:294,4:179,5:781,6:76,7:6431,8:21,9:368,10:18,11:449
  33955 multiletter control sequences out of 65536+600000
  65 fonts using 5623351 bytes
- 108i,11n,101p,524b,473s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 108i,11n,101p,557b,469s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/fonts/propietary_fonts/Bembo/BemboStd-Bold.otf></usr/share/fonts/pro
 pietary_fonts/Bembo/BemboStd-Italic.otf></usr/share/fonts/propietary_fonts/Bembo
 /BemboStd.otf></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
 8.pfb>
-Output written on CV_Blaschek.pdf (3 pages, 39828 bytes).
+Output written on CV_Blaschek.pdf (4 pages, 40330 bytes).
 
-PDF statistics: 62 PDF objects out of 1000 (max. 8388607)
- 46 compressed objects within 1 object stream
- 4 named destinations out of 1000 (max. 131072)
+PDF statistics: 68 PDF objects out of 1000 (max. 8388607)
+ 51 compressed objects within 1 object stream
+ 5 named destinations out of 1000 (max. 131072)
  1 words of extra memory for PDF output out of 10000 (max. 100000000)
 
