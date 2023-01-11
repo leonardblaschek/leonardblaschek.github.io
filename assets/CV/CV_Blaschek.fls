@@ -1,5 +1,5 @@
-PWD /home/leonard/Documents/github/assets/CV
-INPUT /usr/share/texlive/texmf-var/web2c/luahbtex/lualatex.fmt
+PWD /home/leonard/Documents/Website/assets/CV
+INPUT /home/leonard/.texlive2021/texmf-var/web2c/luahbtex/lualatex.fmt
 INPUT ./CV_Blaschek.tex
 OUTPUT CV_Blaschek.log
 INPUT /usr/share/texlive/texmf-dist/tex/latex/latexconfig/lualatexquotejobname.lua
