@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.13.0 (TeX Live 2021)  (format=lualatex 2022.12.30)  1 MAR 2023 21:05
+This is LuaHBTeX, Version 1.13.0 (TeX Live 2021)  (format=lualatex 2022.12.28)  21 APR 2023 11:03
  restricted system commands enabled.
 **CV_Blaschek.tex
 (./CV_Blaschek.tex
@@ -314,8 +314,8 @@ Package: enumitem 2019/06/20 v3.9 Customized lists
 Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
 )
 (/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
-Package: fancyhdr 2021/01/28 v4.0.1 Extensive control of page headers and foote
-rs
+Package: fancyhdr 2022/11/09 v4.1 Extensive control of page headers and footers
+
 \f@nch@headwidth=\skip53
 \f@nch@O@elh=\skip54
 \f@nch@O@erh=\skip55
@@ -949,20 +949,20 @@ Package rerunfilecheck Info: File `CV_Blaschek.out' has not changed.
 )
 
 Here is how much of LuaTeX's memory you used:
- 14347 strings out of 478388
+ 14360 strings out of 478388
  100000,794899 words of node,token memory allocated
  466 words of node memory still in use:
    4 hlist, 1 vlist, 1 rule, 2 glue, 3 kern, 1 glyph, 6 attribute, 56 glue_spec,
  6 attribute_list, 2 write nodes
-   avail lists: 1:1,2:709,3:288,4:185,5:780,6:72,7:6611,8:28,9:374,10:18,11:449
- 33955 multiletter control sequences out of 65536+600000
+   avail lists: 1:1,2:709,3:288,4:186,5:780,6:72,7:6611,8:28,9:374,10:18,11:449
+ 33968 multiletter control sequences out of 65536+600000
  65 fonts using 5623351 bytes
  108i,11n,101p,617b,473s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/fonts/propietary_fonts/Bembo/BemboStd-Bold.otf></usr/share/fonts/pro
 pietary_fonts/Bembo/BemboStd-Italic.otf></usr/share/fonts/propietary_fonts/Bembo
 /BemboStd.otf></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
 8.pfb>
-Output written on CV_Blaschek.pdf (4 pages, 40443 bytes).
+Output written on CV_Blaschek.pdf (4 pages, 40863 bytes).
 
 PDF statistics: 71 PDF objects out of 1000 (max. 8388607)
  54 compressed objects within 1 object stream
