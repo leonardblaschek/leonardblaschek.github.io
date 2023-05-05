@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.13.0 (TeX Live 2021)  (format=lualatex 2022.12.30)  5 MAY 2023 21:45
+This is LuaHBTeX, Version 1.13.0 (TeX Live 2021)  (format=lualatex 2022.12.30)  5 MAY 2023 21:48
  restricted system commands enabled.
 **CV_Blaschek.tex
 (./CV_Blaschek.tex
@@ -928,18 +928,18 @@ Inserting `luaotfload.letterspace' at position 3 in `hpack_filter'. [1
 
 {/usr/share/texlive/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 119.
+(Font)              <10.95> on input line 117.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 119.
+(Font)              <8> on input line 117.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 119.
+(Font)              <6> on input line 117.
 
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-cmr.cfg
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
 )
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 120.
+(Font)              <5> on input line 118.
  [2] [3]
 
 AED: lastpage setting LastPage
@@ -962,7 +962,7 @@ Here is how much of LuaTeX's memory you used:
 pietary_fonts/Bembo/BemboStd-Italic.otf></usr/share/fonts/propietary_fonts/Bembo
 /BemboStd.otf></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
 8.pfb>
-Output written on CV_Blaschek.pdf (4 pages, 40856 bytes).
+Output written on CV_Blaschek.pdf (4 pages, 40852 bytes).
 
 PDF statistics: 71 PDF objects out of 1000 (max. 8388607)
  54 compressed objects within 1 object stream
