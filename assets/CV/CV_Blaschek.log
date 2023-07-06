@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.15.0 (TeX Live 2022/CVE-2023-32700 patched)  (format=lualatex 2023.6.29)  6 JUL 2023 14:25
+This is LuaHBTeX, Version 1.15.0 (TeX Live 2022/CVE-2023-32700 patched)  (format=lualatex 2023.6.29)  6 JUL 2023 18:55
  restricted system commands enabled.
 **CV_Blaschek.tex
 (./CV_Blaschek.tex
@@ -958,16 +958,16 @@ Here is how much of LuaTeX's memory you used:
  516 words of node memory still in use:
    5 hlist, 1 vlist, 1 rule, 1 local_par, 4 glue, 3 kern, 1 penalty, 3 glyph, 7 
 attribute, 56 glue_spec, 7 attribute_list, 2 write nodes
-   avail lists: 1:1,2:826,3:293,4:188,5:1165,6:104,7:6653,8:28,9:389,10:18,11:48
+   avail lists: 1:1,2:844,3:296,4:191,5:1165,6:104,7:6653,8:28,9:392,10:18,11:48
 6
  34907 multiletter control sequences out of 65536+600000
  57 fonts using 3698791 bytes
- 108i,11n,100p,1007b,484s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 108i,11n,100p,1007b,486s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/fonts/propietary_fonts/Bembo/BemboStd-Bold.otf></usr/share/fonts/pro
 pietary_fonts/Bembo/BemboStd-Italic.otf></usr/share/fonts/propietary_fonts/Bembo
 /BemboStd.otf></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
 8.pfb>
-Output written on CV_Blaschek.pdf (4 pages, 41027 bytes).
+Output written on CV_Blaschek.pdf (4 pages, 40960 bytes).
 
 PDF statistics: 71 PDF objects out of 1000 (max. 8388607)
  54 compressed objects within 1 object stream
