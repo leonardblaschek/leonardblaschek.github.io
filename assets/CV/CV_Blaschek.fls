@@ -100,10 +100,9 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/fontspec/fontspec.cfg
 INPUT /usr/share/texlive/texmf-dist/tex/latex/fontspec/fontspec.cfg
 INPUT /home/leonard/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-bold.luc
 INPUT /home/leonard/.texlive2022/texmf-var/luatex-cache/generic/names/luaotfload-lookup-cache.luc
-INPUT /home/leonard/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/bembostd.luc
-INPUT /home/leonard/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/bembostd-bolditalic.luc
-INPUT /home/leonard/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/bembostd-bold.luc
-INPUT /home/leonard/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/bembostd-italic.luc
+INPUT /home/leonard/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/linbiolinum-rah.luc
+INPUT /home/leonard/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/linbiolinum-rbah.luc
+INPUT /home/leonard/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/linbiolinum-riah.luc
 INPUT /usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.sty
