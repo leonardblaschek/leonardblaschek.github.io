@@ -39,7 +39,7 @@ font_add(
   italic = "/propietary_fonts/Futura/FuturaStd-MediumOblique.otf",
   bold = "/propietary_fonts/Futura/FuturaStd-Bold.otf",
   bolditalic = "/propietary_fonts/Futura/FuturaStd-BoldOblique.otf",
-  )
+)
 showtext_auto()
 
 textsize <- 22
@@ -87,7 +87,6 @@ pal_ostwald_disc <- c(
 ```
 
 ```{r, echo=FALSE}
-
 #### Load data ####
 oa_url <- "https://api.openalex.org/authors/orcid:0000-0003-3943-1476"
 
@@ -99,7 +98,7 @@ full_works <- fromJSON(full_profile[["works_api_url"]])
 
 works <- tibble(
   authorship = full_works[["results"]][["authorships"]],
-  authors_long = map(authorship, c(2,2)),
+  authors_long = map(authorship, c(2, 2)),
   authors_short = map(authors_long, WikidataR::initials),
   author_list = map(authors_short, \(x) str_c(x, collapse = ", ")),
   title = full_works[["results"]][["title"]],
@@ -110,30 +109,32 @@ works <- tibble(
   date = ymd(full_works[["results"]][["publication_date"]]),
   cited_by = full_works[["results"]][["cited_by_count"]],
   item = paste0(author_list, ". ", year, ". ", title, ". ", "<i>", journal, ".</i> ", "[", str_remove(doi, fixed("https://doi.org/")), "](", doi, ")")
-) |> 
-  mutate(item = str_replace(item, short_name, paste0("<b>", short_name, "</b>"))) |> 
-  arrange(date) |> 
-  drop_na(doi) |> 
+) |>
+  mutate(item = str_replace(item, short_name, paste0("<b>", short_name, "</b>"))) |>
+  arrange(date) |>
+  drop_na(doi) |>
   distinct(title, journal, .keep_all = TRUE)
 
-work_table <- works |> 
-  arrange(desc(date)) |> 
-  select("Reference" = item,
-         "Citations" = cited_by,
-         "Year" = year)
+work_table <- works |>
+  arrange(desc(date)) |>
+  select(
+    "Reference" = item,
+    "Citations" = cited_by,
+    "Year" = year
+  )
 
-work_timeline <- works |> 
-  select(doi, year, type) |> 
-  count(year, type) |> 
-  complete(year, type, fill = list(n = 0)) |> 
-  group_by(type) |> 
-  arrange(year) |> 
+work_timeline <- works |>
+  select(doi, year, type) |>
+  count(year, type) |>
+  complete(year, type, fill = list(n = 0)) |>
+  group_by(type) |>
+  arrange(year) |>
   mutate(works_cum = cumsum(n))
 
 cite_timeline <- tibble(
   year = full_profile[["counts_by_year"]][["year"]],
   cited_by_count = full_profile[["counts_by_year"]][["cited_by_count"]]
-) |> 
+) |>
   arrange(year)
 
 profile <- tibble(
@@ -142,8 +143,8 @@ profile <- tibble(
   "Preprints" = max(work_timeline$works_cum[work_timeline$type == "Preprint"]),
   "h index" = full_profile[["summary_stats"]][["h_index"]],
   "i10 index" = full_profile[["summary_stats"]][["i10_index"]]
-) |> 
-  pivot_longer(everything(), names_to = "metric", values_to = "value") |> 
+) |>
+  pivot_longer(everything(), names_to = "metric", values_to = "value") |>
   mutate(metric = ordered(as.factor(metric), levels = rev(c("Citations", "h index", "i10 index", "Journal articles", "Preprints"))))
 ```
 
@@ -153,12 +154,13 @@ profile <- tibble(
 #### List papers ####
 
 kable(
-  work_table |>  filter(!str_detect(Reference, "bioRxiv")),
+  work_table |> filter(!str_detect(Reference, "bioRxiv")),
   escape = FALSE
-  ) |> 
+) |>
   kable_styling(
     html_font = "IBM Plex Sans",
-    full_width = FALSE)
+    full_width = FALSE
+  )
 ```
 
 ### Preprints
@@ -167,12 +169,13 @@ kable(
 #### List papers ####
 
 kable(
-  work_table |>  filter(str_detect(Reference, "bioRxiv")),
+  work_table |> filter(str_detect(Reference, "bioRxiv")),
   escape = FALSE
-  ) |> 
+) |>
   kable_styling(
     html_font = "IBM Plex Sans",
-    full_width = FALSE)
+    full_width = FALSE
+  )
 ```
 
 ### Metrics
@@ -181,9 +184,12 @@ kable(
 #### Plot overview ####
 overview_tab <- ggplot(
   profile,
-  aes(x = metric,
-      y = 1,
-      label = value)) +
+  aes(
+    x = metric,
+    y = 1,
+    label = value
+  )
+) +
   geom_text(
     family = "Futura",
     size = ggtext_size,
@@ -196,8 +202,10 @@ overview_tab <- ggplot(
 
 cite_plot <- ggplot(
   cite_timeline,
-  aes(x = year,
-      y = cited_by_count)
+  aes(
+    x = year,
+    y = cited_by_count
+  )
 ) +
   geom_col(
     fill = pal_ostwald_disc[2]
@@ -212,13 +220,15 @@ cite_plot <- ggplot(
     hjust = 0,
     colour = "white"
   ) +
-  theme_leo() 
+  theme_leo()
 
 work_plot <- ggplot(
   work_timeline,
-  aes(x = year,
-      y = works_cum,
-      colour = type)
+  aes(
+    x = year,
+    y = works_cum,
+    colour = type
+  )
 ) +
   geom_line() +
   geom_point(
@@ -237,11 +247,13 @@ work_plot <- ggplot(
     hjust = 0,
     colour = "white"
   ) +
-  scale_colour_manual(values = pal_ostwald_disc[c(1,2)]) +
+  scale_colour_manual(values = pal_ostwald_disc[c(1, 2)]) +
   theme_leo() +
-  theme(legend.title = element_blank(),
-        legend.position = c(0.2, 0.8),
-        legend.text = element_text(colour = "white"))
+  theme(
+    legend.title = element_blank(),
+    legend.position = c(0.2, 0.8),
+    legend.text = element_text(colour = "white")
+  )
 
 overview_tab + plot_spacer() + cite_plot + work_plot +
   plot_layout(nrow = 1, widths = c(0.5, 0.01, 2, 2)) &
@@ -249,5 +261,5 @@ overview_tab + plot_spacer() + cite_plot + work_plot +
 ```
 
 ```{r, echo = FALSE, include = TRUE, results='asis'}
-cat(paste0("<br>Powered by the free and open source scholarly indexing project [OpenAlex](https://openalex.org).<br><i>Last updated ", floor_date(as_date(full_profile[["updated_date"]])), ".</i>"))
+cat(paste0("<br>Powered by the free and open source scholarly indexing project [OpenAlex](https://openalex.org).<br><i>Last updated ", as_date(full_profile[["updated_date"]]), ".</i>"))
 ```
