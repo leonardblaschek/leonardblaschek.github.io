@@ -1,0 +1,253 @@
+---
+title: "Publications"
+output: 
+  html_document:
+    includes:
+      in_header: profile_head.html
+      before_body: profile_corner.html
+      after_body: profile_foot.html
+---
+
+<style type="text/css">
+.main-container {
+  max-width: 100% !important;
+}
+</style>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  warning = FALSE, message = FALSE
+)
+
+library(tidyverse)
+library(jsonlite)
+library(showtext)
+library(patchwork)
+library(kableExtra)
+
+#### Define ggplot2 theme ####
+font_add(
+  "IBMPlexSans",
+  regular = "/OFL_fonts/IBMPlexSans-Light.otf",
+  italic = "/OFL_fonts/IBMPlexSans-LightItalic.otf",
+  bold = "/OFL_fonts/IBMPlexSans-SemiBold.otf",
+  bolditalic = "/OFL_fonts/IBMPlexSans-SemiBoldItalic.otf"
+)
+font_add(
+  "Futura",
+  regular = "/propietary_fonts/Futura/FuturaStd-Medium.otf",
+  italic = "/propietary_fonts/Futura/FuturaStd-MediumOblique.otf",
+  bold = "/propietary_fonts/Futura/FuturaStd-Bold.otf",
+  bolditalic = "/propietary_fonts/Futura/FuturaStd-BoldOblique.otf",
+  )
+showtext_auto()
+
+textsize <- 22
+theme_leo <- function(base_size = textsize,
+                      base_family = "Futura") {
+  theme_minimal(
+    base_size = base_size,
+    base_family = base_family
+  ) %+replace%
+    theme(
+      strip.text = element_text(hjust = 0, face = "italic"),
+      axis.ticks = element_blank(),
+      axis.text.x = element_text(
+        colour = "white",
+        margin = margin(1, 1, 1, 1),
+        size = base_size
+      ),
+      axis.text.y = element_text(
+        colour = "white",
+        angle = 0,
+        vjust = 0.5,
+        hjust = 1,
+        margin = margin(1, 1, 1, 1),
+        size = base_size
+      ),
+      panel.border = element_blank(),
+      axis.title = element_blank(),
+      panel.grid.major = element_blank(),
+      panel.grid.minor = element_blank(),
+      panel.spacing = unit(1.5, "mm"),
+      legend.position = "bottom",
+      legend.text = element_text(size = rel(1)),
+      legend.key.height = unit(4, "mm"),
+      complete = TRUE
+    )
+}
+
+ggtext_size <- textsize / (14 / 5)
+
+pal_ostwald_disc <- c(
+  "#275d95",
+  "#e8c245",
+  "#d25952"
+)
+```
+
+```{r, echo=FALSE}
+
+#### Load data ####
+oa_url <- "https://api.openalex.org/authors/orcid:0000-0003-3943-1476"
+
+full_profile <- fromJSON(oa_url)
+
+short_name <- WikidataR::initials(full_profile[["display_name"]])
+
+full_works <- fromJSON(full_profile[["works_api_url"]])
+
+works <- tibble(
+  authorship = full_works[["results"]][["authorships"]],
+  authors_long = map(authorship, c(2,2)),
+  authors_short = map(authors_long, WikidataR::initials),
+  author_list = map(authors_short, \(x) str_c(x, collapse = ", ")),
+  title = full_works[["results"]][["title"]],
+  doi = full_works[["results"]][["doi"]],
+  journal = full_works[["results"]][["primary_location"]][["source"]][["display_name"]],
+  type = case_when(str_detect(journal, "bioRxiv") ~ "Preprint", TRUE ~ "Journal"),
+  year = full_works[["results"]][["publication_year"]],
+  date = ymd(full_works[["results"]][["publication_date"]]),
+  cited_by = full_works[["results"]][["cited_by_count"]],
+  item = paste0(author_list, ". ", year, ". ", title, ". ", "<i>", journal, ".</i> ", "[", str_remove(doi, fixed("https://doi.org/")), "](", doi, ")")
+) |> 
+  mutate(item = str_replace(item, short_name, paste0("<b>", short_name, "</b>"))) |> 
+  arrange(date) |> 
+  drop_na(doi) |> 
+  distinct(title, journal, .keep_all = TRUE)
+
+work_table <- works |> 
+  arrange(desc(date)) |> 
+  select("Reference" = item,
+         "Citations" = cited_by,
+         "Year" = year)
+
+work_timeline <- works |> 
+  select(doi, year, type) |> 
+  count(year, type) |> 
+  complete(year, type, fill = list(n = 0)) |> 
+  group_by(type) |> 
+  arrange(year) |> 
+  mutate(works_cum = cumsum(n))
+
+cite_timeline <- tibble(
+  year = full_profile[["counts_by_year"]][["year"]],
+  cited_by_count = full_profile[["counts_by_year"]][["cited_by_count"]]
+) |> 
+  arrange(year)
+
+profile <- tibble(
+  "Citations" = full_profile[["cited_by_count"]],
+  "Journal articles" = max(work_timeline$works_cum[work_timeline$type == "Journal"]),
+  "Preprints" = max(work_timeline$works_cum[work_timeline$type == "Preprint"]),
+  "h index" = full_profile[["summary_stats"]][["h_index"]],
+  "i10 index" = full_profile[["summary_stats"]][["i10_index"]]
+) |> 
+  pivot_longer(everything(), names_to = "metric", values_to = "value") |> 
+  mutate(metric = ordered(as.factor(metric), levels = rev(c("Citations", "h index", "i10 index", "Journal articles", "Preprints"))))
+```
+
+### Peer-reviewed
+
+```{r, echo=FALSE}
+#### List papers ####
+
+kable(
+  work_table |>  filter(!str_detect(Reference, "bioRxiv")),
+  escape = FALSE
+  ) |> 
+  kable_styling(
+    html_font = "IBM Plex Sans",
+    full_width = FALSE)
+```
+
+### Preprints
+
+```{r, echo=FALSE}
+#### List papers ####
+
+kable(
+  work_table |>  filter(str_detect(Reference, "bioRxiv")),
+  escape = FALSE
+  ) |> 
+  kable_styling(
+    html_font = "IBM Plex Sans",
+    full_width = FALSE)
+```
+
+### Metrics
+
+```{r, echo=FALSE, fig.height=2, fig.width=8, fig.align='center', dev = "png", dev.args=list(bg="transparent")}
+#### Plot overview ####
+overview_tab <- ggplot(
+  profile,
+  aes(x = metric,
+      y = 1,
+      label = value)) +
+  geom_text(
+    family = "Futura",
+    size = ggtext_size,
+    hjust = 1,
+    colour = "white"
+  ) +
+  coord_flip() +
+  theme_leo() +
+  theme(axis.text.x = element_blank())
+
+cite_plot <- ggplot(
+  cite_timeline,
+  aes(x = year,
+      y = cited_by_count)
+) +
+  geom_col(
+    fill = pal_ostwald_disc[2]
+  ) +
+  annotate(
+    "text",
+    label = "Citations — yearly",
+    x = 2019.5,
+    y = max(cite_timeline$cited_by_count),
+    family = "Futura",
+    size = ggtext_size,
+    hjust = 0,
+    colour = "white"
+  ) +
+  theme_leo() 
+
+work_plot <- ggplot(
+  work_timeline,
+  aes(x = year,
+      y = works_cum,
+      colour = type)
+) +
+  geom_line() +
+  geom_point(
+    shape = 21,
+    size = 3,
+    stroke = 0.8,
+    fill = "white"
+  ) +
+  annotate(
+    "text",
+    label = "Works — cumulative",
+    x = 2019.5,
+    y = max(work_timeline$works_cum),
+    family = "Futura",
+    size = ggtext_size,
+    hjust = 0,
+    colour = "white"
+  ) +
+  scale_colour_manual(values = pal_ostwald_disc[c(1,2)]) +
+  theme_leo() +
+  theme(legend.title = element_blank(),
+        legend.position = c(0.2, 0.8),
+        legend.text = element_text(colour = "white"))
+
+overview_tab + plot_spacer() + cite_plot + work_plot +
+  plot_layout(nrow = 1, widths = c(0.5, 0.01, 2, 2)) &
+  theme(plot.background = element_blank())
+```
+
+```{r, echo = FALSE, include = TRUE, results='asis'}
+cat(paste0("<br>Powered by the free and open source scholarly indexing project [OpenAlex](https://openalex.org).<br><i>Last updated ", floor_date(as_date(full_profile[["updated_date"]])), ".</i>"))
+```

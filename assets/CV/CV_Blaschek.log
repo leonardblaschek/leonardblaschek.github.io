@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.15.0 (TeX Live 2022/CVE-2023-32700 patched)  (format=lualatex 2023.6.29)  29 AUG 2023 13:53
+This is LuaHBTeX, Version 1.15.0 (TeX Live 2022/CVE-2023-32700 patched)  (format=lualatex 2023.6.29)  2 OCT 2023 14:08
  restricted system commands enabled.
 **CV_Blaschek.tex
 (./CV_Blaschek.tex
@@ -654,17 +654,17 @@ Inserting `luaotfload.letterspace' at position 3 in `hpack_filter'. [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 117.
+(Font)              <10.95> on input line 118.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 117.
+(Font)              <8> on input line 118.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 117.
+(Font)              <6> on input line 118.
  (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-cmr.cfg
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
 )
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 118.
+(Font)              <5> on input line 119.
  [2] [3] 
 AED: lastpage setting LastPage
 [4] (./CV_Blaschek.aux)
@@ -678,7 +678,7 @@ Here is how much of LuaTeX's memory you used:
  526 words of node memory still in use:
    5 hlist, 1 vlist, 1 rule, 1 local_par, 4 glue, 3 kern, 1 penalty, 3 glyph, 8 
 attribute, 56 glue_spec, 8 attribute_list, 2 write, 1 pdf_action nodes
-   avail lists: 1:1,2:778,3:283,4:184,5:1122,6:103,7:6233,8:27,9:385,10:16,11:48
+   avail lists: 1:1,2:802,3:293,4:190,5:1122,6:103,7:6304,8:27,9:395,10:16,11:48
 6
  34909 multiletter control sequences out of 65536+600000
  55 fonts using 11751511 bytes
@@ -687,7 +687,7 @@ attribute, 56 glue_spec, 8 attribute_list, 2 write, 1 pdf_action nodes
 -linux-libertine/LinBiolinum_RIah.ttf></usr/share/fonts/ttf-linux-libertine/LinB
 iolinum_Rah.ttf></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 sy8.pfb>
-Output written on CV_Blaschek.pdf (4 pages, 58806 bytes).
+Output written on CV_Blaschek.pdf (4 pages, 59075 bytes).
 
 PDF statistics: 72 PDF objects out of 1000 (max. 8388607)
  55 compressed objects within 1 object stream
