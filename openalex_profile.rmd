@@ -11,6 +11,7 @@ output:
 <style type="text/css">
 .main-container {
   max-width: 100% !important;
+  padding: 0 !important;
 }
 </style>
 
@@ -84,17 +85,28 @@ pal_ostwald_disc <- c(
   "#e8c245",
   "#d25952"
 )
+
+h_index = function(cites) {
+  if(max(cites) == 0) return(0) # assuming this is reasonable
+  cites = cites[order(cites, decreasing = TRUE)]
+  tail(which(cites >= seq_along(cites)), 1)
+}
 ```
 
 ```{r, echo=FALSE}
 #### Load data ####
-oa_url <- "https://api.openalex.org/authors/orcid:0000-0003-3943-1476"
+orcid <- "0000-0003-3943-1476"
 
-full_profile <- fromJSON(oa_url)
+# Other authors for database testing:
+# orcid <- "0000-0002-6959-3284" #Edouard
+# orcid <- "0000-0002-6377-5132" #Staffan
+# full_profile <- fromJSON("https://api.openalex.org/authors/A5046939400") #Lise
 
-short_name <- WikidataR::initials(full_profile[["display_name"]])
+full_profile <- fromJSON(paste0("https://api.openalex.org/authors/orcid:", orcid))
 
 full_works <- fromJSON(full_profile[["works_api_url"]])
+
+short_name <- WikidataR::initials(full_profile[["display_name"]])
 
 works <- tibble(
   authorship = full_works[["results"]][["authorships"]],
@@ -104,11 +116,13 @@ works <- tibble(
   title = full_works[["results"]][["title"]],
   doi = full_works[["results"]][["doi"]],
   journal = full_works[["results"]][["primary_location"]][["source"]][["display_name"]],
-  type = case_when(str_detect(journal, "bioRxiv") ~ "Preprint", TRUE ~ "Journal"),
-  year = full_works[["results"]][["publication_year"]],
+  version = full_works[["results"]][["best_oa_location"]][["version"]],
+  type = case_when(version == "submittedVersion" ~ "Preprint", TRUE ~ "Journal"),
+  pub_year = full_works[["results"]][["publication_year"]],
   date = ymd(full_works[["results"]][["publication_date"]]),
   cited_by = full_works[["results"]][["cited_by_count"]],
-  item = paste0(author_list, ". ", year, ". ", title, ". ", "<i>", journal, ".</i> ", "[", str_remove(doi, fixed("https://doi.org/")), "](", doi, ")")
+  cites_by_year = full_works[["results"]][["counts_by_year"]],
+  item = paste0(author_list, ". ", pub_year, ". ", title, ". ", "<i>", journal, ".</i> ", "[", str_remove(doi, fixed("https://doi.org/")), "](", doi, ")")
 ) |>
   mutate(item = str_replace(item, short_name, paste0("<b>", short_name, "</b>"))) |>
   arrange(date) |>
@@ -120,16 +134,16 @@ work_table <- works |>
   select(
     "Reference" = item,
     "Citations" = cited_by,
-    "Year" = year
+    "Year" = pub_year
   )
 
 work_timeline <- works |>
-  select(doi, year, type) |>
-  count(year, type) |>
-  complete(year, type, fill = list(n = 0)) |>
+  select(doi, pub_year, type) |>
+  count(pub_year, type, name = "works") |>
+  complete(pub_year, type, fill = list(works = 0)) |>
   group_by(type) |>
-  arrange(year) |>
-  mutate(works_cum = cumsum(n))
+  arrange(pub_year) |>
+  mutate(works_cum = cumsum(works))
 
 cite_timeline <- tibble(
   year = full_profile[["counts_by_year"]][["year"]],
@@ -137,15 +151,34 @@ cite_timeline <- tibble(
 ) |>
   arrange(year)
 
-profile <- tibble(
-  "Citations" = full_profile[["cited_by_count"]],
-  "Journal articles" = max(work_timeline$works_cum[work_timeline$type == "Journal"]),
-  "Preprints" = max(work_timeline$works_cum[work_timeline$type == "Preprint"]),
-  "h index" = full_profile[["summary_stats"]][["h_index"]],
-  "i10 index" = full_profile[["summary_stats"]][["i10_index"]]
-) |>
-  pivot_longer(everything(), names_to = "metric", values_to = "value") |>
-  mutate(metric = ordered(as.factor(metric), levels = rev(c("Citations", "h index", "i10 index", "Journal articles", "Preprints"))))
+cites_fiveyear <- works |> 
+  select(doi, pub_year, cites_by_year) |> 
+  unnest(cites_by_year) |> 
+  filter(year > year(now()) - 5) |> 
+  group_by(doi) |> 
+  summarise(cited_by_count = sum(cited_by_count))
+
+metrics <- tibble(
+  metric = ordered(
+    rep(c("Citations", "h index", "i10 index", "Journal articles", "Preprints"), 2),
+    levels = rev(c("Citations", "h index", "i10 index", "Journal articles", "Preprints"))
+  ),
+  span = ordered(
+    c(rep(c("Total", paste0("Since ", year(now()) - 5)), each = 5)),
+    levels = c("Total", paste0("Since ", year(now()) - 5))
+  ),
+  value = c(
+    full_profile[["cited_by_count"]],
+    full_profile[["summary_stats"]][["h_index"]],
+    full_profile[["summary_stats"]][["i10_index"]],
+    max(work_timeline$works_cum[work_timeline$type == "Journal"]),
+    max(work_timeline$works_cum[work_timeline$type == "Preprint"]),
+    sum(cite_timeline$cited_by_count[cite_timeline$year > year(now()) - 5]),
+    h_index(cites_fiveyear$cited_by_count),
+    length(cites_fiveyear$cited_by_count[cites_fiveyear$cited_by_count >= 10]),
+    sum(work_timeline$works[cite_timeline$year > year(now()) - 5 & work_timeline$type == "Journal"]),
+    sum(work_timeline$works[cite_timeline$year > year(now()) - 5 & work_timeline$type == "Preprint"])
+  )) 
 ```
 
 ### Peer-reviewed
@@ -183,10 +216,10 @@ kable(
 ```{r, echo=FALSE, fig.height=2, fig.width=8, fig.align='center', dev = "png", dev.args=list(bg="transparent")}
 #### Plot overview ####
 overview_tab <- ggplot(
-  profile,
+  metrics,
   aes(
     x = metric,
-    y = 1,
+    y = span,
     label = value
   )
 ) +
@@ -196,9 +229,18 @@ overview_tab <- ggplot(
     hjust = 1,
     colour = "white"
   ) +
-  coord_flip() +
+  geom_vline(
+    xintercept = c(0.5, 5.5),
+    colour = "white"
+  ) +
+  coord_flip(
+    clip = "off",
+    # expand = FALSE
+    ) +
+  scale_y_discrete(position = "right", expand = expansion(add = c(0.5, 0))) +
+  scale_x_discrete(expand = expansion(add = 0)) +
   theme_leo() +
-  theme(axis.text.x = element_blank())
+  theme(axis.text.x.top = element_text(hjust = 1))
 
 cite_plot <- ggplot(
   cite_timeline,
@@ -213,19 +255,21 @@ cite_plot <- ggplot(
   annotate(
     "text",
     label = "Citations — yearly",
-    x = 2019.5,
+    x = min(cite_timeline$year) - 0.5,
     y = max(cite_timeline$cited_by_count),
     family = "Futura",
     size = ggtext_size,
     hjust = 0,
+    vjust = 0,
     colour = "white"
   ) +
+  coord_cartesian(clip = "off") +
   theme_leo()
 
 work_plot <- ggplot(
   work_timeline,
   aes(
-    x = year,
+    x = pub_year,
     y = works_cum,
     colour = type
   )
@@ -233,21 +277,23 @@ work_plot <- ggplot(
   geom_line() +
   geom_point(
     shape = 21,
-    size = 3,
+    size = 2,
     stroke = 0.8,
     fill = "white"
   ) +
   annotate(
     "text",
     label = "Works — cumulative",
-    x = 2019.5,
+    x = min(work_timeline$pub_year) - 0.5,
     y = max(work_timeline$works_cum),
     family = "Futura",
     size = ggtext_size,
     hjust = 0,
+    vjust = 0,
     colour = "white"
   ) +
   scale_colour_manual(values = pal_ostwald_disc[c(1, 2)]) +
+  coord_cartesian(clip = "off") +
   theme_leo() +
   theme(
     legend.title = element_blank(),
@@ -255,11 +301,12 @@ work_plot <- ggplot(
     legend.text = element_text(colour = "white")
   )
 
-overview_tab + plot_spacer() + cite_plot + work_plot +
-  plot_layout(nrow = 1, widths = c(0.5, 0.01, 2, 2)) &
+overview_tab + cite_plot + work_plot +
+  plot_layout(nrow = 1, widths = c(1.25, 2, 2)) &
   theme(plot.background = element_blank())
 ```
 
 ```{r, echo = FALSE, include = TRUE, results='asis'}
-cat(paste0("<br>Powered by the free and open source scholarly indexing project [OpenAlex](https://openalex.org).<br><i>Last updated ", as_date(full_profile[["updated_date"]]), ".</i>"))
+cat(paste0("<br>Data from the free and open source scholarly indexing project [OpenAlex](https://openalex.org).<br><i>Last updated ", as_date(full_profile[["updated_date"]]), ".</i>"))
 ```
+
