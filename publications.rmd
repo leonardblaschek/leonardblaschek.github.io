@@ -25,6 +25,7 @@ library(jsonlite)
 library(showtext)
 library(patchwork)
 library(kableExtra)
+library(rorcid)
 
 #### Define ggplot2 theme ####
 font_add(
@@ -106,6 +107,9 @@ full_profile <- fromJSON(paste0("https://api.openalex.org/authors/orcid:", orcid
 
 full_works <- fromJSON(full_profile[["works_api_url"]])
 
+full_peer_reviews <- orcid_peer_reviews(orcid)[[orcid]][["group"]][["peer-review-group"]] |> 
+  unlist()
+
 short_name <- WikidataR::initials(full_profile[["display_name"]])
 
 works <- tibble(
@@ -158,13 +162,26 @@ cites_fiveyear <- works |>
   group_by(doi) |> 
   summarise(cited_by_count = sum(cited_by_count))
 
+peer_reviews <- tibble(
+  review = full_peer_reviews[grepl("peer-review-summary.external-ids.external-id.external-id-value", names(full_peer_reviews))],
+  year = full_peer_reviews[grepl("peer-review-summary.completion-date.year.value", names(full_peer_reviews))]
+) |> 
+  summarise(count = n())
+
+peer_reviews_fiveyear <- tibble(
+  review = full_peer_reviews[grepl("peer-review-summary.external-ids.external-id.external-id-value", names(full_peer_reviews))],
+  year = full_peer_reviews[grepl("peer-review-summary.completion-date.year.value", names(full_peer_reviews))]
+) |> 
+  filter(year > year(now()) - 5) |> 
+  summarise(count = n())
+
 metrics <- tibble(
   metric = ordered(
-    rep(c("Citations", "h index", "i10 index", "Journal articles", "Preprints"), 2),
-    levels = rev(c("Citations", "h index", "i10 index", "Journal articles", "Preprints"))
+    rep(c("Citations", "h index", "i10 index", "Journal articles", "Preprints", "Peer reviews"), 2),
+    levels = rev(c("Citations", "h index", "i10 index", "Journal articles", "Preprints", "Peer reviews"))
   ),
   span = ordered(
-    c(rep(c("Total", paste0("Since ", year(now()) - 5)), each = 5)),
+    c(rep(c("Total", paste0("Since ", year(now()) - 5)), each = 6)),
     levels = c("Total", paste0("Since ", year(now()) - 5))
   ),
   value = c(
@@ -173,11 +190,13 @@ metrics <- tibble(
     full_profile[["summary_stats"]][["i10_index"]],
     max(work_timeline$works_cum[work_timeline$type == "Journal"]),
     max(work_timeline$works_cum[work_timeline$type == "Preprint"]),
+    peer_reviews$count,
     sum(cite_timeline$cited_by_count[cite_timeline$year > year(now()) - 5]),
     h_index(cites_fiveyear$cited_by_count),
     length(cites_fiveyear$cited_by_count[cites_fiveyear$cited_by_count >= 10]),
     sum(work_timeline$works[cite_timeline$year > year(now()) - 5 & work_timeline$type == "Journal"]),
-    sum(work_timeline$works[cite_timeline$year > year(now()) - 5 & work_timeline$type == "Preprint"])
+    sum(work_timeline$works[cite_timeline$year > year(now()) - 5 & work_timeline$type == "Preprint"]),
+    peer_reviews_fiveyear$count
   )) 
 ```
 
@@ -230,7 +249,7 @@ overview_tab <- ggplot(
     colour = "white"
   ) +
   geom_vline(
-    xintercept = c(0.5, 5.5),
+    xintercept = c(0.5, 6.5),
     colour = "white"
   ) +
   coord_flip(
@@ -238,7 +257,7 @@ overview_tab <- ggplot(
     # expand = FALSE
     ) +
   scale_y_discrete(position = "right", expand = expansion(add = c(0.5, 0))) +
-  scale_x_discrete(expand = expansion(add = 0)) +
+  scale_x_discrete(expand = expansion(add = 0.05)) +
   theme_leo() +
   theme(axis.text.x.top = element_text(hjust = 1))
 
@@ -307,6 +326,6 @@ overview_tab + cite_plot + work_plot +
 ```
 
 ```{r, echo = FALSE, include = TRUE, results='asis'}
-cat(paste0("<br>Data from the free and open source scholarly indexing project [OpenAlex](https://openalex.org).<br><i>Last updated ", as_date(full_profile[["updated_date"]]), ".</i>"))
+cat(paste0("<br>Publication data from the free and open source scholarly indexing project [OpenAlex](https://openalex.org). Peer-review data from [ORCID](https://orcid.org).<br><i>Last updated ", as_date(full_profile[["updated_date"]]), ".</i>"))
 ```
 
