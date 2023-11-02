@@ -126,9 +126,14 @@ works <- tibble(
   date = ymd(full_works[["results"]][["publication_date"]]),
   cited_by = full_works[["results"]][["cited_by_count"]],
   cites_by_year = full_works[["results"]][["counts_by_year"]],
+  is_oa = full_works[["results"]][["best_oa_location"]][["is_oa"]],
   item = paste0(author_list, ". ", pub_year, ". ", title, ". ", "<i>", journal, ".</i> ", "[", str_remove(doi, fixed("https://doi.org/")), "](", doi, ")")
 ) |>
-  mutate(item = str_replace(item, short_name, paste0("<b>", short_name, "</b>"))) |>
+  mutate(
+    item = str_replace(item, short_name, paste0("<b>", short_name, "</b>")),
+    item = case_when(
+      is.na(is_oa) ~ paste0(item, " — [PDF](./assets/pdf/", str_replace_all(str_remove(doi, fixed("https://doi.org/")), "[\\./]", "_") , ".pdf)"),
+      TRUE ~ item)) |>
   arrange(date) |>
   drop_na(doi) |>
   distinct(title, journal, .keep_all = TRUE)
@@ -185,7 +190,7 @@ metrics <- tibble(
     levels = c("Total", paste0("Since ", year(now()) - 5))
   ),
   value = c(
-    full_profile[["cited_by_count"]],
+    sum(cite_timeline$cited_by_count),
     full_profile[["summary_stats"]][["h_index"]],
     full_profile[["summary_stats"]][["i10_index"]],
     max(work_timeline$works_cum[work_timeline$type == "Journal"]),
