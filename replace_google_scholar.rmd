@@ -122,7 +122,7 @@ works <- tibble(
 )
 ```
 
-The we can paste together full citations (I leave out volume, issue and page numbers here, but you can easily add those in the same way):
+Then we can paste together full citations (I leave out volume, issue and page numbers here, but you can easily add those in the same way):
 
 ```{r}
 works <- works |>
