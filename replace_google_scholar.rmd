@@ -3,6 +3,7 @@ title: "Building a drop-in replacement for the Google Scholar page with R and Op
 output: 
   html_document:
     highlight: kate
+    
     includes:
       in_header: blog_head.html
       before_body: blog_corner.html
@@ -13,6 +14,9 @@ output:
 .main-container {
   max-width: 100% !important;
   padding: 0 !important;
+}
+.sourceCode  {
+  font-family: "Inconsolata";
 }
 </style>
 
