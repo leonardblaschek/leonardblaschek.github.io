@@ -1,0 +1,393 @@
+---
+title: "Building a drop-in replacement for the Google Scholar page with R and OpenAlex"
+output: 
+  html_document:
+    highlight: kate
+    includes:
+      in_header: blog_head.html
+      before_body: blog_corner.html
+      after_body: blog_foot.html
+---
+
+<style type="text/css">
+.main-container {
+  max-width: 100% !important;
+  padding: 0 !important;
+}
+</style>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  warning = FALSE, message = FALSE
+)
+```
+
+<br>
+
+Google Scholar is not perfect.
+Some might even call it worse:
+
+```{r, echo=FALSE, out.width="100%"}
+knitr::include_url("https://fediscience.org/@ct_bergstrom/111303567826479298/embed")
+```
+
+It is also an opaque outgrowth of a for-profit tech-giant that one (read 'I') might want to spend less time with.
+Even beyond such idealistic musings, the lack of polish and development of Google Scholar makes its status as a side project quite apparent.
+Who knows how long it'll be around in it's current, useful form.
+
+Thankfully, there is an alternative:
+[OpenAlex](https://openalex.org) is a relatively new, open-source scholarly indexing project.
+It contains all the data we need to build a drop-in replacement of the Google Scholar page:
+
+```{r, echo=FALSE, out.width="100%"}
+knitr::include_url("https://leonardblaschek.github.io/publications.html")
+```
+
+The quality of its database and author disambiguation has been rapidly improving over recent months.
+By now, I believe it's good enough that this blog post has merit, and I am hopeful that it is going to get even better.
+
+### 1. Get your author and works objects
+
+OpenAlex disambiguates authors using their own internal ID.
+However, they also link existing ORCIDs, so you can use that to quickly access your OpenAlex profile:
+
+```{r}
+library(tidyverse)
+library(jsonlite)
+library(kableExtra)
+library(rorcid)
+require(WikidataR)
+
+orcid <- "0000-0003-3943-1476"
+
+full_profile <- fromJSON(paste0("https://api.openalex.org/authors/orcid:", orcid))
+```
+
+The output is a JSON file with summarising information about institutions, works and citations.
+It also contains an API URL to all the works associated the selected author.
+The default works API call returns only 25 results per page.
+We can increase that to a maximum of 200 by adding `&per-page=200` to the call.
+For the excessively productive (or old — apologies) among you, we can return more than 200 works with a short loop:
+
+```{r}
+full_works <- fromJSON(
+  paste0(
+    full_profile[["works_api_url"]], "&per-page=200&page=1&sort=publication_date:desc"
+  )
+)
+
+total_pages <- ceiling(full_works[["meta"]][["count"]] / 200)
+
+if (total_pages > 1) {
+  for (i in c(1:total_pages)) {
+    full_works$results <- full_works$results |>
+      bind_rows(
+        fromJSON(
+          paste0(
+            full_profile[["works_api_url"]], "&per-page=200&page=", i, "&sort=publication_date:desc"
+          )
+        )$results
+      )
+  }
+}
+```
+
+### 2. Listing publications
+
+The works JSON is remarkably detailed and, thankfully, regular.
+Plucking out the bits we need is straightforward.
+The data below is pretty self-explanatory, with one exception.
+`primary_location.version` describes the "best" accessible version of the article.
+For pre-publication peer-reviewed articles in traditional journals, is returns `publishedVersion`, for preprints it returns `submittedVersion`, allowing us to distinguish those two article types.
+
+```{r}
+works <- tibble(
+  authorship = full_works[["results"]][["authorships"]], # extract authors
+  authors_long = map(authorship, c(2, 2)), # extract author names
+  authors_short = map(authors_long, WikidataR::initials), # shorten first names
+  author_list = map(authors_short, \(x) str_c(x, collapse = ", ")), # collapse authors into a list
+  title = full_works[["results"]][["title"]], # extract titles
+  doi = full_works[["results"]][["doi"]], # extract DOIs
+  journal = full_works[["results"]][["primary_location"]][["source"]][["display_name"]], # extract journal names
+  version = full_works[["results"]][["primary_location"]][["version"]], # extract "best" accessible versions
+  type = case_when(version == "submittedVersion" ~ "Preprint", TRUE ~ "Journal"), # distinguish preprints
+  pub_year = full_works[["results"]][["publication_year"]], # extract online publication years
+  date = ymd(full_works[["results"]][["publication_date"]]), # extract online publication dates
+  cited_by = full_works[["results"]][["cited_by_count"]], # extract citation counts
+  cites_by_year = full_works[["results"]][["counts_by_year"]], # extract citations by year
+)
+```
+
+The we can paste together full citations (I leave out volume, issue and page numbers here, but you can easily add those in the same way):
+
+```{r}
+works <- works |>
+  mutate(
+    item = paste0( # paste together the full citations
+      author_list, ". ",
+      pub_year, ". ",
+      title, ". ",
+      "<i>", journal, ".</i> ",
+      "[", str_remove(doi, fixed("https://doi.org/")), "](", doi, ")"
+    )
+  )
+```
+
+In my publication list there are two theses and one correction.
+I'll filter those out.
+
+```{r}
+works <- works |>
+  drop_na(doi) |> # drop items without a doi
+  arrange(date) |> # arrange by date so we drop the right items in the next line
+  distinct(title, journal, .keep_all = TRUE) # drop later items with duplicate names (e.g. corrections)
+```
+
+Now we just need to highlight the name of the selected author in each publication, sort the list and make a table
+
+```{r}
+short_name <- WikidataR::initials(full_profile[["display_name"]])
+
+work_table <- works |>
+  # find author name and put it in bold face
+  mutate(item = str_replace(item, short_name, paste0("<b>", short_name, "</b>"))) |>
+  arrange(desc(date)) |>
+  select(
+    "Reference" = item,
+    "Citations" = cited_by,
+    "Year" = pub_year,
+    type
+  )
+```
+
+#### Peer-reviewed
+
+```{r}
+work_table |>
+  filter(type == "Journal") |>
+  select(-type) |>
+  kable(
+    escape = FALSE
+  ) |>
+  kable_styling(
+    full_width = FALSE
+  )
+```
+
+#### Preprints
+
+```{r}
+work_table |>
+  filter(type == "Preprint") |>
+  select(-type) |>
+  kable(
+    escape = FALSE
+  ) |>
+  kable_styling(
+    full_width = FALSE
+  )
+```
+
+### 3. Plot trends
+
+Now that we have our publication list, we can add some figures to plot output and citations over the years.
+Let's start with cumulative articles by years, split into peer-reviewed articles and preprints:
+
+```{r, fig.height=2, fig.width=3, fig.align='center', dev = "png", dev.args=list(bg="transparent")}
+work_timeline <- works |>
+  select(doi, pub_year, type) |>
+  count(pub_year, type, name = "works") |>
+  complete(pub_year, type, fill = list(works = 0)) |>
+  group_by(type) |>
+  arrange(pub_year) |>
+  mutate(works_cum = cumsum(works))
+
+ggplot(
+  work_timeline,
+  aes(
+    x = pub_year,
+    y = works_cum,
+    colour = type
+  )
+) +
+  geom_line() +
+  geom_point(
+    shape = 21,
+    size = 2,
+    stroke = 0.8,
+    fill = "white"
+  ) +
+  annotate(
+    "text",
+    label = "Works — cumulative",
+    x = min(work_timeline$pub_year) - 0.5,
+    y = max(work_timeline$works_cum),
+    size = 14 / (14 / 5),
+    hjust = 0,
+    vjust = 0,
+    colour = "black"
+  ) +
+  scale_colour_manual(values = c("#275d95", "#e8c245")) +
+  coord_cartesian(clip = "off") +
+  theme_minimal(base_size = 14) +
+  theme(
+    legend.title = element_blank(),
+    axis.title = element_blank(),
+    legend.position = c(0.2, 0.8),
+    legend.text = element_text(colour = "black")
+  )
+```
+
+And then, emulating the Google Scholar page, yearly citations:
+
+```{r, fig.height=2, fig.width=3, fig.align='center', dev = "png", dev.args=list(bg="transparent")}
+cite_timeline <- tibble(
+  year = full_profile[["counts_by_year"]][["year"]],
+  cited_by_count = full_profile[["counts_by_year"]][["cited_by_count"]]
+) |>
+  arrange(year)
+
+ggplot(
+  cite_timeline,
+  aes(
+    x = year,
+    y = cited_by_count
+  )
+) +
+  geom_col(
+    fill = "#e8c245"
+  ) +
+  annotate(
+    "text",
+    label = "Citations — yearly",
+    x = min(cite_timeline$year) - 0.5,
+    y = max(cite_timeline$cited_by_count),
+    size = 14 / (14 / 5),
+    hjust = 0,
+    vjust = 0,
+    colour = "black"
+  ) +
+  coord_cartesian(clip = "off") +
+  theme_minimal(base_size = 14) +
+  theme(axis.title = element_blank())
+```
+
+### 4. Metrics
+
+Lastly, we can add some metrics.
+We already have our total citation counts.
+To pull even with the Google Scholar page, let's add the data within the last five years.
+We'll need to manually calculate the h-index in that timespan, so we'll define a little function for that:
+
+```{r}
+h_index <- function(cites) {
+  if (max(cites) == 0) {
+    return(0)
+  }
+  cites <- cites[order(cites, decreasing = TRUE)]
+  tail(which(cites >= seq_along(cites)), 1)
+}
+
+cites_fiveyear <- works |>
+  select(doi, pub_year, cites_by_year) |>
+  unnest(cites_by_year) |>
+  filter(year > year(now()) - 5) |>
+  group_by(doi) |>
+  summarise(cited_by_count = sum(cited_by_count))
+
+h_fiveyear <- h_index(cites_fiveyear$cited_by_count)
+```
+
+### *Bonus: completed peer reviews*
+
+Going beyond both OpenAlex and Google Scholar, we can also include verified peer-reviews, as long as they appear in your ORCID.
+You'll need to set up ORCID authorization, check `?orcid_auth` for a how-to.
+
+
+```{r}
+full_peer_reviews <- orcid_peer_reviews(orcid)[[orcid]][["group"]][["peer-review-group"]] |>
+  unlist()
+
+peer_reviews <- tibble(
+  review = full_peer_reviews[grepl(
+    "peer-review-summary.external-ids.external-id.external-id-value", names(full_peer_reviews)
+  )],
+  year = full_peer_reviews[grepl(
+    "peer-review-summary.completion-date.year.value", names(full_peer_reviews)
+  )]
+) |>
+  summarise(count = n())
+
+peer_reviews_fiveyear <- tibble(
+  review = full_peer_reviews[grepl(
+    "peer-review-summary.external-ids.external-id.external-id-value", names(full_peer_reviews)
+  )],
+  year = full_peer_reviews[grepl(
+    "peer-review-summary.completion-date.year.value", names(full_peer_reviews)
+  )]
+) |>
+  filter(year > year(now()) - 5) |>
+  summarise(count = n())
+```
+
+Finally, let's compile all those values into one tibble and plot them (we could use kable here, too, but I prefer the control of doing it in ggplot2):
+
+```{r, fig.height=2, fig.width=3, fig.align='center', dev = "png", dev.args=list(bg="transparent")}
+metrics <- tibble(
+  metric = ordered(
+    rep(c("Citations", "h index", "i10 index", "Journal articles", "Preprints", "Peer reviews"), 2),
+    levels = rev(c("Citations", "h index", "i10 index", "Journal articles", "Preprints", "Peer reviews"))
+  ),
+  span = ordered(
+    c(rep(c("Total", paste0("Since ", year(now()) - 5)), each = 6)),
+    levels = c("Total", paste0("Since ", year(now()) - 5))
+  ),
+  value = c(
+    # total
+    sum(cite_timeline$cited_by_count),
+    full_profile[["summary_stats"]][["h_index"]],
+    full_profile[["summary_stats"]][["i10_index"]],
+    max(work_timeline$works_cum[work_timeline$type == "Journal"]),
+    max(work_timeline$works_cum[work_timeline$type == "Preprint"]),
+    peer_reviews$count,
+    # five-year
+    sum(cite_timeline$cited_by_count[cite_timeline$year > year(now()) - 5]),
+    h_fiveyear,
+    length(cites_fiveyear$cited_by_count[cites_fiveyear$cited_by_count >= 10]),
+    sum(work_timeline$works[cite_timeline$year > year(now()) - 5 & work_timeline$type == "Journal"]),
+    sum(work_timeline$works[cite_timeline$year > year(now()) - 5 & work_timeline$type == "Preprint"]),
+    peer_reviews_fiveyear$count
+  )
+)
+
+ggplot(
+  metrics,
+  aes(
+    x = metric,
+    y = span,
+    label = value
+  )
+) +
+  geom_text(
+    size = (14 / (14 / 5)),
+    hjust = 1,
+    colour = "black"
+  ) +
+  geom_vline(
+    xintercept = c(0.5, 6.5),
+    colour = "black"
+  ) +
+  coord_flip(
+    clip = "off",
+  ) +
+  scale_y_discrete(position = "right", expand = expansion(add = c(0.5, 0))) +
+  scale_x_discrete(expand = expansion(add = 0.3)) +
+  theme_minimal(base_size = 14) +
+  theme(
+    axis.text.x.top = element_text(hjust = 1),
+    axis.title = element_blank()
+  )
+```
+<br>
+
+*If you have questions or comments, find me on [mastodon](https://fediscience.org/@leonardblaschek) or shoot me a mail!*

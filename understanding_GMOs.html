@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+<link rel="manifest" href="./site.webmanifest">
+<link rel="mask-icon" href="./safari-pinned-tab.svg" color="#5bbad5">
+<meta name="theme-color" content="#ffffff">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&family=Inconsolata&family=Jost&display=swap" rel="stylesheet">
+
+<title>
+Blog
+</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.4;
+  color: #f5f5f5;
+}
+
+.bgimg-1 {
+  background-image: url("./assets/images/kungsleden.JPG");
+  height: 100%;
+  position: relative;
+  opacity: 0.85;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+.caption {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  width: auto;
+  height: auto;
+  max-height: 75%;
+  max-width: 65ch;
+  text-align: left;
+  background-color: rgba(255, 255, 255, 0.75);
+  color: #111;
+  padding: 20px;
+  font-size: 16px;
+  line-height: 1.4;
+  letter-spacing: normal;
+}
+
+.caption span.border {
+  color: #111;
+  font: 16px "Inconsolata", monospace;
+}
+
+.corner {
+  line-height:10px;
+  padding:1px 15px
+}
+
+.corner span.border {
+  letter-spacing: 1px;
+  padding:1px 2px;
+  text-decoration: none;
+  font: 16px/3 "Inconsolata", monospace;
+  color: #111;
+}
+
+h2 {
+  letter-spacing: 5px;
+  font: 25px "Futura Std", "Jost", sans-serif;
+  color: #111;
+  margin-bottom: -10px;
+}
+
+a {
+	color: #111;
+	text-decoration: none;
+	border-bottom:2px solid #ffcc3d;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="bgimg-1">
+  <div class="corner">
+    <a href="./index.html"><h2><span style="background-color: #ffcc3d">LEONARD BLASCHEK</span></h2></a>
+    <a href="./about.html"><span class="border" style="background-color: #ffcc3d">Dynamics of the Plant Cell Wall</span></a>
+  </div>
+  <div class="caption" 
+  style="overflow-y:auto">
+	<header>
+        <h1 id="GMO_primer">The Making and Regulation of GM Plants: From Natural Variation to Gene Editing</h1>
+        <p>Leonard Blaschek, May 2023</p>
+    </header>
+    <p style="font-size: 14px">
+            <i>Disclaimer: I am a plant scientist doing fundamental research.
+            I believe that genetically modified plants can be a powerful tool in adapting agriculture to the changing climate and growing human population, while minimising its impact on the environment.
+            I am also decidedly critical of large companies exploiting these technologies to extract wealth from farmers and consumers.
+            Although I find it near impossible to not let these beliefs shape my writing to some extent, I have tried my best to make this explainer informative and useful to readers regardless of their opinions on the topic.</i>
+        </p>
+    <h3>Mutations</h3>
+    <p>
+        The genetic code, stored in a molecule called DNA, can be thought of as the blueprint of life.
+        It contains most of the information that the machineries in our bodies need to build and maintain the myriad different building blocks we consist of.
+        <i>Mutations</i> are changes in this blueprint.
+        Many such mutations have no obvious consequences for the organism, often because they occur in parts of the genetic code that are either seemingly superfluous or redundant with other parts.
+        When mutations occur in important parts of the genetic code, however, they can have far-reaching consequences.
+        The fact that many of us can effectively digest milk even as adults is the result of a relatively recent mutation in the genetic code of some of our ancestors.
+        Of course, mutations are not always this convenient.
+        Huntington's disease and sickle cell anaemia for example are also caused by single mutations.
+        Mutations &ndash; sometimes with consequences, mostly without &ndash; happen all the time.
+        You, your cat and your houseplant have accumulated countless mutations over the years.
+        In a 1 ha field of wheat, for example, our current understanding suggests that one harvest contains roughly 40 <i>billion</i> mutations.
+        In other words, every single piece of Wheat genetic code (taken together, the entire genetic code of an organism is also called its <i>genome</i>) is likely mutated at least once, somewhere in that wheat field.<a href="#footnote-1"><sup>1</sup></a>
+        The causes for these <i>natural</i> mutations are numerous and include inaccuracies in the cellular machinery replicating and repairing the genetic code as well as damage from stress, UV-light or toxins.
+        Taken together, such mutations are also called <i>natural variation</i> and form the foundation of evolution.
+        In this little explainer, however, I want to focus on another aspect of mutations:
+        How humans use them to their benefit.
+    </p>
+
+    <h3>Traditional plant breeding</h3>
+    <p>
+        Observant farmers have used mutations thousands of years before we understood the molecular mechanism behind them.
+        A plant whose mutations led to characteristics &ndash; or traits &ndash; that improved the harvest was kept and its seeds sowed for the next growth season.
+        Generations upon generations of this selective propagation resulted in what we now call <i>artificial selection</i>.
+        "Artificial", because it selects traits that are beneficial to <i>us</i>, while natural selection would generally be beneficial to the plant itself.
+        This practice (which of course is much more sophisticated than I make it sound here) is an irreplaceable tool in agriculture and has produced most of our commonly grown crops.
+        A good example for how drastic a species can be changed by traditional breeding is <i>Brassica oleracea</i>.
+        You might be unfamiliar with the Latin name of this species, but you have almost certainly eaten it.
+        Kale, broccoli, cabbage, Brussels sprouts and kohlrabi are all varieties of <i>Brassica oleracea</i>, having been bred <a href="https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:279435-1/general-information#descriptions" target="_blank">from the same wild plant</a>.
+        There are, however, two considerable problems associated with this method of crop improvement.
+        Firstly, it takes a <i>long</i> time.
+        Brussels sprouts and co. have been cultivated at least since the times of the Roman empire and in some cases only reached their current form in recent decades.<a href="#footnote-2"><sup>2</sup></a>
+        Secondly, it can have unintended side effects.
+        Supermarket tomatoes, for example, grow fast and seem to last forever, but their flavour profile is often ... disappointing.<a href="#footnote-3"><sup>3</sup></a>
+    </p>
+
+    <h3>Random Mutagenesis</h3>
+    <p>
+        The first problem of traditional breeding &ndash; the long time-spans involved &ndash; can partly be traced back to the tediousness of finding the right mutations.
+        Although mutations are common, chances to find one in exactly the right spot of the genome to improve a given trait are minuscule.
+        A way around the limitations set by natural mutation rates came in the early 20th century.
+        In 1928, L. J. Stadler published his findings that exposure to X-rays or radium induces large numbers of mutations in barley seeds.<a href="#footnote-4"><sup>4</sup></a>
+        Those so-called <i>mutagenised</i> plants provided a breeding shortcut, because the increased number of mutations meant that beneficial mutations were much easier to find.
+        It didn't take long after this discovery for mutagenised crops to come to market.
+        Thousands of food and ornamental crop varieties derived from mutagenesis &ndash; induced by X-rays, gamma-rays or chemicals &ndash; are being grown around the world.<a href="#footnote-5"><sup>5</sup></a>
+        Important examples include widely grown varieties of grapefruit, barley and rice.<a href="#footnote-6"><sup>6</sup></a>
+        Of course, random mutagenesis did nothing to address the second problem &mdash; the unwanted side effects caused by mutations carried along by accident.
+        Instead, it arguably exacerbated this problem because the dramatically increased amount of mutations in mutagenised crops makes unintended and unwanted mutations more likely as well.
+    </p>
+
+    <h3>Green Biotechnology</h3>
+    <h4>Transgenic plants</h4>
+    <p>
+        The problem of generating beneficial mutations while avoiding unintended side effects called for more precise tools than the figurative sledgehammer of random mutagenesis.
+        An exciting possibility for such precision was opened by the discovery of a wild <a href="https://en.wikipedia.org/wiki/Agrobacterium_tumefaciens" target="_blank">soil bacterium</a> that is able to insert pieces of genetic material into the genome of plants.
+        With the advent of plant &ndash; or <i>green</i> &ndash; biotechnology, biologists found ways to insert specific pieces of DNA into the genome of crop varieties by providing them to this bacterium and letting it handle the rest.
+        In cases where the piece of inserted DNA comes from another species, the resulting plants are called <i>transgenic</i>.
+        Given that we generate these plants with the help of a wild bacterium, it is perhaps unsurprising that such transgenic plants occur naturally as well.
+        The perhaps best know example of a crop that has bacterial DNA in its genome &ndash; a natural GMO, if you will &ndash; is the <a href="https://doi.org/10.1073/pnas.1419685112" target="_blank">sweet potato</a>.
+        Human made transgenic crops include cotton and eggplant varieties that are resistant to insect pests, <a href="https://pdf.usaid.gov/pdf_docs/PA00TZ7Z.pdf" target ="_blank">reducing the need for pesticides</a>.
+        Other transgenic crops are resistant to a specific herbicide, allowing farmers to use <i>more</i> of it.
+        As always, the effects of a tool depend on the intent of the wielder.
+    </p>
+
+    <h4>Gene editing</h4>
+    <p>
+        The most recent seismic change in plant breeding came with the discovery of <i>gene editing</i>.
+        The most popular form of it, CRISPR/Cas9, is based on the ability of bacteria to detect and cut defined sequences of genetic code.
+        Bacteria use this mechanism to find and destroy DNA of attackers.
+        The Nobel prize-winning adaptation of this process by humans on the other hand can be used to change a specific piece of genetic code in an organism.
+        Where traditional breeding and random mutagenesis required farmers to wait for the desired mutation to occur by accident, gene editing allows us to make the desired change directly. <a href="#footnote-7"><sup>7</sup></a>
+    </p>
+
+    <h3>Regulation: The Thankless Task of Categorising the Continuous</h3>
+    <p>
+        Everything I have written to this point was meant to convey a simple message: Mutations are at the heart of all forms of both traditional and modern agriculture.
+        Some are caused by UV-radiation in a field, some by gamma-rays in an <a href="https://www.atlasobscura.com/articles/radioactive-atomic-gardening" target="_blank">atomic garden</a> and some by the bacterial toolbox used in gene editing.
+        It is not always trivial to draw lines between these cases.
+        Are the mutations in a plant accidentally growing on radioactive soil the product of mutagenesis?
+        Is a plant that contains DNA from another species, such as the sweet potato mentioned above, "unnatural", even if that DNA got there without human intervention?
+        Despite, or perhaps because of, such blurry distinctions, these lines need to be drawn.
+        To protect consumers from undisclosed risks or toxins, the food on our supermarket shelves is carefully regulated.
+        As the possibilities of green biotechnology multiplied, so did the intensity of public discourse about its safety.
+        Consequently, the European legislature <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32003R1829" target="_blank">decided</a> to strictly regulate GM plants and other genetically modified organisms.
+        But what about all the mutagenesis-derived plants already on the market?
+        Considering that they had been used for decades without any obvious problems, and that banning them would significantly disrupt food supply, mutagenised crops were not included in this legislation.
+        That was not universally well received, leading to a challenge in the European Court of Justice.
+        In its ruling, the court <a href="https://curia.europa.eu/juris/document/document.jsf?docid=204387&mode=req&pageIndex=1&dir=&occ=first&part=1&text=&doclang=EN&cid=515140" target="_blank">clarified</a> that mutagenised crops <i>are</i> GMOs, but that they are explicitly <i>excluded</i> from GMO legislation.
+        The reasoning behind this decision was essentially that mutagenised crops will not be regulated because they have not been regulated in the past.
+    </p>
+
+    <p>
+        Of the plants included in the GMO legislation, transgenic plants are a relatively straight-forward case.
+        An application for a new GM variety is handed in to the local authority, which forwards it to the EU.
+        Standing committees deliberate and the member states vote to approve or disapprove.
+        If no majority is reached, the Commission has the final say.
+        As simple as this sounds, only one regulated GM crop &ndash; herbicide resistance corn &ndash; has ever been approved for cultivation in the EU.
+        Since then, the vote by the member states has <i>never</i> reached a qualified majority.
+        Instead, the member states usually abstain from voting.
+    </p>
+
+    <p>
+        It gets weirder with gene edited crops.
+        Part of the requirements of applying for approval of a GM crop is a method to unequivocally distinguish the respective crop from other, non-GM varieties.
+        But here is the twist:
+        A mutation induced by gene editing &ndash; or mutagenesis for that matter &ndash; is undistinguishable from a "natural" mutation.
+        There is simply no way to tell the difference, because, as far as we know, <i>there is no difference</i>.
+        In practice, this means that it is currently impossible to apply for cultivation approval of a gene edited crop in the EU.
+        Globally, this makes the EU a stark outlier.
+        As of 2022, New Zealand was the only other market in the world that regulated gene edited crops as GMOs.<a href="#footnote-8"><sup>8</sup></a>
+        The rest of the world treats them the same as mutagenised crops:
+        Approving new varieties based on the consequences of mutations, instead of the mechanism by which they occurred.
+    </p>
+
+    <p>
+      <i>If you have questions or comments, find me on <a href="https://fediscience.org/@leonardblaschek" target="_blank">mastodon</a> or shoot me a mail!</i>
+    </p>
+
+    <p>
+    <hr>
+    <div style="font-size: 14px">
+
+      <p id="footnote-1"><sup>1</sup> This is a calculation by Prof. Detlef Weigel, based on the length of the wheat genetic code and the <a href="https://doi.org/10.1126/science.1180677" target="_blank">observed mutation rate in plants [pay-walled]</a>. Don't feel bad about using <a href="https://en.wikipedia.org/wiki/Sci-Hub" target="_blank">Sci-Hub</a> to get access to the PDF, the large scientific publishing houses make <a href="https://uniavisen.dk/en/scientific-publishers-are-reaping-huge-profits-from-the-work-of-researchers-and-the-universities-are-paying-for-it/" target="_blank">way too much money.</a></p>
+
+      <p id="footnote-2"><sup>2</sup> If your back hurts regularly and you're not on TikTok, you likely hated Brussels sprouts as a kid. That's not because your taste buds were unsophisticated, Brussels sprouts were indeed <a href="https://www.npr.org/sections/thesalt/2019/10/30/773457637/from-culinary-dud-to-stud-how-dutch-plant-breeders-built-our-brussels-sprouts-bo" target="_blank">much more bitter up until the 90s</a>. Of course, breeding does not always take millennia; the <a href="https://en.wikipedia.org/wiki/Green_Revolution" target="_blank">Green Revolution</a> led to dramatic yield increases within only a decade or two.</p>
+
+      <p id="footnote-3"><sup>3</sup> The reasons for the poor flavour of many modern tomato cultivars are <a href="https://doi.org/10.1016/j.molp.2017.04.010" target="_blank">described here</a>. Other interesting examples include the disease susceptibility of <a href="https://www.wired.com/2017/03/humans-made-banana-perfect-soon-itll-gone/" target="_blank">bananas</a> or <a href="https://www.science.org/content/article/spud-s-you-breeding-revolution-could-unleash-potential-potato" target="_blank">potatoes</a>.</p>
+
+      <p id="footnote-4"><sup>4</sup> The original publication is, again, <a href="https://doi.org/10.1126/science.68.1756.186" target="_blank">pay-walled</a>. For access, see footnote <a href="#footnote-1"><sup>1</sup></a>.</p>
+
+      <p id="footnote-5"><sup>5</sup> The International Atomic Energy Agency keeps a <a href="https://nucleus.iaea.org/sites/mvd/SitePages/Home.aspx" target="_blank">database</a> of registered varieties, but exact numbers are difficult to get because labelling and registration of mutagenised crops are not generally strictly regulated.</p>
+
+      <p id="footnote-6"><sup>6</sup> An overview can be found <a href="https://doi.org/10.1023/B:EUPH.0000014914.85465.4f" target="_blank">here [pay-walled]</a>, albeit a bit outdated. For access, see footnote <a href="#footnote-1"><sup>1</sup></a>.</p>
+
+      <p id="footnote-7"><sup>7</sup> Because of this, gene editing is also called <i>directed mutagenesis</i>, including in documents of the European Court of Justice. To avoid confusion between random and directed mutagenesis, I will refer to the latter as gene editing.</p>
+
+      <p id="footnote-8"><sup>8</sup> Considering countries that have enacted <a href="https://doi.org/10.1111/nph.18333" target="_blank">regulatory guidelines</a> for gene edited crops.</p>
+
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
