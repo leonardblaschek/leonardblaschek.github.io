@@ -167,6 +167,19 @@ cites_fiveyear <- works |>
   group_by(doi) |> 
   summarise(cited_by_count = sum(cited_by_count))
 
+cites <- works |> 
+  select(doi, pub_year, cites_by_year) |> 
+  unnest(cites_by_year) |> 
+  group_by(doi) |> 
+  summarise(cited_by_count = sum(cited_by_count))
+
+i10 <- cites |> 
+  filter(cited_by_count >= 10) |> 
+  count() |> 
+  pull(n)
+
+h <- h_index(cites$cited_by_count)
+
 peer_reviews <- tibble(
   review = full_peer_reviews[grepl("peer-review-summary.external-ids.external-id.external-id-value", names(full_peer_reviews))],
   year = full_peer_reviews[grepl("peer-review-summary.completion-date.year.value", names(full_peer_reviews))]
@@ -191,8 +204,8 @@ metrics <- tibble(
   ),
   value = c(
     sum(cite_timeline$cited_by_count),
-    full_profile[["summary_stats"]][["h_index"]],
-    full_profile[["summary_stats"]][["i10_index"]],
+    h,
+    i10,
     max(work_timeline$works_cum[work_timeline$type == "Journal"]),
     max(work_timeline$works_cum[work_timeline$type == "Preprint"]),
     peer_reviews$count,
