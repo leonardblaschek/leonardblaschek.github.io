@@ -27,20 +27,22 @@ library(patchwork)
 library(kableExtra)
 library(rorcid)
 
+options(knitr.kable.NA = '')
+
 #### Define ggplot2 theme ####
 font_add(
   "IBMPlexSans",
-  regular = "/OFL_fonts/IBMPlexSans-Light.otf",
-  italic = "/OFL_fonts/IBMPlexSans-LightItalic.otf",
-  bold = "/OFL_fonts/IBMPlexSans-SemiBold.otf",
-  bolditalic = "/OFL_fonts/IBMPlexSans-SemiBoldItalic.otf"
+  regular = "IBMPlexSans-Light.otf",
+  italic = "IBMPlexSans-LightItalic.otf",
+  bold = "IBMPlexSans-SemiBold.otf",
+  bolditalic = "IBMPlexSans-SemiBoldItalic.otf"
 )
 font_add(
   "Futura",
-  regular = "/propietary_fonts/Futura/FuturaStd-Medium.otf",
-  italic = "/propietary_fonts/Futura/FuturaStd-MediumOblique.otf",
-  bold = "/propietary_fonts/Futura/FuturaStd-Bold.otf",
-  bolditalic = "/propietary_fonts/Futura/FuturaStd-BoldOblique.otf",
+  regular = "FuturaStd-Medium.otf",
+  italic = "FuturaStd-MediumOblique.otf",
+  bold = "FuturaStd-Bold.otf",
+  bolditalic = "FuturaStd-BoldOblique.otf",
 )
 showtext_auto()
 
@@ -143,7 +145,8 @@ work_table <- works |>
   select(
     "Reference" = item,
     "Citations" = cited_by,
-    "Year" = pub_year
+    "Year" = pub_year,
+    type
   )
 
 work_timeline <- works |>
@@ -224,7 +227,7 @@ metrics <- tibble(
 #### List papers ####
 
 kable(
-  work_table |> filter(!str_detect(Reference, "bioRxiv")),
+  work_table |> filter(type == "Journal") |> select(-type),
   escape = FALSE
 ) |>
   kable_styling(
@@ -239,7 +242,7 @@ kable(
 #### List papers ####
 
 kable(
-  work_table |> filter(str_detect(Reference, "bioRxiv")),
+  work_table |> filter(type == "Preprint") |> select(-type),
   escape = FALSE
 ) |>
   kable_styling(
