@@ -138,6 +138,9 @@ works <- tibble(
       TRUE ~ item)) |>
   arrange(date) |>
   drop_na(doi) |>
+  group_by(title, journal) |> 
+  mutate(cited_by = sum(cited_by, na.rm = TRUE)) |> 
+  ungroup() |> 
   distinct(title, journal, .keep_all = TRUE)
 
 work_table <- works |>
@@ -187,14 +190,14 @@ peer_reviews <- tibble(
   review = full_peer_reviews[grepl("peer-review-summary.external-ids.external-id.external-id-value", names(full_peer_reviews))],
   year = full_peer_reviews[grepl("peer-review-summary.completion-date.year.value", names(full_peer_reviews))]
 ) |> 
-  summarise(count = n())
+  summarise(count = n() + 3) # manually add FiPS reviews
 
 peer_reviews_fiveyear <- tibble(
   review = full_peer_reviews[grepl("peer-review-summary.external-ids.external-id.external-id-value", names(full_peer_reviews))],
   year = full_peer_reviews[grepl("peer-review-summary.completion-date.year.value", names(full_peer_reviews))]
 ) |> 
   filter(year > year(now()) - 5) |> 
-  summarise(count = n())
+  summarise(count = n() + 3) # manually add FiPS reviews
 
 metrics <- tibble(
   metric = ordered(
@@ -228,6 +231,7 @@ metrics <- tibble(
 
 kable(
   work_table |> filter(type == "Journal") |> select(-type),
+  "html",
   escape = FALSE
 ) |>
   kable_styling(
@@ -243,6 +247,7 @@ kable(
 
 kable(
   work_table |> filter(type == "Preprint") |> select(-type),
+  "html",
   escape = FALSE
 ) |>
   kable_styling(
