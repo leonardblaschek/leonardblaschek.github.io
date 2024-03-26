@@ -1,4 +1,4 @@
-PWD /home/leonard/Documents/github/assets/CV
+PWD /home/leonard/Documents/Website/assets/CV
 INPUT /var/lib/texmf/web2c/luahbtex/lualatex.fmt
 INPUT ./CV_Blaschek.tex
 OUTPUT CV_Blaschek.log
@@ -15,7 +15,7 @@ INPUT /usr/share/texlive/texmf-dist/tex/luatex/lualibs/lualibs-extended.lua
 INPUT /usr/share/texlive/texmf-dist/tex/luatex/lualibs/lualibs-extended-merged.lua
 INPUT /usr/share/texlive/texmf-dist/tex/luatex/luaotfload/luaotfload-log.lua
 INPUT /usr/share/texlive/texmf-dist/tex/luatex/luaotfload/fontloader-basics-gen.lua
-OUTPUT /home/leonard/.texlive2022/texmf-var/m_t_x_t_e_s_t.tmp
+OUTPUT /home/leonard/.texlive2023/texmf-var/m_t_x_t_e_s_t.tmp
 INPUT /usr/share/texlive/texmf-dist/tex/luatex/luaotfload/luaotfload-parsers.lua
 INPUT /usr/share/texlive/texmf-dist/tex/luatex/luaotfload/luaotfload-configuration.lua
 INPUT /usr/share/texlive/texmf-dist/tex/luatex/luaotfload/luaotfload-status.lua
@@ -63,8 +63,8 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/size11.clo
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/size11.clo
-INPUT /home/leonard/.texlive2022/texmf-var/luatex-cache/generic/names/luaotfload-names.luc.gz
-INPUT /home/leonard/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-regular.luc
+INPUT /home/leonard/.texlive2023/texmf-var/luatex-cache/generic/names/luaotfload-names.luc.gz
+INPUT /home/leonard/.texlive2023/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-regular.luc
 INPUT /usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
@@ -98,11 +98,11 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/fontspec/fontspec.cfg
 INPUT /usr/share/texlive/texmf-dist/tex/latex/fontspec/fontspec.cfg
-INPUT /home/leonard/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-bold.luc
-INPUT /home/leonard/.texlive2022/texmf-var/luatex-cache/generic/names/luaotfload-lookup-cache.luc
-INPUT /home/leonard/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/linbiolinum-rah.luc
-INPUT /home/leonard/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/linbiolinum-rbah.luc
-INPUT /home/leonard/.texlive2022/texmf-var/luatex-cache/generic/fonts/otl/linbiolinum-riah.luc
+INPUT /home/leonard/.texlive2023/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-bold.luc
+INPUT /home/leonard/.texlive2023/texmf-var/luatex-cache/generic/names/luaotfload-lookup-cache.luc
+INPUT /home/leonard/.texlive2023/texmf-var/luatex-cache/generic/fonts/otl/linbiolinum-rah.luc
+INPUT /home/leonard/.texlive2023/texmf-var/luatex-cache/generic/fonts/otl/linbiolinum-rbah.luc
+INPUT /home/leonard/.texlive2023/texmf-var/luatex-cache/generic/fonts/otl/linbiolinum-riah.luc
 INPUT /usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.sty
@@ -159,6 +159,12 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/lastpage/lastpage.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/lastpage/lastpage.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/lastpage/lastpage.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/lastpage/lastpage2e.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/lastpage/lastpage2e.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/lastpage/lastpage2e.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/lastpage/lastpagemodern.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/lastpage/lastpagemodern.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/lastpage/lastpagemodern.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
