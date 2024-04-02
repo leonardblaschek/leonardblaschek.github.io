@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2024.3.18)  26 MAR 2024 09:44
+This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2024.3.18)  2 APR 2024 09:53
  restricted system commands enabled.
 **CV_Blaschek.tex
 (./CV_Blaschek.tex
@@ -677,7 +677,7 @@ Here is how much of LuaTeX's memory you used:
  524 words of node memory still in use:
    5 hlist, 1 vlist, 1 rule, 1 local_par, 4 glue, 3 kern, 1 penalty, 3 glyph, 7 
 attribute, 57 glue_spec, 7 attribute_list, 1 write, 1 pdf_action nodes
-   avail lists: 1:1,2:705,3:294,4:192,5:1130,6:104,7:5944,8:2,9:366,10:16,11:486
+   avail lists: 1:1,2:741,3:310,4:204,5:1130,6:104,7:5944,8:2,9:382,10:16,11:486
 
  35260 multiletter control sequences out of 65536+600000
  55 fonts using 11751511 bytes
@@ -686,7 +686,7 @@ attribute, 57 glue_spec, 7 attribute_list, 1 write, 1 pdf_action nodes
 -linux-libertine/LinBiolinum_RIah.ttf></usr/share/fonts/ttf-linux-libertine/LinB
 iolinum_Rah.ttf></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 sy8.pfb>
-Output written on CV_Blaschek.pdf (4 pages, 59994 bytes).
+Output written on CV_Blaschek.pdf (4 pages, 60280 bytes).
 
 PDF statistics: 73 PDF objects out of 1000 (max. 8388607)
  56 compressed objects within 1 object stream
