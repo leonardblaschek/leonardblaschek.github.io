@@ -1,0 +1,974 @@
+---
+title: |
+  Functional complexity on cellular scale: Why *in situ* analyses are indispensable for our understanding of lignified tissues
+author:
+  - name: Leonard Blaschek
+    orcid: 0000-0003-3943-1476
+    corresponding: true
+    email: lb@plen.ku.dk
+    roles:
+      - Project administration
+      - Visualization
+      - Writing
+    affiliations:
+      - Copenhagen Plant Science Center (CPSC), Department of Plant & Environmental Sciences, University of Copenhagen, Thorvaldsensvej 40, 1871 Frederiksberg C, Denmark
+  - name: Henrik Serk
+    orcid: 0000-0003-4803-3664
+    corresponding: false
+    roles:
+      - Writing
+    affiliations:
+      - Umeå Plant Science Centre (UPSC), Department of Plant Physiology, Umeå University, 901 87 Umeå, Sweden
+  - name: Edouard Pesquet
+    orcid: 0000-0002-6959-3284
+    corresponding: false
+    roles:
+      - Visualization
+      - Writing
+    affiliations:
+      - Department of Ecology, Environment and Plant Sciences (DEEP), Stockholm University, 106 91 Stockholm, Sweden
+keywords:
+  - Lignin
+  - In situ quantification
+  - Cell wall
+  - Structure-function
+  - Chemical imaging
+abstract: |
+  Lignins are a key adaptation enabling vascular plants to thrive in terrestrial habitats. Lignin is heterogeneous – containing upwards of 30 different monomers – and its function multifarious: It provides structural support, predetermined breaking points, UV-protection, diffusion barriers, pathogen resistance and drought resilience. Recent studies, carefully characterising lignin *in situ,* have started to identify specific lignin compositions and ultrastructures with distinct cellular functions, but our understanding remains fractional. We summarise recent works and highlight where further *in situ* lignin analysis could provide valuable insights into plant growth and adaptation. We also summarise strengths and weaknesses of lignin *in situ* analysis methods.
+date: last-modified
+bibliography: Zotero_lib_bibtex.bib
+csl: american-chemical-society.csl
+citation:
+  type: article-journal
+  container-title: Journal of Agricultural and Food Chemistry
+  issued: 2024-06
+  doi: 10.1021/acs.jafc.4c01999
+number-sections: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  warning = FALSE, message = FALSE
+)
+library(showtext)
+library(RefManageR)
+library(tidyverse)
+library(ggtext)
+library(ggbeeswarm)
+library(ggrepel)
+library(ggforce)
+library(patchwork)
+library(tukeygrps)
+library(broom)
+library(knitr)
+
+options(knitr.kable.NA = "")
+
+## import Helvetica ####
+font_add(
+  "Helvetica",
+  regular = "HelveticaLTStd-Roman.otf",
+  italic = "HelveticaLTStd-Obl.otf",
+  bold = "HelveticaLTStd-Bold.otf",
+  bolditalic = "HelveticaLTStd-BoldObl.otf"
+)
+showtext_auto()
+showtext_opts(dpi = 900)
+
+#### generating plot theme ####
+text_size <- 8
+
+theme_leo <- function(base_size = text_size,
+                      base_family = "Helvetica") {
+  theme_minimal(
+    base_size = base_size,
+    base_family = base_family
+  ) %+replace%
+    theme(
+      strip.text = element_text(
+        size = base_size
+      ),
+      axis.ticks = element_blank(),
+      axis.text.x = element_text(
+        size = base_size,
+        colour = "black",
+        margin = margin(1, 1, 1, 1)
+      ),
+      axis.text.y = element_text(
+        colour = "black",
+        size = base_size,
+        angle = 0,
+        vjust = 0.5,
+        hjust = 1,
+        margin = margin(1, 1, 1, 1)
+      ),
+      axis.title.x = element_text(
+        colour = "black",
+        size = base_size
+      ),
+      axis.title.y = element_text(
+        colour = "black",
+        size = base_size,
+        angle = 90
+      ),
+      panel.grid.major = element_blank(),
+      panel.grid.minor = element_blank(),
+      # panel.border = element_rect(fill = NA, color = "black", linewidth = 0.25),
+      # axis.line = element_line(linewidth = 0.5),
+      panel.spacing = unit(1.5, "mm"),
+      legend.position = "none",
+      legend.text = element_text(size = rel(0.9), margin = margin(0, 0, 0, 0, "pt")),
+      legend.key.width = unit(3, "mm"),
+      legend.key.height = unit(3, "mm"),
+      legend.background = element_rect(colour = NA, fill = rgb(0.8, 0.8, 0.8, 0.5)),
+      legend.margin = margin(0, 2, 0, 0, "pt"),
+      legend.title = element_blank(),
+      complete = TRUE
+    )
+}
+
+# convenience figure size functions
+ggtext_size <- text_size / (14 / 5)
+cm_size <- function(x) x / 2.54
+twocol <- 18 / 2.54
+onehalfcol <- 14 / 2.54
+onecol <- 9 / 2.54
+
+pal_ostwald_disc <- c(
+  "#275d95",
+  "#e8c245",
+  "#d25952",
+  "#7ab6c4"
+)
+
+blues <- c(
+  pal_ostwald_disc[1],
+  colorspace::lighten(pal_ostwald_disc[1], 0.4),
+  colorspace::lighten(pal_ostwald_disc[1], 0.7)
+)
+
+datapath <- ifelse(
+  dir.exists("data/"), "data/", "quarto_manuscript/data/"
+)
+```
+
+*Note: This manuscript was published behind a paywall in JAFC ([DOI: 10.1021/acs.jafc.4c01999](https://doi.org/10.1021/acs.jafc.4c01999)), as part of a special issue related to the International Conference on Polyphenols 2023. The only difference between this document^[Additionally, the reproducible manuscript, including all R code to generate the figures, is available under [https://leonardblaschek.github.io/assets/2024_JAFC/index.html](https://leonardblaschek.github.io/assets/2024_JAFC/index.html).] and the published version are the changes made by the ACS editorial office. The American Chemical Society demanded $4500 for making the published version available to the public.*
+
+## A versatile polymer
+*Lignin is the second-most abundant biopolymer on earth.* 
+This oft-repeated phrase urges us to understand the importance of this complex phenolic polymer as a function of the sheer quantities present in our biosphere.
+It is a very compelling framing, considering the enormous potential of lignin as carbon sink and industrial resource from ecological and economical perspectives respectively.
+From a physiological point-of-view, however, focusing only on the abundance of lignin – or more precisely *lignins,* as we are referring to various, chemically distinct polymers – risks overlooking its impressive versatility with respect to cellular function.
+Tightly delineated deposition of lignins, adapted in timing and composition to various cell types and cell wall layers, is paramount for healthy plant growth — and their efficient use by us.
+It is worth contemplating, then, whether *where* lignin accumulates might be more important than *how much* of it there is overall.
+
+\scriptsize
+
+```{r}
+#| label: tbl-locations
+#| tbl-cap: Diverse functions of lignins in plants. Occurrence and regulation of several of the listed lignins are summarized elsewhere;[@Chantreau2022] for detailed references, see supplementary table S1. PCW – primary cell wall; SCW – secondary cell wall. H/G/S refer to H (hydroxyphenyl), G (guaiacyl) and S (syringyl) units in general, while H~CHOH~, G~CHOH~, G~CHO~, S~CHOH~ and S~CHO~ specifically refer to *p*-coumaryl alcohol, coniferyl alcohol, coniferaldehyde, sinapyl alcohol and sinapaldehyde derived residues, respectively.
+
+locations <- read_tsv(paste0(datapath, "/location_table.tsv")) |>
+  mutate(Reference = str_replace(Reference, "(.+)", "\\[\\1\\]")) 
+
+kable(locations |> select(-`Mechanistic specifics`))
+```
+
+\normalsize
+
+
+## Plants tailor cell type-specific lignins
+Lignins are formed by all vascular plants and in all plant organs.
+They accumulate in the cell wall, a semi-crystalline composite of mainly polysaccharides – cellulose, hemicelluloses and pectins – surrounding the protoplast of each plant cell.[@Pedersen2023]
+Where exactly these lignins accumulate, however, is controlled with nanometre precision (@tbl-locations).
+Fundamentally, lignification requires two components: Oxidative enzymes and monomers.
+Laccases (LACs) and peroxidases (PRXs) – resilient, glycosylated phenoloxidases – are responsible for lignin polymerization.[@Blaschek2021]
+In lignifying primary and secondary cell walls (PCWs and SCWs), LACs and PRXs are expressed concomitantly with the enzymes responsible for biosynthesis of cellulose and other cell wall polysaccharides.[@Blaschek2023]
+In contrast to cellulose synthases or glucosyltransferases involved in hemicellulose formation, LACs and PRXs are exported into the apoplast, where they are embedded into the forming cell wall.
+Both types of enzymes play important roles — LACs are indispensable for xylem lignification, while Casparian strip integrity depends on PRXs.[@Blaschek2021;@Blaschek2023;@Rojas-Murcia2020]
+Paralogs of both enzyme groups are immobilized in different cell types and cell wall layers, enabling specific functions.[@Hoffmann2020;@Blaschek2023]
+Lignin monomers are a large group of phenolic compounds recently summarized with great insight by John Ralph and colleagues.[@Ralph2023]
+Most common and abundant are phenylpropanoids with different ring substitutions, for example 4-hydroxyphenyl (H) units with a 4-hydroxyl, guaiacyl (G) units with an additional 3-methoxy and syringyl (S) units with a further 5-methoxy.
+In addition to their ring structures, these phenylpropanoid monomers also vary in their aliphatic functional group, usually exhibiting an alcohol (CHOH) or aldehyde (CHO).
+At the onset of cell wall lignification, lignin monomers are exported from the cytosol into the cell wall.
+How exactly this transport is catalyzed is also still contentious, with recent evidence favoring a diffusion-based mechanism.[@Perkins2022]
+Here, we should also note that it is not yet clear in which form lignin monomers are exported and polymerized —  it might include unconjugated, glycosylated or esterified phenolics.
+In the cell wall, lignin monomers undergo 1-electron oxidation by LACs or PRXs, respectively using O~2~ or H~2~O~2~ as electron acceptor.
+The resulting radicals – stabilised by mesomeric resonance forms – react either with each other to form dimers or extend a growing polymer.[@Ralph2023]
+Depending on the involved monomers and reaction environments, lignin polymerization generates a variety of different –C–O–C and –C–C– bonds resulting in structurally and compositionally diverse polymers.[@Ralph2023]
+In the xylem, these steps occur continuously and cell–cell cooperatively.
+Newly developing tracheary elements – the conduits of hydromineral sap – undergo programmed cell death before they lignify. 
+The monomers for their “post-mortem” lignification are supplied by adjacent, still living tracheary elements or (ray) parenchyma cells, or over longer distances through the xylem sap.[@Pesquet2013;@DeMeester2021;@Zhang2020a]
+This enables tracheary elements, and to a lesser extent fibers, to continue adjusting their biomechanical and biophysical characteristics long after they died.[@Menard2022]
+The resulting lignin composition is partly a result of the monomers available during polymerization.[@Ralph2023]
+Additionally, variations in substrate specificity between LAC paralogs fine-tune lignin biochemistry on the nanoscale.[@Blaschek2023;@Zhuo2022]
+Lastly, dirigent proteins can direct lignification to favor specific stereochemistries.[@Gao2023]
+Together, these processes lead to a highly heterogeneous distribution of specific lignins, which is largely conserved among vascular plants.
+Angiosperm fibres, for example, have a higher S/G ratio and lower G~CHO~/G~CHOH~ ratio than tracheary elements.[@Menard2022]
+For cell types outside of the xylem, this type of lignin composition data is still exceedingly rare, although some tendencies can be extracted from the literature (@tbl-locations).
+
+Within cell walls, lignins fill out the spaces between cell wall polysaccharides.
+Lignins interact non-covalently with both hemicelluloses and cellulose,[@Kirui2022] and even form covalent crosslinks with hemicelluloses and potentially pectins.[@Giummarella2019]
+By reducing the water-accessible surface areas of cell wall polysaccharides, lignins set the cell wall hydration capacity and enable it to retain a quasi-constant volume irrespective of the surrounding water availability.[@Blaschek2023]
+The prevalence and effects of these interactions are distinct depending on species, cell type and lignin biochemistry.[@Kirui2022]
+The cross-linking and "curing" of cell walls by such interactions is likely a significant aspect of lignin's various functions.
+To what extent the monomeric composition and degree of cross-linking differs between cell types responsible for water conduction and lateral distribution (tracheary elements), biomechanical support (fibres), diffusion barriers (endo-/exodermis), or pathogen defense (stress lignin), is only beginning to be understood (@tbl-locations).
+
+![Schematic representation of tracheary element sidewall modification during plant evolution and speciation. (A) Main morphological changes in plants and tracheary elements during evolution relatively to geological time with  O – Ordovician, S – Silurian, D – Devonian, C - Caboniferous, P - Permian, Tr - Triassic, J - Jurassic, K - Cretaceous and T - Tiertary . (B) Evolutionary changes of water-conducting cell sidewalls in terrestrial plants, SCW – Secondary Cell Walls, PCW – Primary cell walls, and CML – compound middle lamella. Red indicates lignin accumulation. Ancestral SCW architectures are named *Gosslingia* (G-type), *Psilophyton* (P-type) and *Sennicaulis* (S-type), after the species in which they were first described.[@Edwards2003] (C) Cell walls in a tracheary element from inducible pluripotent suspension cell clultures of the angiosperm *Arabidopsis thaliana,* imaged by confocal laser scanning microscopy of fluorescently stained cell wall polysaccharides. Different optical sectioning provides a surface view (top) and a cross-section (bottom). A portion of the cell wall equivalent to the illustrations in panel B is highlighted.](/data/evolution){#fig-evolution width=100%}
+
+## The evolution of patterned lignification
+Analyses of fossil and extant plant sample collections reaching back to the Devonian have been instrumental in showing the importance of the spatial control of lignin accumulation for vascular plant evolution. 
+Around 410 million years ago, terrestrial bryophytes had developed the initial blueprints of the tracheary element prototype: the hydroids – cells forming water conducting tubes by undergoing programmed cell death. 
+Compared with water transport through plasmodesmata, the development of hydroids improved water transport by more than 6-fold.[@Sperry2003] 
+In some moss genera such as *Sphagnum,* hydroid lateral cell walls are reinforced by patterned SCWs to combine lateral porosity in the gaps with mechanical reinforcement in rib-like, lignin-free thickenings.[@Ligrone2000] 
+Bryophytes are devoid of lignins, but form other phenolic polymers like melanins and coumaroyl-ester polymers in cuticles.[@Renault2017] 
+The evolutionary outburst of the Devonian saw the emergence of tracheary elements.
+They proved considerably more efficient than hydroids due to the addition of perforations for improved sap flow and lignified SCWs for better mechanical support.[@Sperry2003]
+This evolutionary enhancement in pro-vascular plants, such as observed in fossils of *Aglaophyton* and *Hornephyton*, started with the formation of micropores onto the pro-tracheary element sidewalls impregnated with lignin-like polymers (@fig-evolution).[@Ligrone2000]
+Next, both the layering and patterning of cell wall depositions changed, with the first occurrence of banded/spiral SCW patterns in rhynopsid fossils and named after *Sennicaulis* (S-type pattern), resembling modern protoxylem tracheary elements.[@Edwards2003] 
+However, in contrast to modern cells, the accumulation of lignin-like polymers in S-type tracheary elements is uniformly covering the SCW luminal surface.[@Edwards2003]
+This was followed by the emergence of *Gosslingia* (G-type) SCW patterns in lycophytes, maintaining the banded/spiral motives but with larger micropores present in the gaps; lignin-like polymers were still only present in a surface layer towards the cell lumen.[@Edwards2003]
+S- and G-type lignin-like polymers are considered the ancestral origin of lignins for all vascular plants.
+Progressing through the Devonian, SCW pattern also diversified to resemble modern metaxylem tracheary elements with reticulate/pitted motives such as observed in *Psilophyton* (P-type) tracheary elements that developed pits interspersed in SCWs with a less uniform lignin-like surface coverage depending on the cell wall thickness.[@Edwards2003]
+Further evolutionary refinement first enabled tracheary elements in gymnosperms to fully impregnate all cell wall layers with lignin.
+Already then, lignin chemistry was specifically delineated between cell wall layers, such as in the torus margo of its lateral pits.[@Schulte2021] 
+Modern vessels with larger diameter and perforation plates at the end-walls of tracheary elements appeared by the mid-Cretaceous such as in fossils of Gigantopteridales.[@Sperry2003]
+These modern vessels included a variation in SCW pattern together with lignin accumulation restricted to its thickenings and absent from the gaps (@fig-evolution).
+Fiber cell types, with all their variation from tracheiform to libriform fibers,[@Sperry2003] derived from tracheary elements by reducing the density of SCW gaps in their sidewalls, increasing cell wall polysaccharide amounts but also differently controlling both lignin amount and chemistry. 
+Both fiber cell types – together with the characteristically high ratio and S- to G-units in their lignin – have been suggested to have convergently evolved several times, *e.g* in angiosperms and specific species of lycophytes such as *Selaginella.*[@Jin2007]
+The evolution of enzyme paralogs and their neofunctionalisation have been key to the diversification of lignin chemistry. 
+To acquire S lignins, angiosperms duplicated cytochrome P450 oxidoreductase genes into at least two paralogs (cinnamate 4-hydroxylase and ferulate 5-hydroxylase in Arabidopsis), whereas the lycophyte *Selaginella* extended the substrate range of its only cytochrome P450 oxidoreductase to catalyze both reactions.[@Weng2010]
+Although lignin spatial chemistry and content is mainly conserved between homologous cell types in vascular plant species, further adaptive changes in lignin spatial distribution occurred during speciation. 
+These include a gradual reduction of the lignin ratio between PCWs and SCWs in tracheary elements of gymnosperms and angiosperms compared to ferns and lycophytes.[@Boyce2004]
+Extreme cases include the absence of lignin from PCWs of xylem cells in eastern leatherwood *Dirca palustris,*[@Mottiar2020] or even a complete absence of lignin in all cell wall layers of tracheary elements in the monocotyledon eelgrass *Zostera marina.*[@Pfeifer2022]
+As with monomer biosynthesis, such tight spatial regulation of lignin polymerization is partly driven by gene duplication and reduction.
+The number of LAC paralogs ranges from 11 to 70 (0.039–0.192% of all genes) in terrestrial plants compared to only 3 to 7 (0.015–0.036%) in aquatic angiosperms.[@Blaschek2021;@Simoes2020]
+Once accumulated, lignin deposits cannot be removed by the plant.
+The timing of specific spatial accumulation of lignin is therefore carefully regulated and conserved between species: in tracheary elements of both gymnosperms and angiosperms, lignin varying in chemistry and amounts are progressively accumulated from the most external to the most internal cell wall layers.
+Environmental constraints also affect the spatial distribution of lignin in both in quantity and composition. 
+Gravitropic stress in gymnosperms, for example, leads to the cell wall layer-specific over-accumulation of H-rich lignins,[@Hiraide2021] while biotic stresses in angiosperms trigger accumulation of S-rich lignins (@tbl-locations). 
+Lignin spatial distribution has thus been extensively selected during plant evolution and speciation to enable specific cell wall layers and cell types to change quantities and chemistries of accumulated lignin to best adjust to developmental and environmental constraints.
+
+## Lignification patterns determine plant growth
+Perhaps unsurprisingly, considering the evolutionary success and physiological importance of lignins, efforts to generate plants with cell walls more amenable to industrial exploitation by reducing lignin amount or changing its composition usually result in stunted growth phenotypes.[@DeMeester2018;@DeMeester2020;@Menard2022;@Sulis2023]
+Despite this common observation, overall lignin content in stems of poplar (*Populus* spp.; @fig-correlation A) and Arabidopsis (@fig-correlation B) poorly predicts plant growth.
+Indeed, we can understand the importance of lignin only when considering it in its cellular context — specifically in tracheary elements.
+There, compromised lignification leads to weakened SCWs that collapse inwards under the negative pressure driving sap transport – known as an *irregular xylem* (*irx*) phenotype.
+This phenotype leads to impaired sap transport, limiting vertical plant growth together with the biomechanical weakening of the stem.
+Underlining the importance of this particular lignin function, tracheary element-specific lignin concentration explains more than half of the observed variation in plant height (@fig-correlation C).
+Beside crude concentration, both S/G and G~CHO~/G~CHOH~ ratios have decisive effects on cell wall biomechanics and *irx*,[@Menard2022] as do other cell wall polymers.
+The extent of *irx* explains almost 90% of impaired plant growth in greenhouse conditions (@fig-correlation D).
+Indeed, restoring full lignification only in tracheary elements of hypolignified, dwarfed Arabidopsis and poplar mutants conferred wild type-like growth — even though total lignin levels in the stems remained reduced.[@DeMeester2018;@DeMeester2021]
+Such genetic complementation restrictively in tracheary elements confirms that all lignin in all cell types does not have the same impact on plant growth.
+The importance of fibres and their lignified SCWs for plant growth and mechanics might well be larger than this data set suggests — especially under field conditions.
+To conclusively disentangle the functional importances of these closely linked cell types and their distinct lignins, we need carefully planned experiments linking *in situ* lignin quantification with plant growth in a comprehensive set of species and mutants.
+
+The biomechanics of whole stems – including *e.g* the flexibility conferred by higher CHO/CHOH ratios – can be extrapolated reasonably well from single cells.[@Menard2022]
+To some extent, however, tissue biomechanics are an emergent property arising from the interplay between cell types and cell wall layers with contrasting characteristics.
+The perhaps most compelling example of this is the xylem of the eastern leatherwood mentioned above, which has been suggested to owe its eponymous flexibility to the formation of lignified SCWs interfacing with each other through lignin-free, flexible PCWs.[@Mottiar2020]
+To understand these interaction effects in biochemistry and function of lignins, we first need reliable data with (sub-)cellular resolution.
+
+```{r}
+#| label: fig-correlation
+#| fig-cap: Total lignin content is a poor predictor of plant growth, while cell type-specific differences in lignin concentration and their consequences – in this case vessel collapse in the metaxylem – explain a much larger fraction of the observed variance in plant height. Note that data containing cell-specific lignin quantities – and with it the conclusions we can draw from these correlations – are still sparse. Coefficients of determination for the corresponding linear regression are indicated in each panel (*P*-values all < 0.05). For the collated data and corresponding references see supplementary table S1.
+#| fig-alt: A poor correlation between total lignin content and stem volume in poplar and a good correlation between metaxylem circularity and plant height in arabidopsis.
+#| fig-width: 6
+#| fig-asp: 0.7
+#| fig-dpi: 600
+#| out-width: 100%
+
+#### Lignin correlation ####
+
+#### Poplar lignin correlation ####
+
+wang <- read_tsv(paste0(datapath, "wang2018_data.tsv")) |>
+  select(-c(lignin, CL)) |>
+  mutate(
+    rel_CL = rel_CL * 100,
+    rel_lignin = rel_lignin * 100
+  ) |>
+  pivot_longer(contains("rel"), names_to = "variable", values_to = "relative") |>
+  mutate(
+    variable = str_remove(variable, "rel_"),
+    ref = "Wang et al. 2018"
+  )
+sulis <- read_tsv(paste0(datapath, "sulis2023_data.tsv")) |>
+  pivot_longer(contains("rel"), names_to = "variable", values_to = "relative") |>
+  mutate(
+    variable = str_remove(variable, "rel_"),
+    ref = "Sulis et al. 2023"
+  )
+esc <- read_tsv(paste0(datapath, "escamez2017_data.tsv")) |>
+  mutate("total_volume" = pi * (total_diameter / 2)^2 * total_height) |>
+  pivot_longer(contains("total"), names_to = "variable", values_to = "total") |>
+  mutate(variable = str_remove(variable, "total_")) |>
+  group_by(variable) |>
+  mutate(
+    "relative" = total / total[ID == "WT (T89)"] * 100,
+    ref = "Escamez et al. 2017"
+  ) |>
+  select(-total)
+
+pop_data <- bind_rows(wang, sulis, esc) |>
+  group_by(ID) |>
+  mutate(rel_lignin = relative[variable == "lignin"]) |>
+  filter(variable == "height" & rel_lignin < 110)
+
+simple_linear <- lm(relative ~ rel_lignin, data = pop_data)
+
+r_sq <- round(summary(simple_linear)$adj.r.squared, digits = 2)
+
+p_pop <- summary(simple_linear)$coefficients[2,4]
+
+pop_lig_plot <- ggplot(
+  pop_data,
+  aes(
+    x = rel_lignin,
+    y = relative
+  )
+) +
+  geom_point(
+    aes(fill = ref),
+    shape = 21,
+    stroke = 0.2,
+    size = 2,
+    colour = "white"
+  ) +
+  geom_smooth(
+    method = "lm",
+    se = F,
+    colour = pal_ostwald_disc[2],
+    linetype = 2
+  ) +
+  annotate(
+    "richtext",
+    x = max(pop_data$rel_lignin, na.rm = TRUE),
+    y = 10,
+    label = paste0("R<sup>2</sup> = ", r_sq),
+    family = "Helvetica",
+    size = ggtext_size,
+    hjust = 1,
+    fill = colorspace::lighten(pal_ostwald_disc[2], 1 - r_sq),
+    label.size = NA,
+    label.r = unit(0, "mm")
+  ) +
+  scale_fill_manual(
+    values = blues,
+    name = "Data from"
+  ) +
+  labs(
+    x = "Total lignin [% of WT]",
+    y = "Poplar height [% of WT]"
+  ) +
+  theme_leo() +
+  theme(
+    legend.position = c(0, 1),
+    legend.justification = c(0, 1)
+  )
+
+#### Arabidopsis lignin correlation ####
+
+at_data <- read_tsv(paste0(datapath, "misc_At.tsv")) |>
+  group_by(ref, instance) |>
+  mutate(
+    rel_height = case_when(
+      is.na(rel_height) ~ height / height[genotype == "WT"] * 100,
+      TRUE ~ rel_height
+    ),
+    rel_lignin = case_when(
+      is.na(rel_lignin) ~ lignin / lignin[genotype == "WT"] * 100,
+      TRUE ~ rel_lignin
+    )
+  ) |>
+  filter(genotype != "WT" & rel_lignin < 110)
+
+simple_linear <- lm(rel_height ~ rel_lignin, data = at_data)
+
+r_sq <- round(summary(simple_linear)$adj.r.squared, digits = 2)
+
+p_lig <- summary(simple_linear)$coefficients[2,4]
+
+at_lig_plot <- ggplot(
+  at_data,
+  aes(
+    x = rel_lignin,
+    y = rel_height
+  )
+) +
+  geom_point(
+    # aes(fill = ref),
+    fill = blues[1],
+    shape = 21,
+    stroke = 0.2,
+    size = 2,
+    colour = "white"
+  ) +
+  geom_smooth(
+    method = "lm",
+    se = F,
+    colour = pal_ostwald_disc[2],
+    linetype = 2
+  ) +
+  annotate(
+    "richtext",
+    x = max(at_data$rel_lignin, na.rm = TRUE),
+    y = 10,
+    label = paste0("R<sup>2</sup> = ", r_sq),
+    family = "Helvetica",
+    size = ggtext_size,
+    hjust = 1,
+    fill = colorspace::lighten(pal_ostwald_disc[2], 1 - r_sq),
+    label.size = NA,
+    label.r = unit(0, "mm")
+  ) +
+  scale_fill_manual(
+    values = blues,
+    name = "Data from"
+  ) +
+  labs(
+    x = "Total lignin [% of WT]",
+    y = "Arabidopsis height [% of WT]"
+  ) +
+  theme_leo() +
+  theme(
+    legend.position = c(0, 1),
+    legend.justification = c(0, 1)
+  )
+
+#### Load TE lignin ####
+
+rmn_data <- read_tsv(paste0(datapath, "lac_rmn_data_corrected.tsv")) |>
+  mutate(instance = "Blaschek et al. 2023") |>
+  rename("technical" = "TE") |>
+  bind_rows(read_tsv(paste0(datapath, "irx_rmn_data_corrected.tsv")) |>
+    mutate(instance = "Ménard et al. 2022") |>
+    rename("cell_type" = "cell.type")) |>
+  filter(cell_type %in% c("PMX", "SMX", "MX", "SX")) |>
+  filter(!(genotype == "cad4xcad5" & replicate == 4 & technical == 2))
+
+cellulose_peak <- rmn_data |>
+  # unite("ID",
+  #   genotype, cell_type, replicate, technical,
+  #   remove = F,
+  #   sep = "_"
+  # ) |>
+  filter(round(wavenumber, digits = 0) %in% c(370:390)) |>
+  group_by(genotype, replicate, cell_type, technical) |>
+  mutate(
+    peak_pos = wavenumber[which.max(corrected.intensity)]
+  ) |>
+  select(-wavenumber, -corrected.intensity, -intensity) |>
+  unique() |>
+  ungroup() |>
+  mutate(peak_pos_ref = peak_pos[genotype == "WT" & replicate == 5 & technical == 1])
+
+rmn_aligned <- rmn_data |>
+  left_join(cellulose_peak) |>
+  group_by(genotype, replicate, cell_type, technical, wavenumber) |>
+  mutate(wavenumber = wavenumber + (peak_pos_ref - peak_pos))
+
+# scaling and filtering
+rmn_scaled <- rmn_aligned |>
+  group_by(genotype, cell_type, replicate, technical) |>
+  mutate(
+    AUC = MESS::auc(wavenumber, corrected.intensity),
+    scaled = corrected.intensity / AUC,
+    scaled_cellu = corrected.intensity /
+      corrected.intensity[abs(wavenumber - 378) == min(abs(wavenumber - 378))][1]
+  )
+
+
+rmn_sum <- rmn_scaled |>
+  group_by(genotype, cell_type, replicate, technical, instance) |>
+  summarise(
+    "total_lignin" = (scaled_cellu[abs(wavenumber - 1600) == min(abs(wavenumber - 1600))][1] / 2) +
+      scaled_cellu[abs(wavenumber - 1334) == min(abs(wavenumber - 1334))][1],
+  ) |>
+  group_by(genotype, replicate, instance) |>
+  summarise(
+    "total_lignin" = median(total_lignin, na.rm = TRUE)
+  ) |>
+  group_by(instance) |>
+  mutate(
+    WT_lignin = median(total_lignin[genotype %in% c("Col-0", "WT")]),
+    "rel_lignin" = total_lignin / WT_lignin * 100,
+    genotype = case_when(
+      genotype %in% c("WT", "Col-0") ~ "WT",
+      TRUE ~ genotype
+    ),
+    cell_type = "MX"
+  )
+
+
+#### Join data ####
+
+corr_data <- read_tsv(paste0(datapath, "collapse_data.tsv")) |>
+  mutate(genotype = str_remove_all(genotype, "<i>|</i>")) |>
+  group_by(instance) |>
+  mutate(
+    rel_height = stretched.height / median(stretched.height[genotype == "WT"]) * 100,
+    rel_circ = circularity / median(circularity[genotype == "WT"]) * 100,
+    instance = case_when(
+      instance == "polymerisation" ~ "Blaschek et al. 2023",
+      TRUE ~ "Ménard et al. 2022"
+    )
+  ) |>
+  full_join(rmn_sum) |>
+  group_by(instance, genotype) |>
+  summarise(across(where(is.double), ~ median(.x, na.rm = TRUE))) |>
+  filter(rel_lignin < 110 | is.na(rel_lignin))
+
+#### TE lignin correlation ####
+
+simple_linear <- lm(rel_height ~ rel_lignin, data = corr_data)
+
+r_sq <- round(summary(simple_linear)$adj.r.squared, digits = 2)
+
+p_mx <- summary(simple_linear)$coefficients[2,4]
+
+at_lignin_plot <- ggplot(
+  corr_data,
+  aes(
+    x = rel_lignin,
+    y = rel_height
+  )
+) +
+  geom_point(aes(fill = instance),
+    shape = 21,
+    stroke = 0.2,
+    size = 2,
+    colour = "white"
+  ) +
+  geom_smooth(
+    method = "lm",
+    se = F,
+    colour = pal_ostwald_disc[2],
+    linetype = 2
+  ) +
+  annotate(
+    "richtext",
+    x = max(corr_data$rel_lignin, na.rm = TRUE),
+    y = 10,
+    label = paste0("R<sup>2</sup> = ", r_sq),
+    family = "Helvetica",
+    size = ggtext_size,
+    hjust = 1,
+    fill = colorspace::lighten(pal_ostwald_disc[2], 1 - r_sq),
+    label.size = NA,
+    label.r = unit(0, "mm")
+  ) +
+  scale_fill_manual(
+    values = blues,
+    name = "Data from"
+  ) +
+  labs(
+    y = "Arabidopsis Height [% of WT]",
+    x = "Metaxylem lignin [% of WT]"
+  ) +
+  theme_leo() +
+  theme(
+    legend.position = c(0, 1),
+    legend.justification = c(0, 1)
+  )
+
+#### TE collapse correlation ####
+
+simple_linear <- lm(rel_height ~ rel_circ, data = corr_data)
+
+r_sq <- round(summary(simple_linear)$adj.r.squared, digits = 2)
+
+p_circ <- summary(simple_linear)$coefficients[2,4]
+
+at_circ_plot <- ggplot(
+  corr_data,
+  aes(
+    x = rel_circ,
+    y = rel_height
+  )
+) +
+  geom_point(aes(fill = instance),
+    shape = 21,
+    stroke = 0.2,
+    size = 2,
+    colour = "white"
+  ) +
+  geom_smooth(
+    method = "lm",
+    se = F,
+    colour = pal_ostwald_disc[2],
+    linetype = 2
+  ) +
+  annotate(
+    "richtext",
+    x = max(corr_data$rel_circ, na.rm = TRUE),
+    y = 10,
+    label = paste0("R<sup>2</sup> = ", r_sq),
+    family = "Helvetica",
+    size = ggtext_size,
+    hjust = 1,
+    fill = colorspace::lighten(pal_ostwald_disc[2], 1 - r_sq),
+    label.size = NA,
+    label.r = unit(0, "mm")
+  ) +
+  scale_fill_manual(
+    values = blues,
+    name = "Data from"
+  ) +
+  labs(
+    y = "Arabidopsis Height [% of WT]",
+    x = "Metaxylem circularity [% of WT]"
+  ) +
+  theme_leo() +
+  theme(
+    legend.position = c(0, 1),
+    legend.justification = c(0, 1)
+  )
+
+
+pop_lig_plot + at_lig_plot + at_lignin_plot + at_circ_plot +
+  plot_layout(ncol = 2) &
+  plot_annotation(
+    tag_levels = "A"
+  ) &
+  theme(
+    plot.tag = element_text(
+      size = 10, 
+      face = "bold", 
+      family = "Helvetica"
+      )
+    )
+# p_pop
+# p_lig
+# p_mx
+# p_circ
+```
+
+## Methods for lignin *in situ* analysis
+The complexity of lignin makes its biochemical analysis challenging. 
+Lignin monomeric composition is so diverse, and its association with other cell wall polymers and hydrophobic extractives so tight, that measuring *all* lignins and *only* lignins in a sample is near impossible.
+Most traditionally used lignin analysis methods – Klason, acetyl bromide and thioglycolic acid assays among many others – proceed via sample milling and extraction to purify the majority of lignin.
+While these methods estimate lignin concentration reasonably well, they all have extensively debated biases[@Hatfield2005] and, crucially, cannot provide detailed information about the cellular distribution of lignin.
+The latter limitation can be mitigated, but not avoided, by meticulous sampling by *e.g.* laser micro dissection.
+The alternative to extract-and-quantify methods is the *in situ* characterization of lignin.
+*In situ* chemical imaging methods such as the chromogenic Wiesner test or observation of lignin autofluorescence have been used to detect lignin since the 19th century.
+However, extracting reliable quantitative read-outs from such methods has only become feasible in recent years, with improving instrumentation and careful biochemical validation of the results.
+Conceptually, we can describe methods for lignin *in situ* analysis on three axes: spatial resolution, chemical resolution and quantitative capacity (@fig-methods).
+All methods represent trade-offs along these three axes, with further differences in required effort and instrumentation, which we roughly outline in the following (further details of the mentioned methods and others are tabulated in the table S1).
+Which of these methods will provide the most valuable insights depends on the scientific question, and should be considered carefully.
+
+```{r}
+#| label: fig-methods
+#| fig-cap: Methods for *in situ* lignin analysis. Chemical and spatial resolution are estimates from what has been validated and published, not what is theoretically possible. Note that the distinction between microscopy and spectroscopy is arbitrary to some extent — here we drew the line based on the need for specialist spectroscopic instrumentation. 'Unit' refers to lignin ring structures (*e.g.* G), 'monomers' to whole building blocks (*e.g.* G~CHO~), and 'structures' to specific inter-monomeric linkages. For the collated data and corresponding references see supplementary table S1.
+#| fig-width: 6
+#| fig-asp: 0.7
+#| fig-dpi: 600
+#| out-width: 100%
+
+methods <- read_tsv(paste0(datapath, "/method_table.tsv")) |>
+  filter(figure == TRUE) |> 
+  select(-figure) |> 
+  mutate(type = ordered(
+    type,
+    levels = c(
+      "Electron microscopy",
+      "Microspectroscopy",
+      "Fluorescence",
+      "Transmitted light"
+    )
+  ))
+
+ggplot(
+  methods,
+  aes(x = spatial, y = chemical)
+) +
+  geom_mark_hull(
+    data = methods |> filter(type != "Transmitted light"),
+    aes(fill = type),
+    linewidth = NA,
+    expand = unit(3, "mm"),
+    radius = unit(1.5, "mm")
+    # position = position_jitter(
+    #   seed = 1,
+    #   width = 0.1,
+    #   height = 0.1
+    # )
+  ) +
+  geom_jitter(
+    aes(
+      fill = type,
+      shape = quant
+    ),
+    colour = "white",
+    # shape = 21,
+    size = 3,
+    position = position_jitter(
+      seed = 1,
+      width = 0.1,
+      height = 0.1
+    )
+  ) +
+  geom_label_repel(
+    aes(label = method),
+    family = "Helvetica",
+    size = ggtext_size,
+    position = position_jitter(
+      seed = 1,
+      width = 0.1,
+      height = 0.1
+    ),
+    label.size = NA,
+    fill = rgb(1, 1, 1, 0.5),
+    parse = TRUE
+  ) +
+  scale_fill_manual(
+    values = pal_ostwald_disc[c(2, 3, 1, 4)],
+    name = "Method type"
+  ) +
+  scale_shape_manual(
+    values = c(
+      "circle filled",
+      "square filled",
+      "triangle filled"
+    ),
+    name = "Quantitative"
+  ) +
+  scale_x_log10(
+    name = "Spatial resolution",
+    breaks = c(10, 1000, 1e+5),
+    labels = c("10 nm", "1 µm", "0.1 mm")
+  ) +
+  scale_y_continuous(
+    name = "Chemical resolution",
+    breaks = c(1:5),
+    labels = c(
+      "Presence",
+      "Elements",
+      "Units",
+      "Monomers",
+      "Structures"
+    )
+  ) +
+  guides(
+    fill = guide_legend(override.aes = list(shape = 21)),
+    shape = guide_legend(override.aes = list(fill = "grey"))
+  ) +
+  theme_leo() +
+  theme(
+    legend.position = c(0.85, 0.25),
+    legend.background = element_blank(),
+    legend.title = element_text(),
+    legend.margin = margin(0, 0, 0, 0, "pt"),
+    legend.title.align = 0
+  )
+```
+
+### Electron microscopy
+Electron microscopy in combination with the KMnO~4~ lignin stain, antibodies, or radioactively labelled precursors, provides information about lignin distribution with the highest spatial resolution.
+Those methods, depending on their sophistication, can also yield very high chemical resolution (@fig-methods).
+Detailed insight in the diversity of lignin polymers between cell wall layers was shown using KMnO~4~ staining to reveal a globular topology in PCW layers compared to rod-shaped in SCWs, conserved between plant species.[@Donaldson2001]
+Total sample size for electron microscopy is limited, precluding full organ biopsies.
+However, the main weakness of electron microscopy-based methods are the limited quantitative read-outs.
+Although changes in radioactivity correlate with the incorporation of radioactive precursors, both the possible metabolisation of the fed compounds into chemically distinct monomers as well as artefactual labeling due to mislocalisation of the compound during feeding hinder any reliable semi-quantitative measurements. 
+In contrast, antibody density detected through gold particles correlates more robustly with antigen density and several reports showed similar semi-quantitative trends between cell wall layers, cell types and plant species.[@Joseleau2004;@Ruel2009] 
+Nonetheless, both antibody affinity and epitope accessibility can be hard to predict *in situ,* warranting careful interpretation.
+Very useful exceptions to this quantitative limitation are X-ray microscopy and energy-dispersive X-ray spectroscopy (EDS).
+X-ray microscopy can quantify aromatic carbons due to their specific absorption to define lignin distribution.[@Boyce2004]
+Similarly, EDS can be coupled with electron microscopy to quantitatively map elemental abundances in the sample — albeit in practice with a slightly lower spatial resolution than electron microscopy itself.
+Considering the much higher C/O ratio of lignin compared to cell wall polysaccharides, EDS can estimate relative lignin content with nanometre-precision.[@Menard2022]
+
+### Micropscopy of transmitted light and fluorescence
+Light microscopy methods, using chromogenic and fluorescent stains or exploiting lignin autofluorescence, can provide semi-quantitative read-outs with considerable spatial and chemical resolution.
+Given adequate sample preparation, the spatial resolution of these methods is close to the diffraction limit.
+The combination of fluorescent lignin stains such as Rhodamine B with super-resolution microscopy even goes beyond that, resolving differences in lignin quantity below 100 nm.[@Donaldson2022]
+Of the numerous chromogenic and fluorescent lignin stains only very few have been validated regarding their quantitative capacity and chemical specificity.
+The absorbance of the Wiesner test represents a reliable way to estimate cell wall layer-specific G~CHO~ concentration *in situ.*[@Blaschek2020a]
+The Mäule test identifies cell walls rich in S-units with a red hue, but whether it provides quantitative information is yet to be determined.[@Yamashita2016]
+Safranin O fluorescence emission ratios were suggested to be indicative of total lignin concentration.[@Baldacci-Cresp2020]
+Considering the stark disagreement between *in situ* lignin estimates from Safranin O and Raman measurements, however, it remains uncertain whether Safranin O estimates total lignin or only a specific fraction.[@Blaschek2023;@Baldacci-Cresp2020]
+Basic Fuchsin, Acriflavin and Auramine O all appear to represent trade-offs between sensitivity and specificity that have yet to be biochemically validated.[@Ursache2018]
+Lignin UV-autofluorescence and absorbance also provide quantitative information.
+Total autofluorescence intensity is considered to reflect total lignin concentration, although the various observed spectral components are not definitively assigned to specific lignin structures.[@Decou2019]
+The multimodal nature of lignin autofluorescence extends to its lifetime, which has been correlated to S/G ratios *in situ,*[@Escamez2021] and likely contains more, yet to be deciphered information about lignin chemistry.
+The distinct UV-absorbance profiles of lignin monomers on the other hand have been used to quantify S/G and G~CHO~/G~CHOH~ ratios *in situ.*[@Peng1997;@Yoshida2005]
+Fluorescently-labeled lignin monomers can either be directly conjugated to a fluorescent molecule or decorated with a reactive group for subsequent *in vivo* click chemistry.
+Their distribution *in situ* indicates where different lignin monomers might be actively incorporated into lignin at the time of feeding.
+The caveat is that the position of the fluorescent label or click ligation site affects metabolization and polymerization of the fed compounds.
+While these data give no direct information of lignin quantity or composition, the method has been successfully used to for example demonstrate LAC substrate-specificity in compression wood lignification.[@Hiraide2021]
+Altogether, transmitted light and fluorescence microscopy-based methods provide a useful, low-cost toolbox for lignin characterisation *in situ*.
+Moreover, and despite their long history of use, neither lignin autofluorescence nor most lignin stains are fully understood regarding their chemical specificities, leaving much room for future improvements and discoveries.
+
+### Microspectroscopy
+Microspectroscopy read-outs have the highest information density.
+These methods are generally label-free, exploiting inherent physicochemical characteristics of the lignin polymers.
+Beside spectroscopic methods based on fluorescence (discussed above), Raman and Fourier-transform infrared (FT-IR) microspectroscopy are perhaps most commonly used for lignin *in situ* analysis.
+Both methods exploit the vibrational states of covalent bonds — Raman instruments detect photons scattered by these shifting vibrational states, whereas FT-IR measures their absorbance.
+Each bond creates a specific signal, which is further modulated by the directly adjacent bonds.
+For lignin, that means that the signal is influenced by the incorporated monomers, their position in the polymer and the inter-molecular linkages.[@Yamamoto2020a]
+Although they exploit the same physical phenomenon, Raman and FT-IR have distinct advantages for cell wall analysis.
+FT-IR is more sensitive to polar groups (O—H, C=O) and tends to provide less noisy spectra for cell walls.[@Guillon2022]
+In return, the method is inherently limited to resolutions in the µm range, requires very thin sections and struggles with hydrated samples due to water absorbance.[@Guillon2022]
+Raman on the other hand is more sensitive to carbon bonds (C—C, C=C), allows spatial resolutions around 300 nm and is insensitive to water in the sample.[@Guillon2022]
+It does not require thin sections and can be used non-destructively on *e.g.* fossils.[@Qu2019]
+The downside of Raman microspectroscopy is the enormous amount of spectral information contained in each cell wall spectrum. 
+Even more so than in FT-IR, the numerous bonds in the sample result in a highly convoluted spectrum, making the quantification of isolated bands difficult.
+One approach to overcome this convolution is the unmixing of hypothetical "pure" molecules of different polymers in the sample, so-called endmembers.
+Such unmixing has facilitated *e.g.* the discovery that hydrolyzable tannins are incorporated into the lignified cell walls of *Trapa natans* seeds.[@Huss2024]
+While useful, the large effects of chosen algorithm and endmember number warrant careful interpretation and validation of the unmixed spectra.
+Alternatively, avoiding any potential artifacts of unmixing, spectra can be evaluated without deconvolution.
+Although the precision of measurements acquired with this approach is diminished by overlapping bands, it has been successfully used to reveal lignin composition differences resulting from distinct LAC substrate-specificities.[@Blaschek2020;@Blaschek2023]
+*In vitro,* isolated from the convoluted signal of plant cell walls, model compounds of lignin monomers, oligomers (such as dibenzodioxocin) and polymers can be distinguished in even more detail.[@Bock2020;@Blaschek2020]
+
+Time-of-flight secondary ion mass spectrometry (TOF-SIMS) functions via the ionization of molecules at the sample surface and their subsequent mass-spectrometric identification.
+With an axial resolution of 1–2 nm, lateral resolutions down to 50 nm and the capacity to in principle distinguish any ionizable molecule, TOF-SIMS – in theory – trumps most other methods for *in situ* lignin analysis.
+In practice however, used pixel sizes of range between 300 and 500 nm and the number of empirically assigned peaks is limited, resulting lower resolutions and signal-to-noise ratios than can be achieved with, for example, Raman imaging. 
+Additionally, the necessary sample drying can distort cell wall layer organization.
+Nonetheless, TOF-SIMS offers unique opportunities — quantitative *in situ* distinction of *p*-hydroxybenzoate- and S-units, for example, is not currently possible with any other method.[@Mottiar2023]
+
+X-ray photoelectron spectroscopy (XPS) and solid-state nuclear magnetic resonance (NMR) spectroscopy are included here, in a collection of *in situ* imaging techniques, prospectively.
+XPS is routinely used in cell wall analysis, providing absolute quantities of atoms and bonds on the sample surface.[@Watts2022]
+Similarly, solid-state NMR is an established technique that has provided some of the most exciting insights into lignin–carbohydrate interactions in plant cell walls.[@Kirui2022]
+In current practice, however, both of these methods lack imaging features.
+XPS classically returns data from the irradiated spot with a resolution around 10 µm, while NMR averages over the entire, usually mm-sized sample.
+While not yet in common use for biological samples, both single cell NMR and XPS imaging are feasible and have seen rapid developments in recent years.
+If those developments continue, XPS and NMR imaging might soon provide detailed sub-micron information about elemental bonds and whole lignin structures respectively.
+
+## Concluding remarks
+In the last three years, the methods outlined herein have been used to dramatically alter our understanding of lignification.
+Until very recently, the prevalent model considered that lignification was exclusively controlled by monomer availability.
+Now we know that both LAC/PRX substrate-specificity[@Blaschek2023;@Hiraide2021;@Zhuo2022] and the molecular chaperoning by dirigent proteins[@Gao2023] have decisive, cell type-specific effects on lignin amount and composition.
+These mechanisms, along with monomer supply and LAC/PRX co-substrate availability, direct a tightly regulated program of lignification, leading to distinct sub-cellular localisations and compositions depending on cell type, developmental status and environmental cues.
+For most lignified cell types, however, we still have almost no data capturing their lignin biochemistry with subcellular resolution.
+That kind of data, combined with *in situ* methods to probe cell wall biomechanics and topology, will be crucial to understand which structural aspects of lignified cell walls allow them to fulfill their varying functions.
+It might seem like a purely fundamental research question, but knowing how and where to modify lignins without impeding plant growth or survival will be key to generate new, more efficient feedstock for industrial exploitation.
+Hence, a detailed understanding of lignin's cell type-specific structure-function relationships has the potential to significantly advance our path to a sustainable economy.
+
+## Acknowledgements
+We would like to thank the Groupe Polyphenols for the invitation to contribute to this special issue. We also want to apologize to all the colleagues whose excellent work we could not cite here due to space constraints. 
+
+## Funding
+LB is supported by EMBO postdoctoral fellowship ALTF 37-2022.
+EP is funded by Swedish Research council (Vetenskapsrådet VR) 2023-03661 and Carl Tryggers Stiftelse CTS 23:2756.
+
+## Data Availability
+All literature data collated for figures and tables can be found in [supplementary table S1 (link to ACS)](https://pubs.acs.org/doi/suppl/10.1021/acs.jafc.4c01999/suppl_file/jf4c01999_si_001.xlsx).
+
+```{r}
+bib <- as.data.frame(ReadBib("Zotero_lib.bib", check = F)) |> 
+  rownames_to_column("key") |> 
+  select(key, doi)
+
+# format data
+# locations_supp <- locations |> 
+#   mutate(
+#     key = str_remove_all(Reference, "\\[|\\]|@")
+#   ) |> 
+#   separate(key, into = c("ref1", "ref2", "ref3"), sep = ";") |> 
+#   pivot_longer(c(ref1, ref2, ref3), names_to = "ref", values_to = "key") |> 
+#   left_join(bib) |> 
+#   drop_na(doi) |> 
+#   group_by(`Cell type`, Function, Lignin, `Mechanistic specifics`) |> 
+#   summarise(doi = paste(doi, collapse = ";"))
+
+pop_data_supp <- pop_data |> 
+  rename(
+    "Relative height" = relative,
+    "Relative lignin" = rel_lignin
+    ) |> 
+  mutate(key = str_remove(ref, fixed(" et al. "))) |> 
+  left_join(bib) |> 
+  select(-ref, -key, -variable)
+
+at_data_supp <- at_data |> 
+  rename(
+    "Relative height" = rel_height,
+    "Relative lignin" = rel_lignin,
+  ) |> 
+  left_join(
+    bib,
+    by = join_by("ref" == "key")
+    ) |> 
+  ungroup() |> 
+  select(-ref, -height, -lignin)
+
+corr_data_supp <- corr_data |> 
+  rename(
+    "Relative height" = rel_height,
+    "Relative lignin" = rel_lignin,
+    "Relative circularity" = rel_circ
+    ) |> 
+  mutate(
+    key = case_when(
+      str_detect(instance, "Blaschek") ~ "Blaschek2023",
+      TRUE ~ "Menard2022")
+    ) |> 
+  left_join(bib) |> 
+  ungroup() |> 
+  select(
+    genotype, 
+    `Relative height`,
+    `Relative circularity`,
+    `Relative lignin`,
+    doi
+    )
+
+methods_supp <- read_tsv(paste0(datapath, "/method_table.tsv")) |> 
+  select(-figure) |> 
+  mutate(type = ordered(
+    type,
+    levels = c(
+      "Electron microscopy",
+      "Microspectroscopy",
+      "Fluorescence",
+      "Transmitted light"
+    )
+  )) |> 
+  mutate(
+    chemical = case_when(
+      chemical == 1 ~ "Presence",
+      chemical == 2 ~ "Elements",
+      chemical == 2.5 ~ "Elements/bonds",
+      chemical == 3 ~ "Units",
+      chemical == 4 ~ "Monomers",
+      chemical == 5 ~ "Structures"
+    ),
+    key = str_remove_all(ref, "@"),
+    method = str_replace_all(method, "~", " "),
+    method = str_remove_all(method, "[^ -[:alnum:]]")
+  ) |> 
+  separate_longer_delim(key, ";") |> 
+  left_join(bib) |> 
+  select(-ref, -key) |> 
+  group_by(across(c(-doi))) |> 
+  summarise(doi = paste(doi, collapse = ";")) |>
+  arrange(type, method) |> 
+  rename(
+    "Method type" = type,
+    "Method" = method,
+    "Exogeneous label?" = label,
+    "Chemical mechanism" = mechanism,
+    "Diagnostic for" = diag,
+    "Quantitative?" = quant,
+    "Chemical resolutions" = chemical,
+    "Spatial resolution [nm]" = spatial,
+    "Notes" = notes,
+    "References [DOI]" = doi
+  )
+
+# export table S1
+writexl::write_xlsx(
+  list(
+    # "Table 1" = locations_supp,
+    "Supplementary table 1" = methods_supp,
+    "Source data fig. 1A" = pop_data_supp,
+    "Source data fig. 1B" = at_data_supp,
+    "Source data fig. 1C,D" = corr_data_supp
+  ),
+  "data/Blaschek2024_TableS1.xlsx"
+)
+```
+
+## References {.unnumbered}
+
+:::{#refs}
+
+:::

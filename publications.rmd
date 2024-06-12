@@ -100,6 +100,18 @@ h_index = function(cites) {
 #### Load data ####
 orcid <- "0000-0003-3943-1476"
 
+# Add uncounted reviews
+
+uncounted_reviews <-
+  c(
+    "Plant Cell 2023 [co-review; rejected]",
+    "Frontiers 2022 [10.3389/fpls.2022.1125003]",
+    "Frontiers 2024 [rejected]",
+    "Frontiers 2024 [10.3389/fpls.2024.1375506]",
+    "Plant Cell Reports 2024 [flagged for image manipulation]"
+  ) |> 
+  length()
+
 # Other authors for database testing:
 # orcid <- "0000-0002-6959-3284" #Edouard
 # orcid <- "0000-0002-6377-5132" #Staffan
@@ -138,10 +150,10 @@ works <- tibble(
       TRUE ~ item)) |>
   arrange(date) |>
   drop_na(doi) |>
-  group_by(title, journal) |> 
+  group_by(title, type) |> 
   mutate(cited_by = sum(cited_by, na.rm = TRUE)) |> 
   ungroup() |> 
-  distinct(title, journal, .keep_all = TRUE)
+  distinct(title, type, .keep_all = TRUE)
 
 work_table <- works |>
   arrange(desc(date)) |>
@@ -190,14 +202,14 @@ peer_reviews <- tibble(
   review = full_peer_reviews[grepl("peer-review-summary.external-ids.external-id.external-id-value", names(full_peer_reviews))],
   year = full_peer_reviews[grepl("peer-review-summary.completion-date.year.value", names(full_peer_reviews))]
 ) |> 
-  summarise(count = n() + 3) # manually add FiPS reviews
+  summarise(count = n() + uncounted_reviews) # manually add FiPS reviews
 
 peer_reviews_fiveyear <- tibble(
   review = full_peer_reviews[grepl("peer-review-summary.external-ids.external-id.external-id-value", names(full_peer_reviews))],
   year = full_peer_reviews[grepl("peer-review-summary.completion-date.year.value", names(full_peer_reviews))]
 ) |> 
   filter(year > year(now()) - 5) |> 
-  summarise(count = n() + 3) # manually add FiPS reviews
+  summarise(count = n() + uncounted_reviews) # manually add FiPS reviews
 
 metrics <- tibble(
   metric = ordered(
