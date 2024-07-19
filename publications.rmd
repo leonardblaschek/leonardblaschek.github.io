@@ -350,6 +350,7 @@ work_plot <- ggplot(
     colour = "white"
   ) +
   scale_colour_manual(values = pal_ostwald_disc[c(1, 2)]) +
+  scale_y_continuous(breaks = c(0, 5, 10, 15)) +
   coord_cartesian(clip = "off") +
   theme_leo() +
   theme(
