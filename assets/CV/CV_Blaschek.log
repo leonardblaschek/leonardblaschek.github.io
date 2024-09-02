@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2024.6.12)  9 AUG 2024 15:33
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2024.6.12)  2 SEP 2024 23:18
  restricted system commands enabled.
 **CV_Blaschek.tex
 (./CV_Blaschek.tex
@@ -867,7 +867,7 @@ Here is how much of LuaTeX's memory you used:
  57 fonts using 10936071 bytes
  108i,11n,120p,1007b,386s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/fonts/linux-libertine-biolinum-fonts/LinBiolinum_RB.otf></usr/share/fonts/linux-libertine-biolinum-fonts/LinBiolinum_RI.otf></usr/share/fonts/linux-libertine-biolinum-fonts/LinBiolinum_R.otf></home/leonard/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on CV_Blaschek.pdf (4 pages, 50260 bytes).
+Output written on CV_Blaschek.pdf (4 pages, 50355 bytes).
 
 PDF statistics: 75 PDF objects out of 1000 (max. 8388607)
  58 compressed objects within 1 object stream
