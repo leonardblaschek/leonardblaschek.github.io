@@ -135,7 +135,9 @@ works <- tibble(
   doi = full_works[["results"]][["doi"]],
   journal = full_works[["results"]][["primary_location"]][["source"]][["display_name"]],
   version = full_works[["results"]][["best_oa_location"]][["version"]],
-  type = case_when(version == "submittedVersion" ~ "Preprint", TRUE ~ "Journal"),
+  alex_type = full_works[["results"]][["type"]],
+  type = case_when(alex_type == "preprint" ~ "Preprint", authors_short == "L Blaschek" ~ "Editorial", TRUE ~ "Article"),
+  # type = case_when(version == "submittedVersion" ~ "preprint", TRUE ~ "article"), # fall-back if built-in type fails
   pub_year = full_works[["results"]][["publication_year"]],
   date = ymd(full_works[["results"]][["publication_date"]]),
   cited_by = full_works[["results"]][["cited_by_count"]],
@@ -154,6 +156,7 @@ works <- tibble(
     )) |>
   arrange(date) |>
   drop_na(doi) |>
+  distinct(doi, .keep_all = TRUE) |> 
   group_by(title, type) |> 
   mutate(cited_by = sum(cited_by, na.rm = TRUE)) |> 
   ungroup() |> 
@@ -228,13 +231,13 @@ metrics <- tibble(
     sum(cite_timeline$cited_by_count),
     h,
     i10,
-    max(work_timeline$works_cum[work_timeline$type == "Journal"]),
+    max(work_timeline$works_cum[work_timeline$type == "Article"]),
     max(work_timeline$works_cum[work_timeline$type == "Preprint"]),
     peer_reviews$count,
     sum(cite_timeline$cited_by_count[cite_timeline$year > year(now()) - 5]),
     h_index(cites_fiveyear$cited_by_count),
     length(cites_fiveyear$cited_by_count[cites_fiveyear$cited_by_count >= 10]),
-    sum(work_timeline$works[cite_timeline$year > year(now()) - 5 & work_timeline$type == "Journal"]),
+    sum(work_timeline$works[cite_timeline$year > year(now()) - 5 & work_timeline$type == "Article"]),
     sum(work_timeline$works[cite_timeline$year > year(now()) - 5 & work_timeline$type == "Preprint"]),
     peer_reviews_fiveyear$count
   )) 
@@ -246,7 +249,7 @@ metrics <- tibble(
 #### List papers ####
 
 kable(
-  work_table |> filter(type == "Journal") |> select(-type),
+  work_table |> filter(type == "Article") |> select(-type),
   "html",
   escape = FALSE
 ) |>
@@ -263,6 +266,22 @@ kable(
 
 kable(
   work_table |> filter(type == "Preprint") |> select(-type),
+  "html",
+  escape = FALSE
+) |>
+  kable_styling(
+    html_font = "IBM Plex Sans",
+    full_width = FALSE
+  )
+```
+
+### Editorials
+
+```{r, echo=FALSE}
+#### List papers ####
+
+kable(
+  work_table |> filter(type == "Editorial") |> select(-type),
   "html",
   escape = FALSE
 ) |>
@@ -328,7 +347,7 @@ cite_plot <- ggplot(
   theme_leo()
 
 work_plot <- ggplot(
-  work_timeline,
+  work_timeline |> filter(type %in% c("Article", "Preprint")),
   aes(
     x = pub_year,
     y = works_cum,
