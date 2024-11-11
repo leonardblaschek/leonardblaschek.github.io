@@ -112,6 +112,17 @@ uncounted_reviews <-
   ) |> 
   length()
 
+co_first <- c(
+  "https://doi.org/10.1016/j.molp.2022.12.015", #2022 MolPlant review
+  "https://doi.org/10.1021/acssuschemeng.0c00194", #2020 ACS Raman 
+  "https://doi.org/10.1093/plcell/koac284", #2022 PlantCell biomechanics
+  "https://doi.org/10.1101/2021.06.12.447240" #2021 biorxiv biomechanics
+  )
+
+corresponding <- c(
+  "https://doi.org/10.1021/acs.jafc.4c01999" #2024 JACF perspective
+)
+
 # Other authors for database testing:
 # orcid <- "0000-0002-6959-3284" #Edouard
 # orcid <- "0000-0002-6377-5132" #Staffan
@@ -146,7 +157,12 @@ works <- tibble(
   item = paste0(author_list, ". ", pub_year, ". ", title, ". ", "<i>", journal, ".</i> ", "[", str_remove(doi, fixed("https://doi.org/")), "](", doi, ")")
 ) |>
   mutate(
-    item = str_replace(item, short_name, paste0("<b>", short_name, "</b>")),
+    item = case_when(
+      doi %in% co_first ~ str_replace(item, short_name, paste0("<b>", short_name, "<sup>&#8224;</sup></b>")),
+      doi %in% corresponding ~ str_replace(item, short_name, paste0("<b>", short_name, "*</b>")),
+      type == "Editorial" ~ str_replace(item, short_name, paste0("<b>", short_name, "*</b>")),
+      .default = str_replace(item, short_name, paste0("<b>", short_name, "</b>"))
+      ),
     item = case_when(
       is.na(is_oa) ~ paste0(item, " — [PDF](./assets/pdf/", str_replace_all(str_remove(doi, fixed("https://doi.org/")), "[\\./]", "_") , ".pdf)"),
       TRUE ~ item),
@@ -290,6 +306,10 @@ kable(
     full_width = FALSE
   )
 ```
+
+<b>&#8224;</b> Co-first author
+
+<b>*</b> Corresponding author
 
 ### Metrics
 
