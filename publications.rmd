@@ -148,7 +148,7 @@ works <- tibble(
   mutate(
     item = str_replace(item, short_name, paste0("<b>", short_name, "</b>")),
     item = case_when(
-      is.na(is_oa) ~ paste0(item, " — [PDF](./assets/pdf/", str_replace_all(str_remove(doi, fixed("https://doi.org/")), "[\\./]", "_") , ".pdf)"),
+      is.na(is_oa) & type != "Editorial" ~ paste0(item, " — [PDF](./assets/pdf/", str_replace_all(str_remove(doi, fixed("https://doi.org/")), "[\\./]", "_") , ".pdf)"),
       TRUE ~ item),
     item = case_when(
       doi == "https://doi.org/10.1021/acs.jafc.4c01999" ~ paste0(item, " | [Reproducible manuscript](./assets/2024_JAFC/index.html)"),
