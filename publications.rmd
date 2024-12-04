@@ -100,15 +100,15 @@ h_index = function(cites) {
 #### Load data ####
 orcid <- "0000-0003-3943-1476"
 
-# Add uncounted reviews
-
+# Manual changes
 uncounted_reviews <-
   c(
-    "Plant Cell 2023 [co-review; rejected]",
     "Frontiers 2022 [10.3389/fpls.2022.1125003]",
+    "Plant Cell 2023 [co-review; rejected]",
     "Frontiers 2024 [rejected]",
     "Frontiers 2024 [10.3389/fpls.2024.1375506]",
-    "Plant Cell Reports 2024 [flagged for image manipulation]"
+    "Plant Cell Reports 2024 [flagged for image manipulation; rejected]",
+    "Scientific Reports 2024 [rejected]"
   ) |> 
   length()
 
@@ -123,11 +123,7 @@ corresponding <- c(
   "https://doi.org/10.1021/acs.jafc.4c01999" #2024 JACF perspective
 )
 
-# Other authors for database testing:
-# orcid <- "0000-0002-6959-3284" #Edouard
-# orcid <- "0000-0002-6377-5132" #Staffan
-# full_profile <- fromJSON("https://api.openalex.org/authors/A5046939400") #Lise
-
+# Load OpenAlex data
 full_profile <- fromJSON(paste0("https://api.openalex.org/authors/orcid:", orcid))
 
 full_works <- fromJSON(full_profile[["works_api_url"]])
