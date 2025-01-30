@@ -201,7 +201,7 @@ cite_timeline <- tibble(
 cites_fiveyear <- works |> 
   select(doi, pub_year, cites_by_year) |> 
   unnest(cites_by_year) |> 
-  filter(year > year(now()) - 5) |> 
+  filter(year >= year(now()) - 5) |> 
   group_by(doi) |> 
   summarise(cited_by_count = sum(cited_by_count))
 
@@ -228,7 +228,7 @@ peer_reviews_fiveyear <- tibble(
   review = full_peer_reviews[grepl("peer-review-summary.external-ids.external-id.external-id-value", names(full_peer_reviews))],
   year = full_peer_reviews[grepl("peer-review-summary.completion-date.year.value", names(full_peer_reviews))]
 ) |> 
-  filter(year > year(now()) - 5) |> 
+  filter(year >= year(now()) - 5) |> 
   summarise(count = n() + uncounted_reviews) # manually add FiPS reviews
 
 metrics <- tibble(
@@ -247,11 +247,11 @@ metrics <- tibble(
     max(work_timeline$works_cum[work_timeline$type == "Article"]),
     max(work_timeline$works_cum[work_timeline$type == "Preprint"]),
     peer_reviews$count,
-    sum(cite_timeline$cited_by_count[cite_timeline$year > year(now()) - 5]),
+    sum(cite_timeline$cited_by_count[cite_timeline$year >= year(now()) - 5]),
     h_index(cites_fiveyear$cited_by_count),
     length(cites_fiveyear$cited_by_count[cites_fiveyear$cited_by_count >= 10]),
-    sum(work_timeline$works[cite_timeline$year > year(now()) - 5 & work_timeline$type == "Article"]),
-    sum(work_timeline$works[cite_timeline$year > year(now()) - 5 & work_timeline$type == "Preprint"]),
+    sum(work_timeline$works[cite_timeline$year >= year(now()) - 5 & work_timeline$type == "Article"]),
+    sum(work_timeline$works[cite_timeline$year >= year(now()) - 5 & work_timeline$type == "Preprint"]),
     peer_reviews_fiveyear$count
   )) 
 ```

@@ -1,9 +1,9 @@
-This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2024.6.12)  24 SEP 2024 09:47
+This is LuaHBTeX, Version 1.18.0 (TeX Live 2024)  (format=lualatex 2024.10.2)  16 JAN 2025 11:55
  restricted system commands enabled.
 **CV_Blaschek.tex
 (./CV_Blaschek.tex
-LaTeX2e <2024-06-01>
-L3 programming layer <2024-05-27>
+LaTeX2e <2024-06-01> patch level 2
+L3 programming layer <2024-09-10>
 Lua module: luaotfload 2024-02-14 3.28 Lua based OpenType font support
 Lua module: lualibs 2023-07-13 2.76 ConTeXt Lua standard libraries.
 Lua module: lualibs-extended 2023-07-13 2.76 ConTeXt Lua libraries -- extended collection.
@@ -73,14 +73,14 @@ Package: iftex 2022/02/03 v1.0f TeX engine tests
 \Gm@layoutvoffset=\dimen148
 \Gm@dimlist=\toks18
 ) (/home/leonard/.TinyTeX/texmf-dist/tex/latex/fontspec/fontspec.sty (/home/leonard/.TinyTeX/texmf-dist/tex/latex/l3packages/xparse/xparse.sty (/home/leonard/.TinyTeX/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2024-05-27 L3 programming layer (loader) 
+Package: expl3 2024-09-10 L3 programming layer (loader) 
 (/home/leonard/.TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-luatex.def
 File: l3backend-luatex.def 2024-05-08 L3 backend support: PDF output (LuaTeX)
 \l__color_backend_stack_int=\count269
 Inserting `l3color' in `luaotfload.parse_color'.
 \l__pdf_internal_box=\box52
 ))
-Package: xparse 2024-05-08 L3 Experimental document command parser
+Package: xparse 2024-08-16 L3 Experimental document command parser
 )
 Package: fontspec 2024/05/11 v2.9e Font selection for XeLaTeX and LuaLaTeX
 Lua module: fontspec 2024/05/11 2.9e Font selection for XeLaTeX and LuaLaTeX (/home/leonard/.TinyTeX/texmf-dist/tex/latex/fontspec/fontspec-luatex.sty
@@ -530,7 +530,7 @@ Package: enumitem 2019/06/20 v3.9 Customized lists
 \enit@count@id=\count295
 \enitdp@description=\count296
 ) (/home/leonard/.TinyTeX/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
-Package: fancyhdr 2024/04/23 v4.2 Extensive control of page headers and footers
+Package: fancyhdr 2024/07/23 v4.3.1 Extensive control of page headers and footers
 \f@nch@headwidth=\skip55
 \f@nch@O@elh=\skip56
 \f@nch@O@erh=\skip57
@@ -541,15 +541,15 @@ Package: fancyhdr 2024/04/23 v4.2 Extensive control of page headers and footers
 \f@nch@O@olf=\skip62
 \f@nch@O@orf=\skip63
 ) (/home/leonard/.TinyTeX/texmf-dist/tex/latex/lastpage/lastpage.sty
-Package: lastpage 2024/04/27 v2.1a lastpage: 2.09 or 2e? (HMM)
+Package: lastpage 2024/07/07 v2.1c lastpage: 2.09 or 2e? (HMM)
 (/home/leonard/.TinyTeX/texmf-dist/tex/latex/lastpage/lastpage2e.sty
-Package: lastpage2e 2024/04/27 v2.1a Decide which 2e lastpage version to use (HMM)
+Package: lastpage2e 2024/07/07 v2.1c Decide which 2e lastpage version to use (HMM)
 (/home/leonard/.TinyTeX/texmf-dist/tex/latex/lastpage/lastpagemodern.sty
-Package: lastpagemodern 2024-04-27 v2.1a Refers to last page's name (HMM; JPG)
+Package: lastpagemodern 2024-07-07 v2.1c Refers to last page's name (HMM; JPG)
 \c@lastpagecount=\count297
 ) 
 )) (/home/leonard/.TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty
-Package: hyperref 2024-05-23 v7.01i Hypertext links for LaTeX
+Package: hyperref 2024-07-10 v7.01j Hypertext links for LaTeX
 (/home/leonard/.TinyTeX/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
 Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
 ) (/home/leonard/.TinyTeX/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
@@ -586,13 +586,13 @@ Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
 \Hy@linkcounter=\count299
 \Hy@pagecounter=\count300
 (/home/leonard/.TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def
-File: pd1enc.def 2024-05-23 v7.01i Hyperref: PDFDocEncoding definition (HO)
+File: pd1enc.def 2024-07-10 v7.01j Hyperref: PDFDocEncoding definition (HO)
 ) (/home/leonard/.TinyTeX/texmf-dist/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
 \Hy@SavedSpaceFactor=\count301
 (/home/leonard/.TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def
-File: puenc.def 2024-05-23 v7.01i Hyperref: PDF Unicode definition (HO)
+File: puenc.def 2024-07-10 v7.01j Hyperref: PDF Unicode definition (HO)
 )
 Package hyperref Info: Hyper figures OFF on input line 4157.
 Package hyperref Info: Link nesting OFF on input line 4162.
@@ -633,7 +633,7 @@ package with kernel methods
 )
 Package hyperref Info: Driver (autodetected): hluatex.
 (/home/leonard/.TinyTeX/texmf-dist/tex/latex/hyperref/hluatex.def
-File: hluatex.def 2024-05-23 v7.01i Hyperref driver for luaTeX
+File: hluatex.def 2024-07-10 v7.01j Hyperref driver for luaTeX
 (/home/leonard/.TinyTeX/texmf-dist/tex/latex/base/atveryend-ltx.sty
 Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
 with kernel methods
@@ -820,57 +820,60 @@ LaTeX Font Info:    Font shape `TU/LinBiolinum(0)/m/it' will be
 {/home/leonard/.TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 LaTeX Font Info:    Font shape `TU/LinBiolinum(0)/m/n' will be
 (Font)              scaled to size 12.0pt on input line 113.
-LaTeX Font Info:    Font shape `TU/LinBiolinum(0)/b/n' will be
-(Font)              scaled to size 10.95pt on input line 118.
 (/home/leonard/.TinyTeX/texmf-dist/tex/latex/microtype/mt-LatinModernRoman.cfg
 File: mt-LatinModernRoman.cfg 2021/02/21 v1.1 microtype config. file: Latin Modern Roman (RS)
 )
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 127.
+(Font)              <10.95> on input line 118.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 127.
+(Font)              <8> on input line 118.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 127.
+(Font)              <6> on input line 118.
 (/home/leonard/.TinyTeX/texmf-dist/tex/latex/microtype/mt-cmr.cfg
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman (RS)
 )
 LaTeX Font Info:    Font shape `TU/LinBiolinum(0)/m/n' will be
-(Font)              scaled to size 8.0pt on input line 128.
+(Font)              scaled to size 8.0pt on input line 118.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 128.
-LaTeX Font Info:    Font shape `TU/LinBiolinum(0)/m/it' will be
-(Font)              scaled to size 8.0pt on input line 167.
+(Font)              <5> on input line 118.
+LaTeX Font Info:    Font shape `TU/LinBiolinum(0)/b/n' will be
+(Font)              scaled to size 10.95pt on input line 118.
 
 
 [2]
+LaTeX Font Info:    Font shape `TU/LinBiolinum(0)/m/it' will be
+(Font)              scaled to size 8.0pt on input line 178.
+
 
 [3]
 
-[4] 
+[4]
+
+[5] 
 enddocument/afterlastpage: lastpage setting LastPage.
 (./CV_Blaschek.aux)
  ***********
-LaTeX2e <2024-06-01>
-L3 programming layer <2024-05-27>
+LaTeX2e <2024-06-01> patch level 2
+L3 programming layer <2024-09-10>
  ***********
 Package rerunfilecheck Info: File `CV_Blaschek.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 )
 
 Here is how much of LuaTeX's memory you used:
- 20116 strings out of 475931
- 125240,1977958 words of node,token memory allocated
+ 20118 strings out of 475910
+ 125240,1144653 words of node,token memory allocated
  524 words of node memory still in use:
    5 hlist, 1 vlist, 1 rule, 1 local_par, 4 glue, 3 kern, 1 penalty, 3 glyph, 7 attribute, 57 glue_spec, 7 attribute_list, 1 write, 1 pdf_action nodes
-   avail lists: 1:1,2:740,3:310,4:204,5:1131,6:104,7:6145,8:2,9:382,10:16,11:486
- 42459 multiletter control sequences out of 65536+600000
+   avail lists: 1:1,2:716,3:310,4:202,5:1132,6:104,7:6162,8:2,9:382,10:20,11:486
+ 42481 multiletter control sequences out of 65536+600000
  57 fonts using 10936071 bytes
- 108i,11n,120p,1007b,386s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 108i,11n,120p,1007b,468s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/fonts/linux-libertine-biolinum-fonts/LinBiolinum_RB.otf></usr/share/fonts/linux-libertine-biolinum-fonts/LinBiolinum_RI.otf></usr/share/fonts/linux-libertine-biolinum-fonts/LinBiolinum_R.otf></home/leonard/.TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on CV_Blaschek.pdf (4 pages, 50395 bytes).
+Output written on CV_Blaschek.pdf (5 pages, 52874 bytes).
 
-PDF statistics: 75 PDF objects out of 1000 (max. 8388607)
- 58 compressed objects within 1 object stream
- 5 named destinations out of 1000 (max. 131072)
+PDF statistics: 84 PDF objects out of 1000 (max. 8388607)
+ 66 compressed objects within 1 object stream
+ 6 named destinations out of 1000 (max. 131072)
  1 words of extra memory for PDF output out of 10000 (max. 100000000)
 
