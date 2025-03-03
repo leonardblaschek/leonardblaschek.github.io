@@ -358,7 +358,7 @@ cite_plot <- ggplot(
     family = "Futura",
     size = ggtext_size,
     hjust = 0,
-    vjust = 0,
+    vjust = -1,
     colour = "white"
   ) +
   coord_cartesian(clip = "off") +
@@ -387,7 +387,7 @@ work_plot <- ggplot(
     family = "Futura",
     size = ggtext_size,
     hjust = 0,
-    vjust = 0,
+    vjust = -1,
     colour = "white"
   ) +
   scale_colour_manual(values = pal_ostwald_disc[c(1, 2)]) +
