@@ -361,6 +361,7 @@ cite_plot <- ggplot(
     vjust = -1,
     colour = "white"
   ) +
+  scale_x_continuous(breaks = scales::breaks_pretty(4)) +
   coord_cartesian(clip = "off") +
   theme_leo()
 
@@ -392,6 +393,7 @@ work_plot <- ggplot(
   ) +
   scale_colour_manual(values = pal_ostwald_disc[c(1, 2)]) +
   scale_y_continuous(breaks = c(0, 5, 10, 15)) +
+  scale_x_continuous(breaks = scales::breaks_pretty(4)) +
   coord_cartesian(clip = "off") +
   theme_leo() +
   theme(
