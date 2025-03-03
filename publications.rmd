@@ -113,6 +113,7 @@ uncounted_reviews <-
   length()
 
 co_first <- c(
+  "https://doi.org/10.1016/j.devcel.2025.01.021", #2025 ZFP2
   "https://doi.org/10.1016/j.molp.2022.12.015", #2022 MolPlant review
   "https://doi.org/10.1021/acssuschemeng.0c00194", #2020 ACS Raman 
   "https://doi.org/10.1093/plcell/koac284", #2022 PlantCell biomechanics
