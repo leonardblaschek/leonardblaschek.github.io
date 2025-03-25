@@ -1,4 +1,4 @@
-PWD /home/leonard/Documents/Website/assets/CV
+PWD /home/leonard/Documents/github/assets/CV
 INPUT /home/leonard/.TinyTeX/texmf-var/web2c/luahbtex/lualatex.fmt
 INPUT ./CV_Blaschek.tex
 OUTPUT CV_Blaschek.log
@@ -134,6 +134,7 @@ INPUT /home/leonard/.TinyTeX/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.
 INPUT /home/leonard/.TinyTeX/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
 INPUT ./CV_Blaschek.aux
 OUTPUT CV_Blaschek.aux
+INPUT /home/leonard/.TinyTeX/texmf-dist/tex/latex/base/ts1cmr.fd
 INPUT ./CV_Blaschek.out
 INPUT ./CV_Blaschek.out
 INPUT ./CV_Blaschek.out
